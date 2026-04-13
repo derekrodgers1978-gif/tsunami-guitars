@@ -1292,7 +1292,24 @@ function slideGuitar(id, dir) {
   guitarSlides[id] = (guitarSlides[id] + dir + total) % total;
   el.style.transform = 'translateX(-' + (guitarSlides[id] * 100) + '%)';
   document.getElementById(id + '-count').textContent = (guitarSlides[id] + 1) + ' / ' + total;
-}
+}document.addEventListener('DOMContentLoaded', function(){
+  ['g1','g2','g3'].forEach(function(id){
+    var el = document.getElementById(id+'-slides');
+    if(el) el.addEventListener('click', function(){ 
+      var imgs = {
+        g1:['images/img_22.jpg','images/img_31.jpg','images/img_23.jpg','images/img_25.jpg','images/img_30.jpg','images/img_29.jpg','images/img_32.jpg'],
+        g2:['images/img_33.jpg','images/img_34.jpg','images/img_35.jpg','images/img_36.jpg','images/img_37.jpg','images/img_38.jpg','images/img_39.jpg','images/img_40.jpg'],
+        g3:['images/img_41.jpg','images/img_42.jpg','images/img_43.jpg','images/img_44.jpg','images/img_45.jpg','images/img_46.jpg','images/img_47.jpg','images/img_48.jpg','images/img_49.jpg']
+      };
+      var idx = (guitarSlides[id]) || 0;
+      document.getElementById('tg-lb-img').src = imgs[id][idx];
+      document.getElementById('tg-lb-caption').textContent = (idx+1) + ' / ' + imgs[id].length;
+      document.getElementById('tg-lightbox').classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+});
+
 </script>
 <!-- BRANDS -->
 <section class="brands" id="brands">
