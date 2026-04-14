@@ -1104,7 +1104,44 @@ document.addEventListener('keydown', function(e) {
             <img src="images/img_52.jpg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
             <img src="images/img_53.jpg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
             <img src="images/img_54.jpg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
-      </div>
+      </div><!-- GUITAR 3: Navigator CTM 320 LP Custom -->
+<div style="border:1px solid rgba(201,162,74,0.15);background:#0e0b08;overflow:hidden;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;max-width:100%;">
+  <div style="position:relative;overflow:hidden;background:#0e0b08;width:100%;">
+    <div id="g3-slides" style="display:flex;transition:transform 0.4s ease;width:100%;">
+      <img src="images/IMG_8979.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/IMG_8980.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174631.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174937.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_175008.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174830.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174849.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174558.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174525.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+      <img src="images/Photoroom_20260413_174913.jpeg" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+    </div>
+    <button onclick="slideG3(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#C8A951;border:none;padding:8px 12px;cursor:pointer;font-size:18px;border-radius:3px;">&#8249;</button>
+    <button onclick="slideG3(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#C8A951;border:none;padding:8px 12px;cursor:pointer;font-size:18px;border-radius:3px;">&#8250;</button>
+  </div>
+  <div style="padding:1.5rem;">
+    <h3 style="font-family:'Playfair Display',serif;color:#C8A951;margin:0 0 0.25rem;">Navigator CTM 320</h3>
+    <p style="color:#a89880;font-size:0.8rem;margin:0 0 0.4rem;letter-spacing:0.05em;text-transform:uppercase;">Custom · Les Paul · 2004 · Made in Japan</p>
+    <p style="color:#a89880;font-size:0.85rem;margin:0 0 1rem;line-height:1.6;">Jet black with gold binding · Abalone block inlays · Gold Gotoh tuners · Serial K0403501 · 8.8 lbs · Professionally set up by R Guitars · Normal wear for age</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="color:#fff;font-size:1.3rem;font-weight:600;">C$4,499</span>
+      <button class="add-to-cart" data-name="Navigator CTM 320 Custom – Black" data-price="4499" style="background:#C8A951;color:#0e0b08;border:none;padding:0.6rem 1.2rem;cursor:pointer;font-weight:600;letter-spacing:0.05em;">ADD TO CART</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let g3Index = 0;
+function slideG3(dir) {
+  const slides = document.getElementById('g3-slides');
+  const total = slides.children.length;
+  g3Index = (g3Index + dir + total) % total;
+  slides.style.transform = 'translateX(-' + (g3Index * 100) + '%)';
+}
+</script>
         
           <!-- Nav arrows -->
           <button onclick="slideGuitar('g2',1)" style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:rgba(14,11,8,0.7);border:1px solid rgba(201,162,74,0.3);color:#c9a24a;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">›</button>
