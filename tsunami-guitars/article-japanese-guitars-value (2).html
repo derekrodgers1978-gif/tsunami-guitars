@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are Japanese Guitars Going Up in Value? · The Tsunami Journal</title>
+  <meta name="description" content="Japanese guitars from the late 70s through early 90s are seeing steady appreciation. Here's why collectors are paying attention — and what's rising fastest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0e0b08;
+      --gold: #C8A951;
+      --gold-dim: rgba(200,169,81,0.15);
+      --gold-border: rgba(200,169,81,0.25);
+      --cream: #f0ebe3;
+      --muted: #a89880;
+      --body-text: #d4cfc8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--body-text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14,11,8,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gold-border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-back {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      padding: 9rem 2rem 5rem;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-deck {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2.5rem auto;
+      opacity: 0.5;
+    }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .article-body p {
+      margin-bottom: 1.6rem;
+      color: var(--body-text);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin: 3rem 0 1.2rem;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold);
+      margin: 2.5rem 0 1rem;
+    }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.8rem;
+      margin: 3rem 0;
+      background: var(--gold-dim);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* STAT CALLOUT */
+    .stat-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+      margin: 3rem 0;
+    }
+
+    .stat-item {
+      background: var(--ink);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* LIST STYLES */
+    .styled-list {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      padding: 0;
+    }
+
+    .styled-list li {
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--gold-border);
+      position: relative;
+      color: var(--body-text);
+      font-size: 0.98rem;
+    }
+
+    .styled-list li:first-child {
+      border-top: 1px solid var(--gold-border);
+    }
+
+    .styled-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .styled-list li strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 2rem 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .highlight-box h3 {
+      margin-top: 0;
+      font-style: normal;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+
+    /* BOTTOM CTA */
+    .article-cta {
+      border-top: 1px solid var(--gold-border);
+      padding-top: 3rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .article-cta p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-gold:hover { opacity: 0.85; }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--gold-border);
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .stat-block { grid-template-columns: 1fr; }
+      .btn-outline { margin-left: 0; margin-top: 0.75rem; display: block; }
+      nav { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Tsunami Guitars</a>
+    <a href="../index.html#journal" class="nav-back">← The Tsunami Journal</a>
+  </nav>
+
+  <header class="hero">
+    <span class="hero-label">The Tsunami Journal &nbsp;·&nbsp; Market Insight</span>
+    <h1>Are Japanese Guitars<br><em>Going Up in Value?</em></h1>
+    <p class="hero-deck">The short answer is yes — and faster than most collectors expected. Here's what's driving appreciation, and which guitars are rising the most.</p>
+    <div class="hero-meta">Tsunami Guitars &nbsp;·&nbsp; 2025</div>
+    <div class="hero-divider"></div>
+  </header>
+
+  <article class="article-body">
+
+    <p>For decades, Japanese guitars occupied an awkward middle ground in the collector market — too good to ignore, not quite prestigious enough to command serious money. That era is ending. The late-70s through early-90s output from makers like Greco, Tokai, and Burny is now firmly on the radar of serious players and investors alike.</p>
+
+    <p>The shift has been gradual, then sudden. Instruments that traded quietly among enthusiasts for years are now moving at prices that would have seemed absurd five years ago — and the fundamentals suggest the trend has further to run.</p>
+
+    <div class="pull-quote">
+      <p>"A guitar that sold for $800–$1,200 five years ago can now hit $1,500–$3,000+ depending on condition and model."</p>
+    </div>
+
+    <h2>Why Values Are Rising</h2>
+
+    <p>This isn't speculation or hype — it's the convergence of several real forces acting on a fixed supply of instruments.</p>
+
+    <ul class="styled-list">
+      <li><strong>Build quality that rivals vintage American guitars.</strong> The best Japanese guitars of this era were built to exacting standards, often in the same factories that supplied the major American brands. Players who pick one up are rarely disappointed.</li>
+      <li><strong>Supply is genuinely limited.</strong> These guitars are no longer produced in the same way. The plants, the workers, the materials — that specific combination is gone. What exists is what exists.</li>
+      <li><strong>The "lawsuit era" is now mainstream knowledge.</strong> What was once insider information — that Japanese factories made exceptional guitars in the 70s and 80s — is now widely understood. The collector base has expanded significantly.</li>
+      <li><strong>Buyers priced out of Gibson and Fender are shifting here.</strong> As vintage American guitars climb into five and six figures, quality-conscious buyers are looking for the next tier. Japanese guitars are the obvious answer.</li>
+    </ul>
+
+    <div class="stat-block">
+      <div class="stat-item">
+        <span class="stat-number">2–3×</span>
+        <span class="stat-label">Typical value increase<br>over 5 years</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">$3,000+</span>
+        <span class="stat-label">Top-tier examples<br>now trading at</span>
+      </div>
+    </div>
+
+    <h2>What's Increasing the Most</h2>
+
+    <p>Not all Japanese guitars are rising equally. The market is rewarding specific things.</p>
+
+    <h3>Late 70s and early 80s models</h3>
+    <p>This is the golden era. The craftsmanship from roughly 1977–1984 represents the peak of Japanese guitar manufacturing. These instruments were built with real care, real materials, and real skill — and the market increasingly understands that.</p>
+
+    <h3>"Super Real" and "Mint Collection" era guitars</h3>
+    <p>Tokai's Super Real series and Greco's Mint Collection represent the apex of lawsuit-era construction. These aren't budget guitars dressed up — they're genuine attempts to build the best possible instrument, and they largely succeeded. Collectors are paying attention.</p>
+
+    <h3>Clean, original-condition pieces</h3>
+    <p>Condition is everything. A near-mint example with original hardware and finish commands a serious premium over a player-grade equivalent. If you have something original and unmodified, you're holding something increasingly rare.</p>
+
+    <div class="highlight-box">
+      <h3>The Bottom Line</h3>
+      <p>Japanese guitars are no longer "cheap alternatives" — they're becoming serious collector assets. The window to acquire exceptional instruments at reasonable prices is narrowing. Those who recognised the value early are already seeing significant returns. Those entering now are still ahead of where prices are heading.</p>
+    </div>
+
+    <h2>What This Means for Buyers Today</h2>
+
+    <p>The market hasn't peaked. The gap between Japanese and American vintage guitars remains substantial — and closing. As more collectors enter this space and supply continues to tighten, today's prices will look reasonable in hindsight.</p>
+
+    <p>The instruments worth watching most closely: anything from the major Japanese factories in clean, original condition, particularly the flagship models from Greco, Tokai, Burny, and Navigator. These are the guitars that defined what Japanese manufacturing was capable of — and the market is finally pricing them accordingly.</p>
+
+    <div class="article-cta">
+      <p>Browse our current inventory of verified Japanese vintage guitars.</p>
+      <a href="../index.html#products" class="btn-gold">View Current Inventory</a>
+      <a href="../index.html#journal" class="nav-back btn-outline">More from the Journal</a>
+    </div>
+
+  </article>
+
+</body>
+</html>
