@@ -1,0 +1,7 @@
+[build]
+  base = "tsunami-guitars"
+  publish = "tsunami-guitars"
+  functions = "tsunami-guitars/netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
