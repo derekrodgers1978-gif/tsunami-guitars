@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Dynamic meta tags — filled by JS before page paints -->
+  <title id="page-title">Loading… | Tsunami Guitars</title>
+  <meta name="description" id="meta-desc" content="">
+  <meta property="og:title" id="og-title" content="">
+  <meta property="og:description" id="og-desc" content="">
+  <meta property="og:image" id="og-image" content="">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Tsunami Guitars">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" id="canonical" href="">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&family=Shippori+Mincho:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a24a;
+      --gold-light: #e8c878;
+      --bg: #0e0b08;
+      --bg-mid: #1a1209;
+      --cream: #f5e8c0;
+      --muted: #7a6a5a;
+    }
+    body { background: var(--bg); color: var(--cream); font-family: 'Cormorant Garamond', serif; line-height: 1.6; min-height: 100vh; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(14,11,8,0.97); border-bottom: 1px solid rgba(201,162,74,0.15); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-logo { font-family: 'Josefin Sans', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; flex-shrink: 0; }
+    .nav-logo span { display: block; font-size: 0.48rem; letter-spacing: 0.18em; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-family: 'Josefin Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); opacity: 0.7; text-decoration: none; transition: color 0.2s, opacity 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--gold); opacity: 1; }
+    .nav-back { color: var(--gold) !important; opacity: 1 !important; }
+    .nav-back::before { content: '← '; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 0.85rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid rgba(201,162,74,0.08); }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
+
+    /* LAYOUT */
+    .guitar-page { max-width: 1240px; margin: 0 auto; padding: 3rem 2rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+    /* GALLERY */
+    .gallery { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 10px; }
+    .main-wrap { position: relative; background: var(--bg-mid); border: 1px solid rgba(201,162,74,0.18); overflow: hidden; cursor: zoom-in; aspect-ratio: 4/3; }
+    .main-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.35s ease; }
+    .main-wrap:hover img { transform: scale(1.04); }
+    .badge { position: absolute; top: 12px; left: 12px; background: rgba(14,11,8,0.92); border: 1px solid rgba(201,162,74,0.45); color: var(--gold); font-family: 'Josefin Sans', sans-serif; font-size: 0.48rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; }
+    .img-count { position: absolute; bottom: 10px; right: 10px; background: rgba(14,11,8,0.8); color: var(--gold); font-family: 'Josefin Sans', sans-serif; font-size: 0.48rem; letter-spacing: 0.15em; padding: 3px 8px; }
+    .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(14,11,8,0.75); border: 1px solid rgba(201,162,74,0.25); color: var(--gold); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
+    .nav-arrow:hover { background: rgba(201,162,74,0.18); }
+    .nav-prev { left: 8px; }
+    .nav-next { right: 8px; }
+    .thumbs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .thumb { width: 58px; height: 58px; cursor: pointer; border: 1px solid rgba(201,162,74,0.18); overflow: hidden; opacity: 0.55; transition: border-color 0.2s, opacity 0.2s; flex-shrink: 0; }
+    .thumb:hover, .thumb.active { border-color: var(--gold); opacity: 1; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* INFO */
+    .info { display: flex; flex-direction: column; gap: 1.6rem; }
+    .eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.65; }
+    h1.guitar-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 800; color: #fff; line-height: 1.1; }
+    .guitar-sub { font-family: 'Josefin Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); opacity: 0.55; margin-top: 4px; }
+    .trust-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 1rem; border: 1px solid rgba(201,162,74,0.18); background: rgba(201,162,74,0.04); }
+    .stars { color: #e8c878; font-size: 0.85rem; letter-spacing: 0.08em; }
+    .trust-text { font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    .description { font-size: 0.98rem; line-height: 1.88; color: var(--cream); opacity: 0.78; }
+    .specs { border-top: 1px solid rgba(201,162,74,0.12); }
+    .spec-row { display: grid; grid-template-columns: 140px 1fr; gap: 8px; padding: 9px 0; border-bottom: 1px solid rgba(201,162,74,0.07); }
+    .spec-key { font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); opacity: 0.55; }
+    .spec-val { font-size: 0.92rem; color: var(--cream); opacity: 0.85; }
+    .price-wrap { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .price-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.5; margin-bottom: 4px; }
+    .price { font-family: 'Shippori Mincho', serif; font-size: 2.2rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .cta-wrap { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+    .buy-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #0e0b08; background: linear-gradient(135deg, #e8c878, #c9a24a); padding: 1rem 1.8rem; border: none; cursor: pointer; text-decoration: none; transition: box-shadow 0.2s; }
+    .buy-btn:hover { box-shadow: 0 6px 25px rgba(201,162,74,0.5); }
+    .reverb-link { font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); opacity: 0.6; text-decoration: underline; text-underline-offset: 3px; }
+    .policy-box { font-size: 0.82rem; color: var(--muted); line-height: 1.7; padding: 1rem 1.1rem; border: 1px solid rgba(201,162,74,0.1); background: rgba(201,162,74,0.02); }
+    .enquiry-box { padding: 1rem 1.1rem; border: 1px solid rgba(201,162,74,0.1); background: rgba(201,162,74,0.02); }
+    .enquiry-box p { font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .enquiry-box span { font-size: 0.88rem; color: var(--cream); opacity: 0.65; display: block; margin-bottom: 0.65rem; }
+    .enquiry-link { font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* FOOTER */
+    .footer-bar { max-width: 1240px; margin: 0 auto; padding: 2rem; border-top: 1px solid rgba(201,162,74,0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .back-btn { font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+
+    /* LIGHTBOX */
+    #lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; cursor: zoom-out; }
+    #lb img { max-width: 92vw; max-height: 92vh; object-fit: contain; border: 1px solid rgba(201,162,74,0.25); }
+    #lb .lb-prev, #lb .lb-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(14,11,8,0.7); border: 1px solid rgba(201,162,74,0.3); color: var(--gold); width: 44px; height: 44px; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    #lb .lb-prev { left: 16px; }
+    #lb .lb-next { right: 16px; }
+
+    /* LOADING / ERROR */
+    .state-screen { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 1rem; }
+    .state-screen p { font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .guitar-page { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem 1rem 4rem; }
+      .gallery { position: static; }
+      nav { padding: 0.8rem 1rem; }
+      .nav-links .hide-mobile { display: none; }
+      .breadcrumb { padding: 0.7rem 1rem; }
+      .footer-bar { padding: 1.5rem 1rem; }
+      .spec-row { grid-template-columns: 120px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Tsunami Guitars<span>Curators of Fine Japanese Guitars</span></a>
+    <div class="nav-links">
+      <a href="/#products" class="nav-back">All Guitars</a>
+      <a href="/#blog" class="hide-mobile">Blog</a>
+      <a href="/collection/" class="hide-mobile">Collection</a>
+      <a href="/#contact" class="hide-mobile">Contact</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>›</span>
+    <a href="/#products">Inventory</a><span>›</span>
+    <span id="bc-name">Guitar</span>
+  </div>
+
+  <!-- Content rendered by JS -->
+  <div id="content">
+    <div class="state-screen"><p>Loading…</p></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lb" onclick="lbClose()">
+    <img id="lb-img" src="" alt="">
+    <button class="lb-prev" onclick="event.stopPropagation();lbNav(-1)">‹</button>
+    <button class="lb-next" onclick="event.stopPropagation();lbNav(1)">›</button>
+  </div>
+
+  <script>
+  (function(){
+
+    // ── ROUTING ──────────────────────────────────────────
+    const params = new URLSearchParams(window.location.search);
+    const guitarId = params.get('id');
+
+    if (!guitarId) {
+      showError('No guitar specified.');
+      return;
+    }
+
+    // ── LOAD DATA ─────────────────────────────────────────
+    fetch('guitars.json')
+      .then(r => r.json())
+      .then(data => {
+        const guitar = data.guitars.find(g => g.id === guitarId);
+        if (!guitar) { showError('Guitar not found.'); return; }
+        renderGuitar(guitar);
+      })
+      .catch(() => showError('Could not load inventory data.'));
+
+    // ── RENDER ────────────────────────────────────────────
+    let currentImg = 0;
+    let guitarImages = [];
+
+    function renderGuitar(g) {
+      guitarImages = g.images;
+
+      // ── META TAGS ─────────────────────────────────────
+      const pageUrl = 'https://tsunamiguitars.com/guitar.html?id=' + g.id;
+      const ogImg = 'https://tsunamiguitars.com/images/' + g.images[0];
+
+      document.getElementById('page-title').textContent = g.meta_title;
+      document.getElementById('meta-desc').setAttribute('content', g.meta_desc);
+      document.getElementById('og-title').setAttribute('content', g.meta_title);
+      document.getElementById('og-desc').setAttribute('content', g.meta_desc);
+      document.getElementById('og-image').setAttribute('content', ogImg);
+      document.getElementById('canonical').setAttribute('href', pageUrl);
+      document.getElementById('bc-name').textContent = g.title;
+
+      // ── SCHEMA.ORG PRODUCT ────────────────────────────
+      const schema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": g.year + ' ' + g.brand + ' ' + g.model,
+        "description": g.description,
+        "image": ogImg,
+        "brand": { "@type": "Brand", "name": g.brand },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "CAD",
+          "price": String(g.price_num),
+          "availability": g.status === 'available'
+            ? "https://schema.org/InStock"
+            : "https://schema.org/OutOfStock",
+          "seller": { "@type": "Organization", "name": "Tsunami Guitars", "url": "https://tsunamiguitars.com" }
+        }
+      };
+      const schemaTag = document.createElement('script');
+      schemaTag.type = 'application/ld+json';
+      schemaTag.textContent = JSON.stringify(schema);
+      document.head.appendChild(schemaTag);
+
+      // ── THUMBS HTML ───────────────────────────────────
+      const thumbsHtml = g.images.map((img, i) => `
+        <div class="thumb${i===0?' active':''}" onclick="setImg(${i})">
+          <img src="images/${img}" alt="${g.title} photo ${i+1}" loading="lazy">
+        </div>`).join('');
+
+      // ── SPECS HTML ────────────────────────────────────
+      const specsHtml = g.specs.map(([k, v]) => `
+        <div class="spec-row">
+          <span class="spec-key">${k}</span>
+          <span class="spec-val">${v}</span>
+        </div>`).join('');
+
+      // ── BUY SECTION ───────────────────────────────────
+      const buySection = g.status === 'available' ? `
+        <div class="price-wrap">
+          <div>
+            <p class="price-label">Price</p>
+            <p class="price">${g.price}</p>
+          </div>
+          <div class="cta-wrap">
+            <a href="${g.stripe}" target="_blank" rel="noopener" class="buy-btn">Buy Direct →</a>
+            <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener" class="reverb-link">or buy on Reverb</a>
+          </div>
+        </div>` : `
+        <div class="price-wrap">
+          <div>
+            <p class="price-label">Status</p>
+            <p class="price" style="color:#888;font-size:1.6rem;">SOLD</p>
+          </div>
+        </div>`;
+
+      // ── FULL PAGE HTML ────────────────────────────────
+      document.getElementById('content').innerHTML = `
+        <div class="guitar-page">
+
+          <div class="gallery">
+            <div class="main-wrap" id="main-wrap" onclick="lbOpen()">
+              <img id="main-img" src="images/${g.images[0]}" alt="${g.title} — ${g.subtitle}" loading="eager">
+              <div class="badge">${g.badge}</div>
+              <div class="img-count" id="img-count">1 / ${g.images.length}</div>
+              <button class="nav-arrow nav-prev" onclick="event.stopPropagation();navImg(-1)" aria-label="Previous">‹</button>
+              <button class="nav-arrow nav-next" onclick="event.stopPropagation();navImg(1)" aria-label="Next">›</button>
+            </div>
+            <div class="thumbs">${thumbsHtml}</div>
+          </div>
+
+          <div class="info">
+            <div>
+              <p class="eyebrow">${g.eyebrow}</p>
+              <h1 class="guitar-title">${g.title}</h1>
+              <p class="guitar-sub">${g.subtitle}</p>
+            </div>
+
+            <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener" style="text-decoration:none;">
+              <div class="trust-bar">
+                <span class="stars">★★★★★</span>
+                <span class="trust-text">5-Star Rated Seller on Reverb · Verified Buyer Reviews</span>
+              </div>
+            </a>
+
+            <p class="description">${g.description}</p>
+
+            <div class="specs">${specsHtml}</div>
+
+            ${buySection}
+
+            <div class="policy-box">
+              Every guitar we sell is personally inspected, accurately described, and photographed in full. If a guitar arrives not as described, we'll make it right — that's the Tsunami Guitars guarantee. Our Reverb 5-star record speaks for itself.
+            </div>
+
+            <div class="enquiry-box">
+              <p>Questions?</p>
+              <span>Happy to answer anything — more photos, shipping details, or payment options.</span>
+              <a href="mailto:tsunamiguitarshop@gmail.com?subject=Inquiry%3A%20${encodeURIComponent(g.title)}" class="enquiry-link">Email Derek →</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer-bar">
+          <a href="/#products" class="back-btn">← Back to All Guitars</a>
+          <span style="font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">Tsunami Guitars · tsunamiguitars.com</span>
+        </div>`;
+    }
+
+    // ── IMAGE NAVIGATION ──────────────────────────────────
+    window.setImg = function(i) {
+      currentImg = i;
+      document.getElementById('main-img').src = 'images/' + guitarImages[i];
+      document.getElementById('img-count').textContent = (i+1) + ' / ' + guitarImages.length;
+      document.querySelectorAll('.thumb').forEach((t, j) => t.classList.toggle('active', j === i));
+    };
+
+    window.navImg = function(dir) {
+      setImg((currentImg + dir + guitarImages.length) % guitarImages.length);
+    };
+
+    // ── LIGHTBOX ──────────────────────────────────────────
+    window.lbOpen = function() {
+      document.getElementById('lb-img').src = 'images/' + guitarImages[currentImg];
+      document.getElementById('lb').style.display = 'flex';
+    };
+    window.lbClose = function() {
+      document.getElementById('lb').style.display = 'none';
+    };
+    window.lbNav = function(dir) {
+      navImg(dir);
+      document.getElementById('lb-img').src = 'images/' + guitarImages[currentImg];
+    };
+
+    // ── ERROR STATE ───────────────────────────────────────
+    function showError(msg) {
+      document.getElementById('content').innerHTML = `
+        <div class="state-screen">
+          <p>${msg}</p>
+          <a href="/#products" style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:underline;">← Back to Inventory</a>
+        </div>`;
+    }
+
+    // ── KEYBOARD NAV ──────────────────────────────────────
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') navImg(-1);
+      if (e.key === 'ArrowRight') navImg(1);
+      if (e.key === 'Escape') lbClose();
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
