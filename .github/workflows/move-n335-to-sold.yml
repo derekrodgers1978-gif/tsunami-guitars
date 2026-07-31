@@ -1,0 +1,70 @@
+name: Move Navigator N-335 to Sold
+
+on:
+  push:
+    paths:
+      - '.github/workflows/move-n335-to-sold.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Move listing to sold section
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('tsunami-guitars/index.html')
+          text = path.read_text(encoding='utf-8')
+
+          start_marker = '      <!-- GUITAR 4: Navigator N-335 Natural -->'
+          end_marker = '      <!-- GUITAR 6: Navigator N-335 Violin Burst -->'
+
+          if start_marker in text and end_marker in text:
+              start = text.index(start_marker)
+              end = text.index(end_marker, start)
+              text = text[:start] + text[end:]
+
+          sold_card_marker = '<!-- SOLD CARD: Navigator N-335 Natural -->'
+          sold_grid_marker = '    <!-- Sold Grid -->\n    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;">'
+
+          sold_card = '''
+
+      <!-- SOLD CARD: Navigator N-335 Natural -->
+      <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
+        <div style="position:relative;overflow:hidden;background:#0e0b08;">
+          <img src="images/g4-09.jpg" alt="Navigator N-335 Natural" style="width:100%;height:240px;object-fit:contain;object-position:center;background:#0e0b08;filter:grayscale(30%);">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+            <div style="border:3px solid rgba(180,30,30,0.85);padding:0.4rem 1.4rem;transform:rotate(-15deg);background:rgba(14,11,8,0.4);">
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,50,50,0.9);">SOLD</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:1.2rem;">
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.5;margin-bottom:0.3rem;">1970s–80s · Made in Japan · ESP Custom Shop</p>
+          <p style="font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;">Navigator N-335</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);opacity:0.6;">Natural Finish · Semi-Hollow · All Original</p>
+        </div>
+      </div>'''
+
+          if sold_card_marker not in text:
+              if sold_grid_marker not in text:
+                  raise SystemExit('Sold grid marker not found')
+              text = text.replace(sold_grid_marker, sold_grid_marker + sold_card, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Remove one-time workflow and commit
+        run: |
+          rm .github/workflows/move-n335-to-sold.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tsunami-guitars/index.html .github/workflows/move-n335-to-sold.yml
+          git commit -m "Move Navigator N-335 Natural to sold section"
+          git push
