@@ -1,8 +1,8 @@
 [build]
   base = "tsunami-guitars"
-  publish = "tsunami-guitars"
-  functions = "tsunami-guitars/netlify/functions"
-  command = "cat .hero-chunks/part1.txt .hero-chunks/part2.txt .hero-chunks/part3.txt | tr -d '\\n' | base64 -d > images/tsunami-hero.webp && (grep -q '/hero-effects.css' index.html || sed -i 's#</head>#<link rel=\"stylesheet\" href=\"/hero-effects.css\">\\n</head>#' index.html)"
+  publish = "."
+  functions = "netlify/functions"
+  command = "cat .hero-chunks/part1.txt .hero-chunks/part2.txt .hero-chunks/part3.txt | tr -d '\n' | base64 -d > images/tsunami-hero.webp && (grep -q '/hero-effects.css' index.html || sed -i 's#</head>#<link rel=\"stylesheet\" href=\"/hero-effects.css\">\n</head>#' index.html)"
 
 [functions]
   node_bundler = "esbuild"
