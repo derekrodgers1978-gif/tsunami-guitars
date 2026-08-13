@@ -1,9 +1,32 @@
 /* Tsunami selected hero + subtle motion + faded dragon page texture */
 html,body{background:#0e0b08!important}
 body{position:relative;isolation:isolate}
-#home.hero{min-height:620px;height:clamp(620px,66.666vw,1024px);display:block!important;position:relative;overflow:hidden;background:#0e0b08!important}
-#home .hero-bg{position:absolute!important;inset:0!important;background-image:url('/images/tsunami-hero.webp')!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;z-index:0!important;transform:scale(1.002)}
-#home .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,#0e0b08 0 96px,rgba(14,11,8,.025) 97px 78%,rgba(14,11,8,.28) 100%)!important;pointer-events:none}
+
+/* Exact selected hero: put the image on the hero itself so it always renders */
+#home.hero{
+  min-height:620px;
+  height:clamp(620px,66.666vw,1024px);
+  display:block!important;
+  position:relative;
+  overflow:hidden;
+  background-color:#0e0b08!important;
+  background-image:url('/images/tsunami-hero.webp')!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:no-repeat!important;
+}
+#home .hero-bg{
+  position:absolute!important;
+  inset:0!important;
+  background-image:url('/images/tsunami-hero.webp')!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:no-repeat!important;
+  z-index:0!important;
+}
+#home .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,11,8,.04) 0 78%,rgba(14,11,8,.24) 100%)!important;pointer-events:none}
+
+/* Hide the old hero copy, but preserve its two real links over the buttons baked into the selected hero */
 #home .hero-left{position:absolute!important;inset:0!important;padding:0!important;z-index:5!important;pointer-events:none}
 #home .hero-left>*{visibility:hidden!important}
 #home .hero-left .hero-btns{visibility:visible!important;display:block!important;position:absolute!important;inset:0!important;pointer-events:none}
@@ -11,13 +34,25 @@ body{position:relative;isolation:isolate}
 #home .hero-left .hero-btns a:first-child{left:4.2%!important;top:70.4%!important;width:17.4%!important}
 #home .hero-left .hero-btns a:nth-child(2){left:22.5%!important;top:70.4%!important;width:14.3%!important}
 #home .hero-right{display:none!important}
+
+/* Subtle moving water */
 #home:before{content:"";position:absolute;right:-7%;bottom:-8%;width:72%;height:50%;z-index:2;pointer-events:none;opacity:.34;background:radial-gradient(ellipse at 30% 88%,transparent 0 47%,rgba(232,200,120,.13) 48% 49%,transparent 50%),radial-gradient(ellipse at 58% 78%,transparent 0 52%,rgba(245,232,192,.10) 53% 54%,transparent 55%),radial-gradient(ellipse at 84% 92%,transparent 0 44%,rgba(201,162,74,.12) 45% 46%,transparent 47%);filter:blur(.35px);animation:tgWaveDrift 10s ease-in-out infinite alternate;mix-blend-mode:screen}
+
+/* Subtle rising bubbles */
 #home:after{content:"";position:absolute;right:4%;bottom:3%;width:55%;height:45%;z-index:2;pointer-events:none;opacity:.30;background-image:radial-gradient(circle,rgba(245,232,192,.48) 0 1px,rgba(201,162,74,.16) 2px,transparent 3px),radial-gradient(circle,rgba(245,232,192,.34) 0 1.5px,transparent 2.8px),radial-gradient(circle,rgba(201,162,74,.38) 0 1px,transparent 2.5px);background-size:130px 150px,185px 210px,240px 190px;background-position:10px 20px,70px 110px,140px 45px;animation:tgBubbles 14s linear infinite;mix-blend-mode:screen}
 @keyframes tgWaveDrift{0%{transform:translate3d(-1.5%,2%,0) scale(1.01);opacity:.22}50%{transform:translate3d(1%,-1%,0) scale(1.045);opacity:.38}100%{transform:translate3d(2%,.5%,0) scale(1.02);opacity:.28}}
 @keyframes tgBubbles{0%{transform:translate3d(0,45px,0);background-position:10px 20px,70px 110px,140px 45px}50%{transform:translate3d(8px,-30px,0);background-position:30px -35px,95px 35px,165px -15px}100%{transform:translate3d(-5px,-110px,0);background-position:50px -100px,120px -55px,190px -80px}}
+
+/* Faded dragon body behind the rest of the site. Crop toward the dragon side of the selected artwork. */
 section:not(#home),.reverb,.brands,.why,.about,.contact,.merch,#products,#sold,#why-buy,#blog,#insider,#guitar-santa,#instagram{position:relative!important;isolation:isolate;overflow:hidden}
-section:not(#home)::before,.reverb::before,.brands::before,.why::before,.about::before,.contact::before,.merch::before,#products::before,#sold::before,#why-buy::before,#blog::before,#insider::before,#guitar-santa::before,#instagram::before{content:"";position:absolute;inset:-8%;z-index:0;pointer-events:none;background-image:url('/images/tsunami-hero.webp');background-repeat:no-repeat;background-size:1850px auto;background-position:31% center;opacity:.055;filter:sepia(.9) saturate(.75) brightness(.72) contrast(1.18);mix-blend-mode:screen}
+section:not(#home)::before,.reverb::before,.brands::before,.why::before,.about::before,.contact::before,.merch::before,#products::before,#sold::before,#why-buy::before,#blog::before,#insider::before,#guitar-santa::before,#instagram::before{content:"";position:absolute;inset:-8%;z-index:0;pointer-events:none;background-image:url('/images/tsunami-hero.webp');background-repeat:no-repeat;background-size:1850px auto;background-position:12% center;opacity:.055;filter:sepia(.9) saturate(.75) brightness(.72) contrast(1.18);mix-blend-mode:screen}
 section:not(#home)>*,.reverb>*,.brands>*,.why>*,.about>*,.contact>*,.merch>*,#products>*,#sold>*,#why-buy>*,#blog>*,#insider>*,#guitar-santa>*,#instagram>*{position:relative;z-index:1}
 section:not(#home):nth-of-type(even)::before{background-position:18% center;transform:scaleX(-1);opacity:.045}
-@media(max-width:768px){#home.hero{min-height:520px;height:72vh}#home .hero-bg{background-size:cover!important;background-position:37% center!important}#home .hero-bg:after{background:linear-gradient(to bottom,#0e0b08 0 76px,rgba(14,11,8,.03) 77px 78%,rgba(14,11,8,.3) 100%)!important}#home .hero-left .hero-btns{display:none!important}section:not(#home)::before,.reverb::before,.brands::before,.why::before,.about::before,.contact::before,.merch::before,#products::before,#sold::before,#why-buy::before,#blog::before,#insider::before,#guitar-santa::before,#instagram::before{background-size:1250px auto;background-position:27% center;opacity:.04}}
+
+@media(max-width:768px){
+  #home.hero{min-height:520px;height:72vh;background-size:cover!important;background-position:37% center!important}
+  #home .hero-bg{background-size:cover!important;background-position:37% center!important}
+  #home .hero-left .hero-btns{display:none!important}
+  section:not(#home)::before,.reverb::before,.brands::before,.why::before,.about::before,.contact::before,.merch::before,#products::before,#sold::before,#why-buy::before,#blog::before,#insider::before,#guitar-santa::before,#instagram::before{background-size:1250px auto;background-position:14% center;opacity:.04}
+}
 @media(prefers-reduced-motion:reduce){#home:before,#home:after{animation:none!important}}
