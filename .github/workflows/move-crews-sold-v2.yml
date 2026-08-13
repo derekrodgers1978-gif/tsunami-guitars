@@ -1,0 +1,68 @@
+name: Move Crews KTR ST60 to Sold v2
+
+on:
+  push:
+    paths:
+      - '.github/workflows/move-crews-sold-v2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Crews listing
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          import re
+
+          index_path = Path('tsunami-guitars/index.html')
+          html = index_path.read_text(encoding='utf-8')
+
+          html, removed = re.subn(
+              r'\n\s*<!-- GUITAR 13: Crews Maniac Sound KTR ST60 Sunburst -->.*?(?=\n\s*<!-- GUITAR 14:)',
+              '\n',
+              html,
+              count=1,
+              flags=re.S,
+          )
+          if removed != 1:
+              raise SystemExit(f'Expected one Crews inventory card, removed {removed}')
+
+          html = re.sub(
+              r'\n10\. Crews Maniac Sound KTR ST60[^\n]*',
+              '',
+              html,
+              count=1,
+          )
+
+          sold_marker = '<!-- SOLD CARD: Crews Maniac Sound KTR ST60 -->'
+          sold_card = Path('tsunami-guitars/sold-crews-card.html').read_text(encoding='utf-8').rstrip()
+          if sold_marker not in html:
+              grid_marker = '<!-- Sold Grid -->\n    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;">'
+              if grid_marker not in html:
+                  raise SystemExit('Sold Grid marker not found')
+              html = html.replace(grid_marker, grid_marker + '\n\n' + sold_card, 1)
+
+          index_path.write_text(html, encoding='utf-8')
+
+          json_path = Path('tsunami-guitars/guitars.json')
+          data = json.loads(json_path.read_text(encoding='utf-8'))
+          matches = [g for g in data.get('guitars', []) if g.get('id') == 'crews-maniac-sound-ktr-st60-sunburst']
+          if len(matches) != 1:
+              raise SystemExit(f'Expected one Crews JSON record, found {len(matches)}')
+          matches[0]['status'] = 'sold'
+          json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+      - name: Commit site update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tsunami-guitars/index.html tsunami-guitars/guitars.json
+          git commit -m "Move Crews KTR ST60 to sold"
+          git push
