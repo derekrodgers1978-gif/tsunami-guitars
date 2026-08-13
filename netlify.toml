@@ -1,7 +1,7 @@
 [build]
   publish = "tsunami-guitars"
   functions = "tsunami-guitars/netlify/functions"
-  command = "cat tsunami-guitars/.hero-chunks/part1.txt tsunami-guitars/.hero-chunks/part2.txt tsunami-guitars/.hero-chunks/part3.txt | tr -d '\n' | base64 -d > tsunami-guitars/images/tsunami-hero.webp && (grep -q '/hero-effects.css' tsunami-guitars/index.html || sed -i 's#</head>#<link rel=\"stylesheet\" href=\"/hero-effects.css\">\n</head>#' tsunami-guitars/index.html)"
+  command = "node build-hero.js"
 
 [functions]
   node_bundler = "esbuild"
