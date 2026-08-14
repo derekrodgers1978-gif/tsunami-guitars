@@ -9,9 +9,17 @@ if (hero.length < 1000 || hero.slice(0,4).toString('ascii') !== 'RIFF' || hero.s
 
 const indexPath = path.join(siteDir, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
-const cssLink = '<link rel="stylesheet" href="/hero-effects.css">';
-if (!html.includes('/hero-effects.css')) {
-  html = html.replace('</head>', `${cssLink}\n</head>`);
-  fs.writeFileSync(indexPath, html);
+const cssLinks = [
+  '<link rel="stylesheet" href="/hero-effects.css">',
+  '<link rel="stylesheet" href="/hero-display-fix.css">'
+];
+let changed = false;
+for (const cssLink of cssLinks) {
+  const href = cssLink.match(/href="([^"]+)"/)[1];
+  if (!html.includes(href)) {
+    html = html.replace('</head>', `${cssLink}\n</head>`);
+    changed = true;
+  }
 }
+if (changed) fs.writeFileSync(indexPath, html);
 console.log(`Direct hero verified: ${hero.length} bytes`);
