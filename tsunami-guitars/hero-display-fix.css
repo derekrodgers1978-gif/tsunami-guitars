@@ -1,6 +1,5 @@
-/* Tsunami selected hero — exact uploaded artwork embedded directly so Netlify cannot lose the asset */
+/* Tsunami selected hero — display only. No other page sections are changed. */
 html,body{background:#0e0b08!important}
-body{position:relative;isolation:isolate}
 #home.hero{
   min-height:620px;
   height:clamp(620px,66.666vw,1024px);
@@ -8,12 +7,22 @@ body{position:relative;isolation:isolate}
   position:relative;
   overflow:hidden;
   background-color:#0e0b08!important;
-  background-image:url('data:image/webp;base64,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...TRUNCATED_FOR_BREVITY...')!important;
+  background-image:url('/images/tsunami-hero.webp?v=20260813')!important;
   background-size:cover!important;
   background-position:center top!important;
   background-repeat:no-repeat!important;
 }
-#home .hero-bg{display:none!important}
+#home .hero-bg{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  background-image:url('/images/tsunami-hero.webp?v=20260813')!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:no-repeat!important;
+}
+#home .hero-bg::after{display:none!important}
 #home .hero-left{position:absolute!important;inset:0!important;padding:0!important;z-index:5!important;pointer-events:none}
 #home .hero-left>*{visibility:hidden!important}
 #home .hero-left .hero-btns{visibility:visible!important;display:block!important;position:absolute!important;inset:0!important;pointer-events:none}
@@ -21,7 +30,9 @@ body{position:relative;isolation:isolate}
 #home .hero-left .hero-btns a:first-child{left:4.2%!important;top:70.4%!important;width:17.4%!important}
 #home .hero-left .hero-btns a:nth-child(2){left:22.5%!important;top:70.4%!important;width:14.3%!important}
 #home .hero-right{display:none!important}
+#home::before,#home::after{display:none!important}
 @media(max-width:768px){
   #home.hero{min-height:520px;height:72vh;background-size:cover!important;background-position:37% center!important}
+  #home .hero-bg{background-size:cover!important;background-position:37% center!important}
   #home .hero-left .hero-btns{display:none!important}
 }
