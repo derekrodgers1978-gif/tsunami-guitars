@@ -5,21 +5,25 @@ const siteDir = path.join(__dirname, 'tsunami-guitars');
 const heroPath = path.join(siteDir, 'images', 'tsunami-hero.webp');
 if (!fs.existsSync(heroPath)) throw new Error('Direct hero image is missing from published site folder.');
 const hero = fs.readFileSync(heroPath);
-if (hero.length < 1000 || hero.slice(0,4).toString('ascii') !== 'RIFF' || hero.slice(8,12).toString('ascii') !== 'WEBP') throw new Error('Direct hero file is not a valid WebP image.');
+if (hero.length < 1000 || hero.slice(0,4).toString('ascii') !== 'RIFF' || hero.slice(8,12).toString('ascii') !== 'WEBP') {
+  throw new Error('Direct hero file is not a valid WebP image.');
+}
 
 const indexPath = path.join(siteDir, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
-// Do not rely on separately injected hero stylesheets. Render the hero artwork
-// directly from the existing published hero asset and leave the rest of the page alone.
-html = html.replace(/\s*<link rel="stylesheet" href="\/hero-effects\.css">\s*/g, '\n');
-html = html.replace(/\s*<link rel="stylesheet" href="\/hero-display-fix\.css">\s*/g, '\n');
+// Remove old hero patch links so no stale stylesheet can override the direct hero.
+html = html.replace(/\s*<link rel="stylesheet" href="\/hero-effects\.css(?:\?[^\"]*)?">\s*/g, '\n');
+html = html.replace(/\s*<link rel="stylesheet" href="\/hero-display-fix\.css(?:\?[^\"]*)?">\s*/g, '\n');
 
+// Keep the source hero reference pointed at the selected artwork as a fallback.
 html = html.replace(
-  /background-image:\s*url\(["']?images\/3amigosonthecouch\.png["']?\);/,
-  'background-image: url("images/tsunami-hero.webp");'
+  /background-image:\s*url\(["']?images\/3amigosonthecouch\.png["']?\);/g,
+  'background-image: url("/images/tsunami-hero.webp?v=20260813-final");'
 );
 
+// Put the selected artwork on BOTH the hero container and its background child.
+// The container-level image guarantees the hero cannot collapse to a black box.
 const directHeroStyle = `
 <style id="tsunami-direct-hero">
 #home.hero {
@@ -31,15 +35,22 @@ const directHeroStyle = `
   position: relative !important;
   overflow: hidden !important;
   padding: 0 !important;
-  background: #000 !important;
+  background-color: #000 !important;
+  background-image: url("/images/tsunami-hero.webp?v=20260813-final") !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 #home .hero-bg {
   position: absolute !important;
   inset: 0 !important;
-  background-image: url("images/tsunami-hero.webp") !important;
+  display: block !important;
+  background-color: transparent !important;
+  background-image: url("/images/tsunami-hero.webp?v=20260813-final") !important;
   background-size: 100% 100% !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
+  z-index: 0 !important;
 }
 #home .hero-bg::after { display: none !important; }
 #home .hero-left,
@@ -50,4 +61,4 @@ html = html.replace(/\s*<style id="tsunami-direct-hero">[\s\S]*?<\/style>\s*/g, 
 html = html.replace('</head>', `${directHeroStyle}\n</head>`);
 fs.writeFileSync(indexPath, html);
 
-console.log(`Direct hero verified and rendered: ${hero.length} bytes`);
+console.log(`Hero rendered directly on container: ${hero.length} bytes`);
