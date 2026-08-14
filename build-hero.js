@@ -1,58 +1,38 @@
 const fs = require('fs');
 const path = require('path');
 
-const siteDir = path.join(__dirname, 'tsunami-guitars');
-const chunkDir = path.join(siteDir, '.hero-chunks');
-const heroPath = path.join(siteDir, 'images', 'tsunami-hero.webp');
-const chunkFiles = ['part1.txt', 'part2.txt', 'part3.txt'];
-
-// Rebuild the selected hero from the original staged base64 chunks on every Netlify deploy.
-let encoded = chunkFiles
-  .map(name => fs.readFileSync(path.join(chunkDir, name), 'utf8'))
-  .join('')
-  .replace(/\s+/g, '');
-encoded += '='.repeat((4 - (encoded.length % 4)) % 4);
-
-const hero = Buffer.from(encoded, 'base64');
-if (
-  hero.length < 1000 ||
-  hero.slice(0, 4).toString('ascii') !== 'RIFF' ||
-  hero.slice(8, 12).toString('ascii') !== 'WEBP'
-) {
-  throw new Error('Rebuilt hero data is not a valid WebP image');
-}
-
-fs.mkdirSync(path.dirname(heroPath), { recursive: true });
-fs.writeFileSync(heroPath, hero);
-
-const indexPath = path.join(siteDir, 'index.html');
+const indexPath = path.join(__dirname, 'tsunami-guitars', 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
-// Remove earlier hero-only patch links/styles so nothing can override the plain image.
-html = html.replace(/\s*<link rel="stylesheet" href="\/hero-effects\.css(?:\?[^\"]*)?">\s*/g, '\n');
-html = html.replace(/\s*<link rel="stylesheet" href="\/hero-display-fix\.css(?:\?[^\"]*)?">\s*/g, '\n');
-html = html.replace(/\s*<style id="tsunami-direct-hero">[\s\S]*?<\/style>\s*/g, '\n');
+const brokenStart = html.indexOf("\n      \n'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,50,50,0.9);\">SOLD</span>");
+const card8Start = html.indexOf("      <!-- SOLD CARD 8: 80's Greco Super Real LP -->", brokenStart);
 
-const heroStart = html.indexOf('<!-- HERO -->');
-const marqueeStart = html.indexOf('<!-- MARQUEE -->');
-if (heroStart === -1 || marqueeStart === -1 || marqueeStart <= heroStart) {
-  throw new Error('Could not locate HERO/MARQUEE boundaries in index.html');
+if (brokenStart === -1 || card8Start === -1) {
+  throw new Error('Could not locate malformed Navigator Esparto sold card');
 }
 
-const plainHero = `<!-- HERO -->
-<section id="home" style="margin:0;padding:0;width:100%;background:#000;overflow:hidden;line-height:0;">
-  <img
-    src="/images/tsunami-hero.webp?v=20260814-rebuilt"
-    alt="Tsunami Guitars"
-    width="1536"
-    height="1024"
-    style="display:block;width:100%;height:auto;margin:0;padding:0;border:0;"
-  >
-</section>
+const fixedEsparto = `
+
+      <!-- SOLD CARD 7: 70's Navigator Esparto -->
+      <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
+        <div style="position:relative;overflow:hidden;background:#0e0b08;">
+          <img src="images/sold07.jpg" style="width:100%;height:240px;object-fit:cover;object-position:center;background:#0e0b08;filter:grayscale(30%);">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+            <div style="border:3px solid rgba(180,30,30,0.85);padding:0.4rem 1.4rem;transform:rotate(-15deg);background:rgba(14,11,8,0.4);">
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,50,50,0.9);">SOLD</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:1.2rem;">
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.5;margin-bottom:0.3rem;">1970s · Made in Japan · ESP</p>
+          <p style="font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;">Navigator Esparto</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);opacity:0.6;">Sunburst · Stratocaster Style</p>
+        </div>
+      </div>
 
 `;
 
-html = html.slice(0, heroStart) + plainHero + html.slice(marqueeStart);
+html = html.slice(0, brokenStart) + fixedEsparto + html.slice(card8Start);
 fs.writeFileSync(indexPath, html);
 
-console.log(`Hero rebuilt from chunks and installed: ${hero.length} bytes`);
+console.log('Navigator Esparto sold card repaired; no other page content changed.');
