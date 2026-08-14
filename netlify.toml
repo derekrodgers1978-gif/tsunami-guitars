@@ -1,7 +1,7 @@
 [build]
   publish = "tsunami-guitars"
   functions = "tsunami-guitars/netlify/functions"
-  command = "node build-hero.js"
+  command = "node build-hero-simple.js"
 
 [functions]
   node_bundler = "esbuild"
