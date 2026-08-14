@@ -4,16 +4,16 @@ const path = require('path');
 const indexPath = path.join(__dirname, 'tsunami-guitars', 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
-const brokenStart = html.indexOf("\n      \n'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,50,50,0.9);\">SOLD</span>");
-const card8Start = html.indexOf("      <!-- SOLD CARD 8: 80's Greco Super Real LP -->", brokenStart);
+const card7Marker = "      <!-- SOLD CARD 7: 70's Navigator Esparto -->";
+const card8Marker = "      <!-- SOLD CARD 8: 80's Greco Super Real LP -->";
+const card7Start = html.indexOf(card7Marker);
+const card8Start = html.indexOf(card8Marker, card7Start);
 
-if (brokenStart === -1 || card8Start === -1) {
-  throw new Error('Could not locate malformed Navigator Esparto sold card');
+if (card7Start === -1 || card8Start === -1 || card8Start <= card7Start) {
+  throw new Error('Could not locate Navigator Esparto sold-card boundaries');
 }
 
-const fixedEsparto = `
-
-      <!-- SOLD CARD 7: 70's Navigator Esparto -->
+const fixedEsparto = `      <!-- SOLD CARD 7: 70's Navigator Esparto -->
       <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
         <div style="position:relative;overflow:hidden;background:#0e0b08;">
           <img src="images/sold07.jpg" style="width:100%;height:240px;object-fit:cover;object-position:center;background:#0e0b08;filter:grayscale(30%);">
@@ -32,7 +32,7 @@ const fixedEsparto = `
 
 `;
 
-html = html.slice(0, brokenStart) + fixedEsparto + html.slice(card8Start);
+html = html.slice(0, card7Start) + fixedEsparto + html.slice(card8Start);
 fs.writeFileSync(indexPath, html);
 
-console.log('Navigator Esparto sold card repaired; no other page content changed.');
+console.log('Navigator Esparto sold card fully repaired; embedded stray listing removed.');
