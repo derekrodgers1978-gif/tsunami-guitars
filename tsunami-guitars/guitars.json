@@ -1,6 +1,87 @@
 {
   "guitars": [
     {
+      "id": "gibson-les-paul-standard-50s-faded-honeyburst-2022",
+      "status": "available",
+      "brand": "Gibson",
+      "model": "Les Paul Standard 50's Faded",
+      "year": "2022",
+      "title": "Gibson Les Paul Standard 50's Faded",
+      "subtitle": "Honeyburst · 9.2 lbs · Complete Case Candy",
+      "eyebrow": "2022 · Made in USA · Gibson USA · Les Paul Standard 50's",
+      "badge": "Complete Package",
+      "price": "CA$2,399",
+      "price_num": 2399,
+      "stripe": "mailto:tsunamiguitarshop@gmail.com?subject=Purchase%20Inquiry%3A%202022%20Gibson%20Les%20Paul%20Standard%2050's%20Faded",
+      "meta_title": "2022 Gibson Les Paul Standard 50's Faded Honeyburst — Complete Package | Tsunami Guitars",
+      "meta_desc": "2022 Gibson Les Paul Standard 50's Faded in Honeyburst. 9.2 lbs, complete case candy, original truss rod cover and extra strings. CA$2,399.",
+      "description": "This is a beautiful 2022 Gibson Les Paul Standard 50's Faded in Honeyburst, weighing in at a very manageable 9.2 lbs. The Faded finish lets the maple top and wood grain do the talking, while the traditional 50's neck profile, bound rosewood fingerboard and full-size Les Paul construction give it the feel and authority people buy a Les Paul for. There is some honest pick wear by the strings from being played, but other than that it is in great shape. It has the sound, look and weight serious players want without being one of those ten-pound lower-back rehabilitation programs. The guitar comes with the original Gibson hard case, all of the case candy, the original truss rod cover and an extra set of strings. The case candy and accessories are photographed, and the serial number is 220020449. A complete, clean and properly equipped Gibson USA Standard that is ready to go straight to the stage or studio.",
+      "specs": [
+        [
+          "Year",
+          "2022"
+        ],
+        [
+          "Model",
+          "Les Paul Standard 50's Faded"
+        ],
+        [
+          "Finish",
+          "Honeyburst Faded"
+        ],
+        [
+          "Weight",
+          "9.2 lbs"
+        ],
+        [
+          "Serial",
+          "220020449"
+        ],
+        [
+          "Made In",
+          "USA"
+        ],
+        [
+          "Includes",
+          "Gibson Hard Case · Complete Case Candy"
+        ],
+        [
+          "Extras",
+          "Original Truss Rod Cover · Extra Strings"
+        ],
+        [
+          "Condition",
+          "Great Shape · Minor Pick Wear by Strings"
+        ]
+      ],
+      "images": [
+        "gibson-les-paul-standard-50s-faded-2022-01.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-02.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-03.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-04.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-05.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-06.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-07.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-08.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-09.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-10.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-11.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-12.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-13.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-14.jpeg",
+        "gibson-les-paul-standard-50s-faded-2022-15.jpeg"
+      ],
+      "tags": [
+        "gibson",
+        "les paul",
+        "standard 50s",
+        "honeyburst",
+        "usa",
+        "2022"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "k-yairi-sy4-60th-anniversary-koa-1993",
       "status": "sold",
       "brand": "K. Yairi",
