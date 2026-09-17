@@ -1,6 +1,78 @@
 {
   "guitars": [
     {
+      "id": "fernandes-fst-50-1977",
+      "status": "available",
+      "brand": "Fernandes",
+      "model": "FST-50",
+      "year": "1977",
+      "title": "Fernandes FST-50",
+      "subtitle": "Aged Olympic White · Maple Neck · Exceptionally Early Example",
+      "eyebrow": "1977 · Made in Japan · Early Fernandes Production",
+      "badge": "All Original Except Switch Tip",
+      "price": "CA$1,099",
+      "price_num": 1099,
+      "stripe": "mailto:tsunamiguitarshop@gmail.com?subject=Purchase%20Inquiry%3A%201977%20Fernandes%20FST-50",
+      "meta_title": "1977 Fernandes FST-50 Stratocaster — Early Made in Japan Example | Tsunami Guitars",
+      "meta_desc": "Exceptionally early 1977 Fernandes FST-50 in aged Olympic White. Made in Japan and all original except for the switch tip. Professionally set up. CA$1,099.",
+      "description": "This 1977 Fernandes FST-50 comes from the very beginning of Fernandes Strat-style production, making it one of the earliest examples you are likely to encounter. The aged Olympic White finish, maple neck and naturally worn hardware give it exactly the look a nearly fifty-year-old Japanese guitar should have. It is all original except for the switch tip, with the original electronics, pickups, bridge, tuners and plastics still intact. The neck carries the early 72505 stamp, and the guitar has been professionally set up and is ready to play. This is not a later revival or a modern copy—it is an honest, early Fernandes with real history and the wear to prove it.",
+      "specs": [
+        [
+          "Year",
+          "1977"
+        ],
+        [
+          "Model",
+          "FST-50"
+        ],
+        [
+          "Finish",
+          "Aged Olympic White"
+        ],
+        [
+          "Neck / Board",
+          "Maple / Maple"
+        ],
+        [
+          "Neck Stamp",
+          "72505"
+        ],
+        [
+          "Originality",
+          "All Original Except Switch Tip"
+        ],
+        [
+          "Setup",
+          "Professionally Set Up"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ]
+      ],
+      "images": [
+        "fernandes-fst50-1977-01.jpeg",
+        "fernandes-fst50-1977-02.jpeg",
+        "fernandes-fst50-1977-03.jpeg",
+        "fernandes-fst50-1977-04.jpeg",
+        "fernandes-fst50-1977-05.jpeg",
+        "fernandes-fst50-1977-06.jpeg",
+        "fernandes-fst50-1977-07.jpeg",
+        "fernandes-fst50-1977-08.jpeg",
+        "fernandes-fst50-1977-09.jpeg",
+        "fernandes-fst50-1977-10.jpeg"
+      ],
+      "tags": [
+        "fernandes",
+        "fst-50",
+        "stratocaster",
+        "vintage",
+        "1977",
+        "japan"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "ornetts-gm5rc-2006",
       "status": "available",
       "brand": "Ornetts",
