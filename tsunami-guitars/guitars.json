@@ -1,6 +1,116 @@
 {
   "guitars": [
     {
+      "id": "k-yairi-sy4-60th-anniversary-koa-1993",
+      "status": "sold",
+      "brand": "K. Yairi",
+      "model": "SY-4 60th Anniversary",
+      "year": "1993",
+      "title": "K. Yairi SY-4 60th Anniversary",
+      "subtitle": "Limited Edition Koa · Anniversary Model · Hardshell Case",
+      "eyebrow": "1993 · Made in Japan · K. Yairi · 60th Anniversary",
+      "badge": "Sold",
+      "price": "SOLD",
+      "price_num": 0,
+      "stripe": "",
+      "meta_title": "1993 K. Yairi SY-4 60th Anniversary Limited Edition Koa | Tsunami Guitars",
+      "meta_desc": "1993 K. Yairi SY-4 60th Anniversary limited-edition acoustic guitar in koa with original hardshell case. Sold through Tsunami Guitars.",
+      "description": "A beautiful 1993 K. Yairi SY-4 60th Anniversary limited edition, built in Japan and finished in koa. This anniversary model has the rich, figured appearance K. Yairi is known for, with a balanced dreadnought voice and the kind of careful construction that made these guitars so sought after. Sold with its original hardshell case.",
+      "specs": [
+        [
+          "Year",
+          "1993"
+        ],
+        [
+          "Model",
+          "SY-4 60th Anniversary"
+        ],
+        [
+          "Edition",
+          "Limited Anniversary Model"
+        ],
+        [
+          "Top / Body",
+          "Koa"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Includes",
+          "Original Hardshell Case"
+        ]
+      ],
+      "images": [
+        "sold-k-yairi-sy4-1993-koa.jpeg"
+      ],
+      "tags": [
+        "k yairi",
+        "sy-4",
+        "koa",
+        "anniversary",
+        "acoustic",
+        "japan"
+      ],
+      "on_sale": false
+    },
+    {
+      "id": "ibanez-pf400-1979",
+      "status": "sold",
+      "brand": "Ibanez",
+      "model": "PF400",
+      "year": "1979",
+      "title": "Ibanez PF400",
+      "subtitle": "Vintage Les Paul Custom Style · Late-70s Japanese Build",
+      "eyebrow": "1979 · Made in Japan · Ibanez · Vintage",
+      "badge": "Sold",
+      "price": "SOLD",
+      "price_num": 0,
+      "stripe": "",
+      "meta_title": "1979 Ibanez PF400 — Vintage Made in Japan Les Paul Custom | Tsunami Guitars",
+      "meta_desc": "Vintage 1979 Ibanez PF400 Les Paul Custom-style guitar, made in Japan during Ibanez's golden era. Sold through Tsunami Guitars.",
+      "description": "The 1979 Ibanez PF400 is exactly the kind of late-seventies Japanese guitar that helped change the way collectors looked at instruments from Japan. With its black Custom-style finish, gold hardware, bound body and block inlays, it has the presence of a serious vintage Les Paul without the usual vintage-Gibson price tag. A classic Ibanez from the golden era of Japanese production.",
+      "specs": [
+        [
+          "Year",
+          "1979"
+        ],
+        [
+          "Model",
+          "PF400"
+        ],
+        [
+          "Style",
+          "Les Paul Custom Style"
+        ],
+        [
+          "Finish",
+          "Black · Gold Hardware"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Status",
+          "Sold"
+        ]
+      ],
+      "images": [
+        "sold-ibanez-pf400-1979.jpeg"
+      ],
+      "tags": [
+        "ibanez",
+        "pf400",
+        "les paul",
+        "vintage",
+        "1979",
+        "japan"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "fernandes-fst-50-1977",
       "status": "available",
       "brand": "Fernandes",
