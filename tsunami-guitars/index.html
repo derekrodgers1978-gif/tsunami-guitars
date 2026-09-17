@@ -155,9 +155,10 @@
 
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url("images/3amigosonthecouch.png");
-    background-size: cover;
-    background-position: center center;
+    background-color: #0e0b08;
+    background-image: url("images/tsunami-guitars-emblem-hero.jpeg");
+    background-size: min(62vw, 860px) auto;
+    background-position: right 2vw center;
     background-repeat: no-repeat;
   }
   .hero-bg::after {
@@ -385,6 +386,18 @@
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; }
+    .hero-bg {
+      background-size: 118vw auto;
+      background-position: center 45%;
+    }
+    .hero-bg::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(14,11,8,0.75) 0%,
+        rgba(14,11,8,0.68) 45%,
+        rgba(14,11,8,0.88) 100%
+      );
+    }
     .hero-right { display: none; }
     .hero-left { padding: 7rem 1.5rem 4rem; }
     .brand-grid { grid-template-columns: 1fr 1fr; }
