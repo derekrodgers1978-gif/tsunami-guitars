@@ -163,7 +163,10 @@
     }
 
     // ── LOAD DATA ─────────────────────────────────────────
-    fetch('guitars.json')
+    const assetVersion = '20260917-gallery-fix-2';
+    const assetUrl = (path) => path + '?v=' + assetVersion;
+
+    fetch('guitars.json?v=' + assetVersion)
       .then(r => r.json())
       .then(data => {
         const guitar = data.guitars.find(g => g.id === guitarId);
@@ -181,7 +184,7 @@
 
       // ── META TAGS ─────────────────────────────────────
       const pageUrl = 'https://tsunamiguitars.com/guitar.html?id=' + g.id;
-      const ogImg = 'https://tsunamiguitars.com/images/' + g.images[0];
+      const ogImg = 'https://tsunamiguitars.com/' + assetUrl('images/' + g.images[0]);
 
       document.getElementById('page-title').textContent = g.meta_title;
       document.getElementById('meta-desc').setAttribute('content', g.meta_desc);
@@ -217,7 +220,7 @@
       // ── THUMBS HTML ───────────────────────────────────
       const thumbsHtml = g.images.map((img, i) => `
         <div class="thumb${i===0?' active':''}" onclick="setImg(${i})">
-          <img src="images/${img}" alt="${g.title} photo ${i+1}" loading="lazy">
+          <img src="${assetUrl('images/' + img)}" alt="${g.title} photo ${i+1}" loading="lazy">
         </div>`).join('');
 
       // ── SPECS HTML ────────────────────────────────────
@@ -258,7 +261,7 @@
 
           <div class="gallery">
             <div class="main-wrap" id="main-wrap" onclick="lbOpen()">
-              <img id="main-img" src="images/${g.images[0]}" alt="${g.title} — ${g.subtitle}" loading="eager">
+              <img id="main-img" src="${assetUrl('images/' + g.images[0])}" alt="${g.title} — ${g.subtitle}" loading="eager">
               <div class="badge">${g.badge}</div>
               <div class="img-count" id="img-count">1 / ${g.images.length}</div>
               <button class="nav-arrow nav-prev" onclick="event.stopPropagation();navImg(-1)" aria-label="Previous">‹</button>
@@ -309,7 +312,7 @@
     // ── IMAGE NAVIGATION ──────────────────────────────────
     window.setImg = function(i) {
       currentImg = i;
-      document.getElementById('main-img').src = 'images/' + guitarImages[i];
+      document.getElementById('main-img').src = assetUrl('images/' + guitarImages[i]);
       document.getElementById('img-count').textContent = (i+1) + ' / ' + guitarImages.length;
       document.querySelectorAll('.thumb').forEach((t, j) => t.classList.toggle('active', j === i));
     };
@@ -320,7 +323,7 @@
 
     // ── LIGHTBOX ──────────────────────────────────────────
     window.lbOpen = function() {
-      document.getElementById('lb-img').src = 'images/' + guitarImages[currentImg];
+      document.getElementById('lb-img').src = assetUrl('images/' + guitarImages[currentImg]);
       document.getElementById('lb').style.display = 'flex';
     };
     window.lbClose = function() {
@@ -328,7 +331,7 @@
     };
     window.lbNav = function(dir) {
       navImg(dir);
-      document.getElementById('lb-img').src = 'images/' + guitarImages[currentImg];
+      document.getElementById('lb-img').src = assetUrl('images/' + guitarImages[currentImg]);
     };
 
     // ── ERROR STATE ───────────────────────────────────────
