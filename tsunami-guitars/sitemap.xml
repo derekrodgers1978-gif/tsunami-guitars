@@ -25,11 +25,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tsunamiguitars.com/guitar.html?id=navigator-ctm-320-jet-black-2004</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://tsunamiguitars.com/guitar.html?id=navigator-n335-natural-1970s</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -56,11 +51,6 @@
   </url>
   <url>
     <loc>https://tsunamiguitars.com/guitar.html?id=history-les-paul-honeyburst-2005</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://tsunamiguitars.com/guitar.html?id=navigator-nlp-480ltd-lemonburst-2009</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
