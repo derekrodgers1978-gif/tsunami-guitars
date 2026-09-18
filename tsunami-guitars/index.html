@@ -426,7 +426,7 @@
     /* Guitar Santa story grid */
     #guitar-santa [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     /* Sold section */
-    #sold [style*="grid-template-columns:repeat(auto-fill"] { grid-template-columns: 1fr 1fr !important; }
+    #sold-grid { grid-template-columns: 1fr 1fr !important; }
     /* Merch img wrap stays 2 col */
     .merch-img-wrap[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
     /* Nav mobile */
@@ -436,7 +436,7 @@
     .merch-grid { grid-template-columns: 1fr !important; }
     .brand-grid { grid-template-columns: 1fr !important; }
     #why-buy [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
-    #sold [style*="grid-template-columns:repeat(auto-fill"] { grid-template-columns: 1fr !important; }
+    #sold-grid { grid-template-columns: 1fr !important; }
   }
 
   select option {
@@ -2185,7 +2185,7 @@ function slideGuitar(id, dir) {
     </div>
 
     <!-- Sold Grid -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;">
+    <div id="sold-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
 
       <!-- SOLD CARD: 1980 Tokai LC60 Wine Red -->
       <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
@@ -4904,7 +4904,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 /* Keep every Previously Sold card on the same compact catalogue format. */
 (function () {
-  const grid = document.querySelector('#sold div[style*="grid-template-columns:repeat(auto-fill"]');
+  const grid = document.getElementById('sold-grid');
   if (!grid) return;
   const sold = [
     ['images/tokairw01.jpg','1980 · Made in Japan · Tokai Gakki · Hamamatsu','Tokai LC60','Wine Red · All Original · Case Queen','guitar.html?id=tokai-lc60-wine-red-1980'],
