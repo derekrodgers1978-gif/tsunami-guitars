@@ -485,6 +485,8 @@
     gap: 2rem;
     margin-top: 1rem;
   }
+  /* Keep the newest article at the front of the journal. */
+  .blog-grid > .blog-card:last-child { order: -1; }
   @media (max-width: 900px) {
     .blog-grid { grid-template-columns: 1fr; }
   }
