@@ -4900,5 +4900,53 @@ document.addEventListener('DOMContentLoaded', function() {
     el.parentElement.appendChild(h);
   });
 })();
+</script>
+<script>
+/* Keep every Previously Sold card on the same compact catalogue format. */
+(function () {
+  const grid = document.querySelector('#sold div[style*="grid-template-columns:repeat(auto-fill"]');
+  if (!grid) return;
+  const sold = [
+    ['images/tokairw01.jpg','1980 · Made in Japan · Tokai Gakki · Hamamatsu','Tokai LC60','Wine Red · All Original · Case Queen','guitar.html?id=tokai-lc60-wine-red-1980'],
+    ['images/sold-k-yairi-sy4-1993-koa.jpeg','1993 · Made in Japan · K. Yairi · 60th Anniversary','K. Yairi SY-4 60th Anniversary','Limited Edition Koa · Original Hardshell Case','guitar.html?id=k-yairi-sy4-60th-anniversary-koa-1993'],
+    ['images/sold-ibanez-pf400-1979.jpeg','1979 · Made in Japan · Ibanez · Vintage','Ibanez PF400','Les Paul Custom Style · Black · Gold Hardware','guitar.html?id=ibanez-pf400-1979'],
+    ['images/hisbb01.jpg','2003 · Made in Japan · FujiGen · History Guitars','History Black Beauty Dignity Custom','Ebony Black · Les Paul Custom · FujiGen Japan Exclusive','guitar.html?id=history-black-beauty-dignity-custom-2003'],
+    ['images/crews01.jpg','2005 · Made in Japan · Crews Maniac Sound','Crews Maniac Sound KTR ST60','Sunburst · K&T Vintage Weep Pickups',''],
+    ['images/fender-st62-sgb-sold.jpg','2010 · Made in Japan · Tokai Plant','Fender Japan ST62','Surf Green (SGB) · Mint / Unplayed',''],
+    ['images/sold01resized.jpg','Early 1980s · Made in Japan · FujiGen','Squier JV ST62','Candy Apple Red · Stratocaster',''],
+    ['images/sold02resized.jpg','2020 · USA Handbuilt','Echopark DT Echocaster','Blonde · Telecaster Style',''],
+    ['images/sold03resized.jpg','2008 · Made in Japan · Kani','K. Yairi Acoustic','Sunburst · J-45 Style',''],
+    ['images/sold04resized.jpg','2011 · Made in Japan','History Les Paul','Cherry Sunburst · Flame Top',''],
+    ['images/sold05.jpg','2010 · Made in Japan','History Black Beauty','Ebony Black · Gold Hardware · Les Paul Custom',''],
+    ['images/sold06.jpg','1980s · Made in Japan','Greco SG','Ebony Black · SG Style',''],
+    ['images/sold07.jpg','1970s · Made in Japan · ESP','Navigator Esparto','Sunburst · Stratocaster Style',''],
+    ['images/g4-01.jpg','1970s–80s · Made in Japan · ESP Custom Shop','Navigator N-335','Natural Finish · Semi-Hollow · All Original','guitar.html?id=navigator-n335-natural-1970s'],
+    ['images/sold08.jpg','1980s · Made in Japan','Greco Super Real','Cherry Sunburst · Les Paul Standard',''],
+    ['images/sold09.jpg','1990s · Made in Japan','Greco LP Custom','Alpine White · Gold Hardware · Les Paul Custom',''],
+    ['images/moonblack01.jpg','Made in Japan · Moon Custom Guitars','Moon Custom Stratocaster','Black · Gold Hardware · Custom Shop',''],
+    ['images/gibsonsongwriter01.jpg','2007 · Gibson USA','Gibson Songwriter Deluxe','Natural · Acoustic',''],
+    ['images/gibsonblueburst01.jpg','2024 · Made in USA · Gibson','Gibson Les Paul Studio','Blue Burst · Satin Finish',''],
+    ['images/kyairi01.jpg','2008 · Made in Japan · K. Yairi','K. Yairi J45','Sunburst · Acoustic',''],
+    ['images/navigator-335-natural-sold.jpg','1970s–80s · Made in Japan · ESP','Navigator N-335 Natural','Natural Finish · Semi-Hollow',''],
+    ['images/kyairi-yw500p-sold.jpg','1981 · Made in Japan · K. Yairi','K. Yairi YW500P','Natural · Acoustic',''],
+    ['images/ibanez-2617av-sold.jpg','1976 · Made in Japan · FujiGen','Ibanez Artist 2617AV','Sunburst · Ash Body · Gold Hardware',''],
+    ['images/hs-anderson-madcat-sold.jpg','1976 · Made in Japan · HS Anderson','HS Anderson Madcat','Sunburst · Maple Neck · Stratocaster Style','']
+  ];
+  const esc = value => String(value).replace(/[&<>\"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]));
+  grid.innerHTML = sold.map(([image, eyebrow, title, subtitle, href]) => `
+    <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
+      <a href="${esc(href || '#')}" ${href ? '' : 'onclick="return false;"'} style="text-decoration:none;color:inherit;display:block;">
+        <div style="position:relative;overflow:hidden;background:#0e0b08;height:240px;">
+          <img src="${esc(image)}" alt="${esc(title)}" style="width:100%;height:240px;object-fit:contain;object-position:center;background:#0e0b08;filter:grayscale(30%);">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;"><div style="border:3px solid rgba(180,30,30,0.85);padding:0.4rem 1.4rem;transform:rotate(-15deg);background:rgba(14,11,8,0.4);"><span style="font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,50,50,0.9);">SOLD</span></div></div>
+        </div>
+        <div style="padding:1.2rem;min-height:112px;">
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.5;margin-bottom:0.3rem;">${esc(eyebrow)}</p>
+          <p style="font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;">${esc(title)}</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);opacity:0.6;">${esc(subtitle)}</p>
+        </div>
+      </a>
+    </div>`).join('');
+})();
 </script></body>
 </html>
