@@ -1,6 +1,7 @@
 [build]
-  publish = "tsunami-guitars"
-  functions = "tsunami-guitars/netlify/functions"
+  base = "tsunami-guitars"
+  publish = "."
+  functions = "netlify/functions"
   command = "true"
 
 [functions]
