@@ -93,6 +93,10 @@
     .enquiry-box span { font-size: 0.88rem; color: var(--cream); opacity: 0.65; display: block; margin-bottom: 0.65rem; }
     .enquiry-link { font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
+    .archive-link { padding: 0.8rem 0; border-top: 1px solid rgba(201,162,74,0.1); border-bottom: 1px solid rgba(201,162,74,0.1); font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .archive-link a { color: var(--gold); text-decoration: none; }
+    .archive-link a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
     /* FOOTER */
     .footer-bar { max-width: 1240px; margin: 0 auto; padding: 2rem; border-top: 1px solid rgba(201,162,74,0.1); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .back-btn { font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
@@ -179,6 +183,26 @@
     let currentImg = 0;
     let guitarImages = [];
 
+    const archiveBrands = {
+      'aria pro ii': 'aria-pro-ii',
+      'burny': 'burny',
+      'crews maniac sound': 'crews-maniac-sound',
+      'edwards': 'edwards',
+      'esp': 'esp',
+      'fernandes': 'fernandes',
+      'greco': 'greco',
+      'hamer': 'hamer',
+      'headway': 'headway',
+      'history': 'history',
+      'ibanez': 'ibanez',
+      'killer': 'killer',
+      'momose': 'momose',
+      'navigator': 'navigator',
+      'tokai': 'tokai',
+      'vesta graham': 'vesta-graham',
+      'yamaha': 'yamaha'
+    };
+
     function renderGuitar(g) {
       guitarImages = g.images;
 
@@ -229,6 +253,14 @@
           <span class="spec-key">${k}</span>
           <span class="spec-val">${v}</span>
         </div>`).join('');
+
+      // ── MIJ ARCHIVE RESEARCH LINK ──────────────────────
+      const archiveBrandSlug = archiveBrands[String(g.brand || '').toLowerCase()];
+      const archiveNote = archiveBrandSlug ? `
+        <p class="archive-link">
+          Research ${g.model} and explore ${g.brand} catalogues on the
+          <a href="https://mijarchive.com/brands/${archiveBrandSlug}" target="_blank" rel="noopener">MIJ Archive →</a>
+        </p>` : '';
 
       // ── BUY SECTION ───────────────────────────────────
       const saleTag = g.on_sale ? `<span style="background:#8B1A1A;color:#fff;padding:2px 8px;border-radius:2px;font-size:0.48rem;letter-spacing:0.15em;margin-left:8px;">${g.sale_discount}</span>` : '';
@@ -285,6 +317,8 @@
             </a>
 
             <p class="description">${g.description}</p>
+
+            ${archiveNote}
 
             <div class="specs">${specsHtml}</div>
 
