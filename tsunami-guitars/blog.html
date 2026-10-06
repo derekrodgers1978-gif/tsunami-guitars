@@ -806,6 +806,11 @@
     background: #0e0b08;
   }
   .blog-post-full.open { display: block; background: #0e0b08; }
+  .blog-card.expanded { grid-column: 1 / -1; }
+  .blog-card.expanded:hover { transform: none; }
+  .blog-card.expanded .blog-post-full { max-width: 960px; margin-left: auto; margin-right: auto; }
+  .blog-card.expanded .blog-post-full p { font-size: 1.05rem; }
+
 
   /* FORCE BLOG DARK */
   #blog { background-color: #0e0b08 !important; }
@@ -1588,6 +1593,8 @@ function togglePost(id, btn) {
   var post = document.getElementById(id);
   var isOpen = post.classList.contains('open');
   post.classList.toggle('open');
+  var card = btn.closest('.blog-card');
+  if (card) card.classList.toggle('expanded', !isOpen);
   btn.classList.toggle('open');
   btn.setAttribute('aria-expanded', String(!isOpen));
   btn.firstChild.textContent = isOpen ? 'Read More ' : 'Show Less ';
