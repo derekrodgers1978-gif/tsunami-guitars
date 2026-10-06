@@ -83,6 +83,7 @@
     .price-wrap { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .price-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.5; margin-bottom: 4px; }
     .price { font-family: 'Shippori Mincho', serif; font-size: 2.2rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .shipping-note { max-width:24rem; margin-top:.55rem; color:#b9ac95; font: .7rem/1.5 'Josefin Sans',sans-serif; letter-spacing:.015em; }
     .cta-wrap { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
     .buy-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #0e0b08; background: linear-gradient(135deg, #e8c878, #c9a24a); padding: 1rem 1.8rem; border: none; cursor: pointer; text-decoration: none; transition: box-shadow 0.2s; }
     .buy-btn:hover { box-shadow: 0 6px 25px rgba(201,162,74,0.5); }
@@ -148,7 +149,19 @@
     .cart-error { min-height:1.4rem; color:#ff9992; font-size:.86rem; line-height:1.45; }
     .cart-alternatives { padding-top:1rem; margin-top:1rem; border-top:1px solid rgba(201,162,74,.16); color:#b9ac95; font-size:.85rem; line-height:1.6; }
     .cart-alternatives a { color:#dfc276; }
+    .cart-payment-methods { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.45rem; margin:.3rem 0; }
+    .cart-method { min-height:44px; padding:.55rem .35rem; border:1px solid rgba(201,162,74,.35); background:transparent; color:#dfc276; font:600 .62rem 'Josefin Sans',sans-serif; letter-spacing:.05em; cursor:pointer; }
+    .cart-method.is-active { background:rgba(201,162,74,.12); border-color:#c9a24a; color:#f5e8c0; }
+    .cart-payment-panel[hidden] { display:none; }
+    .cart-payment-panel { display:grid; gap:.8rem; color:#cbbd9f; font-size:.9rem; line-height:1.55; }
+    .cart-card-form { display:grid; gap:.8rem; }
+    .cart-payment-detail { display:grid; grid-template-columns:1fr auto; align-items:center; gap:.3rem .7rem; padding:.7rem; background:#19140f; border:1px solid rgba(201,162,74,.2); overflow-wrap:anywhere; }
+    .cart-payment-detail span { grid-column:1/-1; color:#9e927d; font: .62rem 'Josefin Sans',sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+    .cart-payment-detail strong { color:#f5e8c0; font:600 .85rem 'Josefin Sans',sans-serif; }
+    .cart-copy { border:0; background:none; color:#dfc276; font:600 .62rem 'Josefin Sans',sans-serif; text-decoration:underline; cursor:pointer; }
+    .cart-pay-link { display:flex; align-items:center; justify-content:center; box-sizing:border-box; text-decoration:none; }
     .cart-success { display:none; padding:1rem 0; color:#e5d7b8; line-height:1.6; }
+    @media(max-width:420px){ .cart-payment-methods { grid-template-columns:1fr; } }
     @media(max-width:600px){ .cart-launch{right:.75rem;bottom:.75rem;padding:.8rem .9rem} .cart-panel{padding:1.15rem} }
 
   </style>
@@ -334,6 +347,7 @@
             <p class="price-label">Price ${saleTag}</p>
             ${originalPrice}
             <p class="price" style="${g.on_sale ? 'color:#c0392b;' : ''}">${g.price}</p>
+            <p class="shipping-note">Free insured shipping within Canada. International shipping is quoted before dispatch.</p>
             ${freeGift}
           </div>
           <div class="cta-wrap">
@@ -455,15 +469,38 @@
       <div class="cart-head"><h2 id="cart-title">Your Cart</h2><button class="cart-close" type="button" onclick="closeCart()" aria-label="Close cart">×</button></div>
       <div id="cart-contents"></div>
       <div id="cart-success" class="cart-success" role="status"></div>
-      <form id="cart-checkout" class="cart-form" onsubmit="submitGuitarPayment(event)" hidden>
-        <p class="cart-note">Secure card payment. Shipping is arranged separately after purchase; we’ll email you to confirm the insured shipping cost before dispatch.</p>
-        <label>Your name<input id="cart-name" name="name" autocomplete="name" required maxlength="120"></label>
-        <label>Email for receipt<input id="cart-email" name="email" type="email" autocomplete="email" required maxlength="254"></label>
-        <label>Card details<div id="cart-card"></div></label>
-        <div id="cart-error" class="cart-error" role="alert"></div>
-        <button id="cart-pay" class="cart-pay" type="submit">Pay by Card</button>
-      </form>
-      <div id="cart-alternatives" class="cart-alternatives">Prefer another option? <a href="mailto:tsunamiguitarshop@gmail.com?subject=Guitar%20payment%20options">Ask about Interac e-transfer, PayPal or layaway</a>.</div>
+      <div id="cart-checkout" class="cart-form" hidden>
+        <p class="cart-note">Choose a payment method below. Insured shipping is arranged separately; we’ll confirm its cost before dispatch.</p>
+        <div class="cart-payment-methods" role="group" aria-label="Choose payment method">
+          <button class="cart-method is-active" type="button" data-payment-method="card" aria-pressed="true">Card</button>
+          <button class="cart-method" type="button" data-payment-method="paypal" aria-pressed="false">PayPal</button>
+          <button class="cart-method" type="button" data-payment-method="etransfer" aria-pressed="false">Interac e-Transfer</button>
+        </div>
+        <section class="cart-payment-panel" id="cart-panel-card" aria-label="Card payment">
+          <form id="cart-card-form" class="cart-card-form" onsubmit="submitGuitarPayment(event)">
+            <p class="cart-note">Secure card payment through Stripe.</p>
+            <label>Your name<input id="cart-name" name="name" autocomplete="name" required maxlength="120"></label>
+            <label>Email for Stripe receipt<input id="cart-email" name="email" type="email" autocomplete="email" required maxlength="254"></label>
+            <label>Card details<div id="cart-card"></div></label>
+            <div id="cart-error" class="cart-error" role="alert"></div>
+            <button id="cart-pay" class="cart-pay" type="submit">Pay by Card</button>
+          </form>
+        </section>
+        <section class="cart-payment-panel" id="cart-panel-paypal" aria-label="PayPal payment" hidden>
+          <p>Continue to PayPal with your cart total in Canadian dollars. Add the order reference below as the payment note.</p>
+          <p class="cart-payment-detail"><span>Order reference</span><strong id="paypal-reference"></strong><button type="button" class="cart-copy" data-copy-id="paypal-reference">Copy reference</button></p>
+          <a id="paypal-pay" class="cart-pay cart-pay-link" href="https://www.paypal.me/tsunamiguitars" target="_blank" rel="noopener noreferrer">Continue to PayPal</a>
+          <p class="cart-note">On PayPal, choose “Paying for an item or service” if prompted.</p>
+        </section>
+        <section class="cart-payment-panel" id="cart-panel-etransfer" aria-label="Interac e-Transfer payment" hidden>
+          <p>Send the exact total from your bank’s Interac e-Transfer service. This shows payment details; it does not open an email.</p>
+          <p class="cart-payment-detail"><span>Recipient</span><strong id="etransfer-recipient">tsunamiguitarshop@gmail.com</strong><button type="button" class="cart-copy" data-copy-id="etransfer-recipient">Copy recipient</button></p>
+          <p class="cart-payment-detail"><span>Amount</span><strong id="etransfer-total"></strong></p>
+          <p class="cart-payment-detail"><span>Message / note</span><strong id="etransfer-reference"></strong><button type="button" class="cart-copy" data-copy-id="etransfer-reference">Copy reference</button></p>
+          <p class="cart-note">Complete the transfer in your bank app. Your bank will show when it has been sent.</p>
+        </section>
+        <div id="cart-alternatives" class="cart-alternatives" role="status" aria-live="polite" hidden></div>
+      </div>
     </section>
   </div>
   <script src="https://js.stripe.com/v3/"></script>
@@ -493,9 +530,17 @@
       const catalog=getCatalog(),valid=items.map(id=>catalog.find(g=>g.id===id&&g.status==='available')).filter(Boolean);
       if(valid.length!==items.length){items=valid.map(g=>g.id);try{localStorage.setItem(CART_KEY,JSON.stringify(items));}catch(e){}}
       document.getElementById('cart-count').textContent=String(items.length);
-      if(!items.length){target.innerHTML='<p class="cart-note">Your cart is empty. Choose an available guitar to add it here.</p>';form.hidden=true;return;}
-      target.innerHTML=valid.map(g=>'<div class="cart-line"><div><strong>'+escapeHtml(g.title)+'</strong><small>'+money(Number(g.price_num))+'</small></div><button type="button" onclick="removeCartItem(\''+escapeJs(g.id)+'\')">Remove</button></div>').join('')+'<div class="cart-total"><span>Guitar total</span><span>'+money(valid.reduce((sum,g)=>sum+Number(g.price_num),0))+'</span></div>';
-      form.hidden=false;if(document.getElementById('cart-scrim').classList.contains('open'))ensureCardField();
+      const options=document.getElementById('cart-alternatives');
+      if(!items.length){target.innerHTML='<p class="cart-note">Your cart is empty. Choose an available guitar to add it here.</p>';form.hidden=true;options.hidden=true;return;}
+      const total=valid.reduce((sum,g)=>sum+Number(g.price_num),0);
+      const reference=('Tsunami: '+valid.map(g=>g.title).join(', ')).slice(0,100);
+      const amountPath=Number(total).toFixed(2).replace(/\\.00$/,'');
+      document.getElementById('paypal-pay').href='https://www.paypal.me/tsunamiguitars/'+amountPath+'CAD';
+      document.getElementById('paypal-reference').textContent=reference;
+      document.getElementById('etransfer-total').textContent=money(total);
+      document.getElementById('etransfer-reference').textContent=reference;
+      target.innerHTML=valid.map(g=>'<div class="cart-line"><div><strong>'+escapeHtml(g.title)+'</strong><small>'+money(Number(g.price_num))+'</small></div><button type="button" onclick="removeCartItem(\''+escapeJs(g.id)+'\')">Remove</button></div>').join('')+'<div class="cart-total"><span>Guitar total</span><span>'+money(total)+'</span></div>';
+      form.hidden=false;options.hidden=true;if(document.getElementById('cart-scrim').classList.contains('open')&&document.getElementById('cart-panel-card').hidden===false)ensureCardField();
     }
     function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
     function escapeJs(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
@@ -520,14 +565,43 @@
         if(result.paymentIntent.status==='succeeded'){
           items=[];try{localStorage.removeItem(CART_KEY);}catch(e){}
           document.getElementById('cart-checkout').hidden=true;document.getElementById('cart-contents').innerHTML='';
-          document.getElementById('cart-alternatives').style.display='none';
           const success=document.getElementById('cart-success');success.style.display='block';success.textContent='Payment complete. A receipt is on its way to '+email+'. We’ll contact you to confirm insured shipping before dispatch.';
           document.getElementById('cart-count').textContent='0';
         } else {throw new Error('Payment is still processing. Please check your email for a receipt.');}
       }catch(err){error.textContent=err.message||'Payment could not be completed. Please try again.';button.disabled=false;button.textContent='Pay by Card';delete error.dataset.busy;return;}
       button.disabled=false;button.textContent='Paid';
     };
+    function showPaymentMethod(method){
+      ['card','paypal','etransfer'].forEach(function(name){
+        const active=name===method;
+        document.querySelector('[data-payment-method="'+name+'"]').classList.toggle('is-active',active);
+        document.querySelector('[data-payment-method="'+name+'"]').setAttribute('aria-pressed',active?'true':'false');
+        document.getElementById('cart-panel-'+name).hidden=!active;
+      });
+      if(method==='card'&&document.getElementById('cart-scrim').classList.contains('open'))ensureCardField();
+    }
+    document.querySelectorAll('[data-payment-method]').forEach(function(button){
+      button.addEventListener('click',function(){showPaymentMethod(button.dataset.paymentMethod);});
+    });
+    document.querySelectorAll('[data-copy-id]').forEach(function(button){
+      button.addEventListener('click',async function(){
+        const value=document.getElementById(button.dataset.copyId).textContent;
+        try{
+          await navigator.clipboard.writeText(value);
+          button.textContent='Copied';
+          const status=document.getElementById('cart-alternatives');
+          status.textContent='Copied to clipboard.';
+          status.hidden=false;
+          window.setTimeout(function(){button.textContent=button.dataset.copyId==='etransfer-recipient'?'Copy recipient':'Copy reference';status.hidden=true;},1800);
+        }catch(e){
+          const status=document.getElementById('cart-alternatives');
+          status.textContent='Copy is unavailable here. Select the payment detail and copy it manually.';
+          status.hidden=false;
+        }
+      });
+    });
     document.addEventListener('keydown',e=>{if(e.key==='Escape')window.closeCart();});
+    showPaymentMethod('card');
     render();
   })();
   </script>
