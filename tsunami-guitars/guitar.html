@@ -269,21 +269,30 @@
 
       // ── SCHEMA.ORG PRODUCT ────────────────────────────
       const schema = {
-        "@context": "https://schema.org/",
+        "@context": "https://schema.org",
         "@type": "Product",
         "name": g.year + ' ' + g.brand + ' ' + g.model,
         "description": g.description,
-        "image": ogImg,
+        "image": g.images.map(image => 'https://tsunamiguitars.com' + assetUrl('images/' + image)),
+        "sku": g.id,
+        "url": pageUrl,
+        "category": "Musical Instruments > Guitars",
         "brand": { "@type": "Brand", "name": g.brand },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "CAD",
-          "price": String(g.price_num),
-          "availability": g.status === 'available'
-            ? "https://schema.org/InStock"
-            : "https://schema.org/OutOfStock",
-          "seller": { "@type": "Organization", "name": "Tsunami Guitars", "url": "https://tsunamiguitars.com" }
-        }
+        ...(g.status === 'available' ? {
+          "offers": {
+            "@type": "Offer",
+            "url": pageUrl,
+            "priceCurrency": "CAD",
+            "price": String(g.price_num),
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "seller": {
+              "@type": "Organization",
+              "name": "Tsunami Guitars",
+              "url": "https://tsunamiguitars.com"
+            }
+          }
+        } : {})
       };
       const schemaTag = document.createElement('script');
       schemaTag.type = 'application/ld+json';
