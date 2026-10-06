@@ -459,7 +459,7 @@
     const CART_KEY='tsunami-guitar-cart-v1';
     let items=[];
     try { items=JSON.parse(localStorage.getItem(CART_KEY)||'[]').filter(x=>typeof x==='string'); } catch(e) {}
-    let stripeClient=null,cardField=null;
+    let stripeClient=null,cardField=null,catalogLoaded=false;
     const money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n);
     const save=()=>{try{localStorage.setItem(CART_KEY,JSON.stringify(items));}catch(e){};render();};
     window.openCart=function(){document.getElementById('cart-scrim').classList.add('open');document.getElementById('cart-scrim').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';render();};
@@ -472,12 +472,14 @@
     };
     window.removeCartItem=function(id){items=items.filter(x=>x!==id);save();};
     function getCatalog(){return window.guitarCatalog||[];}
-    window.setGuitarCatalog=function(all){window.guitarCatalog=all;render();};
+    window.setGuitarCatalog=function(all){window.guitarCatalog=all;catalogLoaded=true;render();};
     function render(){
+      document.getElementById('cart-count').textContent=String(items.length);
+      const target=document.getElementById('cart-contents'),form=document.getElementById('cart-checkout');
+      if(!catalogLoaded){target.innerHTML='<p class="cart-note">Loading your cart…</p>';form.hidden=true;return;}
       const catalog=getCatalog(),valid=items.map(id=>catalog.find(g=>g.id===id&&g.status==='available')).filter(Boolean);
       if(valid.length!==items.length){items=valid.map(g=>g.id);try{localStorage.setItem(CART_KEY,JSON.stringify(items));}catch(e){}}
       document.getElementById('cart-count').textContent=String(items.length);
-      const target=document.getElementById('cart-contents'),form=document.getElementById('cart-checkout');
       if(!items.length){target.innerHTML='<p class="cart-note">Your cart is empty. Choose an available guitar to add it here.</p>';form.hidden=true;return;}
       target.innerHTML=valid.map(g=>'<div class="cart-line"><div><strong>'+escapeHtml(g.title)+'</strong><small>'+money(Number(g.price_num))+'</small></div><button type="button" onclick="removeCartItem(\''+escapeJs(g.id)+'\')">Remove</button></div>').join('')+'<div class="cart-total"><span>Guitar total</span><span>'+money(valid.reduce((sum,g)=>sum+Number(g.price_num),0))+'</span></div>';
       form.hidden=false;if(document.getElementById('cart-scrim').classList.contains('open'))ensureCardField();

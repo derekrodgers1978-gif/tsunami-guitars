@@ -1534,6 +1534,46 @@ document.addEventListener('keydown', function(e) {
         </div>
       </article>
 
+
+      <article class="blog-card">
+        <div class="blog-card-header">
+          <div role="img" aria-label="Tsunami Guitars dragon emblem" style="width:160px;height:160px;border-radius:50%;background-image:url('images/tsunami-guitars-wood-dragon.jpeg');background-size:cover;background-position:center;border:2px solid rgba(201,162,74,0.3);box-shadow:0 0 40px rgba(139,26,26,0.5),0 0 0 8px rgba(201,162,74,0.04);position:relative;z-index:1;flex-shrink:0;"></div>
+          <span class="blog-card-category">Collector's Journal</span>
+        </div>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">September 2026</span>
+          <span class="blog-card-meta-dot">·</span>
+          <span class="blog-card-read-time">⏱ 8 min read</span>
+        </div>
+        <div class="blog-card-body">
+          <h3 class="blog-card-title">The Guitar World Is Pulling in Two Directions</h3>
+          <p class="blog-card-excerpt">The big brands are chasing new technology. Collectors are chasing old craftsmanship. Here's what that split means for Japanese guitars.</p>
+        </div>
+        <div class="blog-post-full" id="post8-full">
+          <h4>Two conversations, one instrument</h4>
+          <p>Spend a little time around guitar shops, music forums or a rehearsal room and two conversations keep coming up. One is about what comes next: new electronics, new ways to shape and manage sound, lighter builds and tools that make recording easier. The other looks backward: who built a guitar, how it was made, what the original parts were and whether the instrument still feels alive after decades of use.</p>
+          <p>Those conversations can sound like opposing teams. They don't have to be. They describe different reasons people pick up a guitar. Some players want a fresh palette of sounds and a dependable instrument for a specific job. Others want the feel of a particular neck, the response of a well-made old instrument or the history carried by a guitar that has been played for years. Plenty of people want both.</p>
+
+          <h4>Technology serves the song</h4>
+          <p>New technology deserves a fair hearing. A useful instrument should make it easier to play the music you want to play. Quiet electronics, practical switching, stable hardware and recording tools can solve real problems. A modern feature is not a gimmick simply because it is new; its value comes down to whether it helps the player.</p>
+          <p>The same test applies to every era: does the guitar feel right, stay in tune, sound good through the equipment you use and do the work you need it to do? A feature list can't answer all of that. Neither can an age or a famous name. The hands and ears of the person playing matter more than the argument around the guitar.</p>
+
+          <h4>Why older Japanese guitars draw collectors</h4>
+          <p>Japanese instruments from the late twentieth century attract attention because they often reward close inspection. The appeal isn't simply that they are old or that a model resembles a better-known guitar. Collectors and players look at the whole instrument: the neck shape, fretwork, body construction, finish, hardware, wiring and the way the parts work together.</p>
+          <p>Japan's guitar industry included many makers and factories, and the details vary by brand, model and year. That's part of the interest. A label or serial number can start the research, but it should not end it. Photos, catalogue references, construction details and the instrument's condition all help tell a more reliable story. When information is uncertain, a careful description should say so instead of turning a guess into a fact.</p>
+          <p>For players, craftsmanship is not an abstract score. It is the way an instrument responds when you fret a note, bend a string or move from one part of the neck to another. A guitar can have honest wear and still play beautifully. Another may look clean but need fretwork, a setup or electrical attention. Condition and playability belong in the conversation alongside provenance and collectibility.</p>
+
+          <h4>Buy the guitar, not the hype</h4>
+          <p>When comparing a vintage Japanese guitar with a new instrument, start with your own use. Try the neck if you can. Ask about fret wear, neck relief, electronics, replaced parts and any repairs. Look closely at the photos. Confirm what is included, and make sure the seller describes imperfections plainly. If you are buying remotely, ask for the details you need before committing.</p>
+          <p>Then think about the sound and feel you actually want. Are you looking for a familiar style made with a different character? A guitar that will be played every week? A particular model you've researched for years? A reliable instrument for recording? Those goals may point to different answers, and none needs to be justified by a resale prediction.</p>
+          <p>The split in the guitar world is useful when it reminds us that there is more than one kind of progress. New tools can open doors. Older instruments can show what careful building feels like. The best choice is the guitar that makes you want to play, whether it was designed last year or has been making music for decades.</p>
+          <p><a href="inventory.html#products" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">Explore our current Japanese guitar inventory</a></p>
+        </div>
+        <div class="blog-footer">
+          <button class="blog-read-more" type="button" aria-expanded="false" onclick="togglePost('post8-full', this)">Read More <span class="arrow">→</span></button>
+        </div>
+      </article>
+
     </div>
 
     <div style="text-align:center;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(201,162,74,0.1);background:#0e0b08;">
@@ -1549,6 +1589,8 @@ function togglePost(id, btn) {
   var isOpen = post.classList.contains('open');
   post.classList.toggle('open');
   btn.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  btn.firstChild.textContent = isOpen ? 'Read More ' : 'Show Less ';
   btn.querySelector('.arrow').textContent = isOpen ? '→' : '↓';
   if (!isOpen) {
     setTimeout(function() {
