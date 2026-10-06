@@ -123,6 +123,34 @@
       .footer-bar { padding: 1.5rem 1rem; }
       .spec-row { grid-template-columns: 120px 1fr; }
     }
+  
+    .cart-launch { position:fixed; right:1.25rem; bottom:1.25rem; z-index:30; border:1px solid rgba(201,162,74,.35); background:#c9a24a; color:#0e0b08; padding:.85rem 1.1rem; font:600 .68rem 'Josefin Sans',sans-serif; letter-spacing:.13em; text-transform:uppercase; cursor:pointer; box-shadow:0 8px 24px #0008; }
+    .cart-launch span { display:inline-grid; place-items:center; min-width:1.35rem; height:1.35rem; margin-left:.4rem; border-radius:50%; background:#160f0b; color:#e8c878; font-size:.68rem; }
+    .cart-scrim { position:fixed; inset:0; z-index:40; display:none; background:rgba(0,0,0,.76); }
+    .cart-scrim.open { display:block; }
+    .cart-panel { position:absolute; inset:0 0 0 auto; width:min(100%,480px); overflow:auto; padding:1.5rem; background:#100d0a; border-left:1px solid rgba(201,162,74,.25); color:#eee4d1; box-shadow:-20px 0 70px #0009; }
+    .cart-head { display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid rgba(201,162,74,.18); }
+    .cart-head h2 { color:#dfc276; font:600 1.5rem 'Shippori Mincho',serif; margin:0; }
+    .cart-close { border:0; color:#dfc276; background:transparent; font-size:1.7rem; cursor:pointer; padding:.2rem .5rem; }
+    .cart-line { display:flex; justify-content:space-between; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(201,162,74,.12); }
+    .cart-line strong { display:block; color:#eee4d1; font:600 .92rem 'Shippori Mincho',serif; }
+    .cart-line small { display:block; color:#9e927d; font: .75rem 'Josefin Sans',sans-serif; margin-top:.3rem; }
+    .cart-line button { align-self:center; border:0; color:#c9a24a; background:none; text-decoration:underline; cursor:pointer; }
+    .cart-total { display:flex; justify-content:space-between; padding:1rem 0; color:#dfc276; font:600 1rem 'Josefin Sans',sans-serif; }
+    .cart-note { color:#b9ac95; font-size:.85rem; line-height:1.55; }
+    .cart-form[hidden] { display:none; }
+    .cart-form { display:grid; gap:.8rem; margin-top:1rem; }
+    .cart-form label { display:grid; gap:.35rem; color:#cbbd9f; font: .72rem 'Josefin Sans',sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    .cart-form input { width:100%; min-height:48px; padding:.7rem; color:#f4eddf; background:#19140f; border:1px solid rgba(201,162,74,.35); border-radius:0; font:16px sans-serif; }
+    #cart-card { min-height:48px; padding:.85rem; background:#19140f; border:1px solid rgba(201,162,74,.35); }
+    .cart-pay { width:100%; min-height:50px; margin-top:.6rem; border:0; background:linear-gradient(135deg,#e8c878,#c9a24a); color:#0e0b08; font:600 .75rem 'Josefin Sans',sans-serif; letter-spacing:.15em; text-transform:uppercase; cursor:pointer; }
+    .cart-pay:disabled { opacity:.55; cursor:wait; }
+    .cart-error { min-height:1.4rem; color:#ff9992; font-size:.86rem; line-height:1.45; }
+    .cart-alternatives { padding-top:1rem; margin-top:1rem; border-top:1px solid rgba(201,162,74,.16); color:#b9ac95; font-size:.85rem; line-height:1.6; }
+    .cart-alternatives a { color:#dfc276; }
+    .cart-success { display:none; padding:1rem 0; color:#e5d7b8; line-height:1.6; }
+    @media(max-width:600px){ .cart-launch{right:.75rem;bottom:.75rem;padding:.8rem .9rem} .cart-panel{padding:1.15rem} }
+
   </style>
 
 <style id="mobile-guitar-fit">
@@ -193,6 +221,7 @@
       .then(data => {
         const guitar = data.guitars.find(g => g.id === guitarId);
         if (!guitar) { showError('Guitar not found.'); return; }
+        window.setGuitarCatalog(data.guitars);
         renderGuitar(guitar);
       })
       .catch(() => showError('Could not load inventory data.'));
@@ -222,6 +251,7 @@
     };
 
     function renderGuitar(g) {
+      window.currentGuitarData = g;
       guitarImages = g.images;
 
       // ── META TAGS ─────────────────────────────────────
@@ -294,7 +324,7 @@
             ${freeGift}
           </div>
           <div class="cta-wrap">
-            <a href="${g.stripe}" target="_blank" rel="noopener" class="buy-btn">Buy Direct →</a>
+            <button type="button" class="buy-btn" onclick="addCurrentGuitarToCart()">Add to Cart</button>
             <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener" class="reverb-link">or buy on Reverb</a>
           </div>
         </div>` : `
@@ -402,6 +432,88 @@
       if (e.key === 'Escape') lbClose();
     });
 
+  })();
+  </script>
+
+
+  <button class="cart-launch" type="button" onclick="openCart()" aria-label="Open shopping cart">Cart <span id="cart-count">0</span></button>
+  <div class="cart-scrim" id="cart-scrim" onclick="if(event.target===this)closeCart()" aria-hidden="true">
+    <section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-head"><h2 id="cart-title">Your Cart</h2><button class="cart-close" type="button" onclick="closeCart()" aria-label="Close cart">×</button></div>
+      <div id="cart-contents"></div>
+      <div id="cart-success" class="cart-success" role="status"></div>
+      <form id="cart-checkout" class="cart-form" onsubmit="submitGuitarPayment(event)" hidden>
+        <p class="cart-note">Secure card payment. Shipping is arranged separately after purchase; we’ll email you to confirm the insured shipping cost before dispatch.</p>
+        <label>Your name<input id="cart-name" name="name" autocomplete="name" required maxlength="120"></label>
+        <label>Email for receipt<input id="cart-email" name="email" type="email" autocomplete="email" required maxlength="254"></label>
+        <label>Card details<div id="cart-card"></div></label>
+        <div id="cart-error" class="cart-error" role="alert"></div>
+        <button id="cart-pay" class="cart-pay" type="submit">Pay by Card</button>
+      </form>
+      <div id="cart-alternatives" class="cart-alternatives">Prefer another option? <a href="mailto:tsunamiguitarshop@gmail.com?subject=Guitar%20payment%20options">Ask about Interac e-transfer, PayPal or layaway</a>.</div>
+    </section>
+  </div>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+  (function(){
+    const CART_KEY='tsunami-guitar-cart-v1';
+    let items=[];
+    try { items=JSON.parse(localStorage.getItem(CART_KEY)||'[]').filter(x=>typeof x==='string'); } catch(e) {}
+    let stripeClient=null,cardField=null;
+    const money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n);
+    const save=()=>{try{localStorage.setItem(CART_KEY,JSON.stringify(items));}catch(e){};render();};
+    window.openCart=function(){document.getElementById('cart-scrim').classList.add('open');document.getElementById('cart-scrim').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';render();};
+    window.closeCart=function(){document.getElementById('cart-scrim').classList.remove('open');document.getElementById('cart-scrim').setAttribute('aria-hidden','true');document.body.style.overflow='';};
+    window.addCurrentGuitarToCart=function(){
+      const g=window.currentGuitarData;
+      if(!g||g.status!=='available') return;
+      if(!items.includes(g.id)) items.push(g.id);
+      save(); openCart();
+    };
+    window.removeCartItem=function(id){items=items.filter(x=>x!==id);save();};
+    function getCatalog(){return window.guitarCatalog||[];}
+    window.setGuitarCatalog=function(all){window.guitarCatalog=all;render();};
+    function render(){
+      const catalog=getCatalog(),valid=items.map(id=>catalog.find(g=>g.id===id&&g.status==='available')).filter(Boolean);
+      if(valid.length!==items.length){items=valid.map(g=>g.id);try{localStorage.setItem(CART_KEY,JSON.stringify(items));}catch(e){}}
+      document.getElementById('cart-count').textContent=String(items.length);
+      const target=document.getElementById('cart-contents'),form=document.getElementById('cart-checkout');
+      if(!items.length){target.innerHTML='<p class="cart-note">Your cart is empty. Choose an available guitar to add it here.</p>';form.hidden=true;return;}
+      target.innerHTML=valid.map(g=>'<div class="cart-line"><div><strong>'+escapeHtml(g.title)+'</strong><small>'+money(Number(g.price_num))+'</small></div><button type="button" onclick="removeCartItem(\''+escapeJs(g.id)+'\')">Remove</button></div>').join('')+'<div class="cart-total"><span>Guitar total</span><span>'+money(valid.reduce((sum,g)=>sum+Number(g.price_num),0))+'</span></div>';
+      form.hidden=false;if(document.getElementById('cart-scrim').classList.contains('open'))ensureCardField();
+    }
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+    function escapeJs(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+    function ensureCardField(){
+      if(cardField||!window.Stripe)return;
+      stripeClient=window.Stripe('pk_live_51TKg5YL4zUnVDc4mNVtusAiyX1YDOr61CydkckeeTaP8QBFuuzRIai0lWdID28pBzB14Mb9yoOrpnGC1u7IZRYmE00y1A1Erfi');
+      cardField=stripeClient.elements().create('card',{hidePostalCode:false,style:{base:{color:'#f4eddf',fontFamily:'Arial,sans-serif',fontSize:'16px','::placeholder':{color:'#a39882'}},invalid:{color:'#ff9992'}}});
+      cardField.mount('#cart-card');
+      cardField.on('change',e=>{if(e.error)document.getElementById('cart-error').textContent=e.error.message;else if(!document.getElementById('cart-error').dataset.busy)document.getElementById('cart-error').textContent='';});
+    }
+    window.submitGuitarPayment=async function(e){
+      e.preventDefault();const name=document.getElementById('cart-name').value.trim(),email=document.getElementById('cart-email').value.trim(),button=document.getElementById('cart-pay'),error=document.getElementById('cart-error');
+      if(!items.length||!name||!email){error.textContent='Enter your name and email to continue.';return;}
+      if(!stripeClient||!cardField){error.textContent='Card payment is unavailable right now. Please try again shortly.';return;}
+      button.disabled=true;button.textContent='Starting secure payment…';error.textContent='';error.dataset.busy='1';
+      try{
+        const response=await fetch('/.netlify/functions/create-guitar-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({productIds:items,name,email})});
+        const payload=await response.json();
+        if(!response.ok)throw new Error(payload.error||'Could not start checkout. Please try again.');
+        const result=await stripeClient.confirmCardPayment(payload.clientSecret,{payment_method:{card:cardField,billing_details:{name,email}}});
+        if(result.error)throw new Error(result.error.message);
+        if(result.paymentIntent.status==='succeeded'){
+          items=[];try{localStorage.removeItem(CART_KEY);}catch(e){}
+          document.getElementById('cart-checkout').hidden=true;document.getElementById('cart-contents').innerHTML='';
+          document.getElementById('cart-alternatives').style.display='none';
+          const success=document.getElementById('cart-success');success.style.display='block';success.textContent='Payment complete. A receipt is on its way to '+email+'. We’ll contact you to confirm insured shipping before dispatch.';
+          document.getElementById('cart-count').textContent='0';
+        } else {throw new Error('Payment is still processing. Please check your email for a receipt.');}
+      }catch(err){error.textContent=err.message||'Payment could not be completed. Please try again.';button.disabled=false;button.textContent='Pay by Card';delete error.dataset.busy;return;}
+      button.disabled=false;button.textContent='Paid';
+    };
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')window.closeCart();});
+    render();
   })();
   </script>
 
