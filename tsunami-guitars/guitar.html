@@ -312,6 +312,11 @@
             "price": String(g.price_num),
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/UsedCondition",
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "CAD" },
+              "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "CA" }
+            },
             "seller": {
               "@type": "Organization",
               "name": "Tsunami Guitars",
