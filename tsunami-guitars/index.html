@@ -1124,8 +1124,53 @@
   .footer-links a { display: block; padding: .35rem .15rem; font-size: .68rem; letter-spacing: .1em; line-height: 1.45; white-space: normal; overflow-wrap: anywhere; }
 }
 </style>
+
+<style id="entry-gate-styles">
+  #entry-gate {
+    position: fixed; inset: 0; z-index: 99999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    overflow: hidden; background: radial-gradient(ellipse at 50% 45%, rgba(91,35,29,.34), transparent 58%), #090807;
+    opacity: 1; visibility: visible; transition: opacity .45s ease, visibility .45s ease;
+  }
+  #entry-gate.is-entering { opacity: 0; visibility: hidden; pointer-events: none; }
+  #entry-gate[hidden] { display: none !important; }
+  #entry-logo {
+    display: block; width: min(86vw, 68svh, 760px); max-height: 68svh;
+    height: auto; object-fit: contain; filter: drop-shadow(0 18px 42px rgba(0,0,0,.62));
+  }
+  #entry-tagline {
+    margin: clamp(10px, 2svh, 20px) 0 0; color: #d4b66e;
+    font: 400 clamp(.62rem, 1.8vw, .82rem)/1.4 'Josefin Sans',sans-serif;
+    letter-spacing: .34em; text-align: center; text-transform: uppercase;
+  }
+  #entry-button {
+    min-height: 54px; margin-top: clamp(16px, 3svh, 26px); padding: 0 34px;
+    border: 1px solid rgba(246,225,172,.65); border-radius: 2px;
+    background: linear-gradient(135deg,#e8c878,#c9a24a); color: #15100a;
+    box-shadow: 0 8px 30px rgba(201,162,74,.2);
+    cursor: pointer; font: 600 .72rem 'Josefin Sans',sans-serif;
+    letter-spacing: .24em; text-transform: uppercase; transition: transform .2s, box-shadow .2s;
+  }
+  #entry-button:hover { transform: translateY(-2px); box-shadow: 0 12px 38px rgba(201,162,74,.32); }
+  #entry-button:focus-visible { outline: 3px solid #f5e8c0; outline-offset: 5px; }
+  @media (max-width: 600px) {
+    #entry-logo { width: min(88vw, 64svh); max-height: 64svh; }
+    #entry-tagline { letter-spacing: .25em; }
+    #entry-button { min-height: 52px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #entry-gate, #entry-button { transition: none; }
+  }
+</style>
 </head>
 <body style="background:#0e0b08 !important;min-height:100vh;">
+<section id="entry-gate" role="dialog" aria-modal="true" aria-labelledby="entry-tagline">
+  <img id="entry-logo" src="/images/tsunami-guitars-wood-dragon.jpeg" alt="Tsunami Guitars carved dragon emblem">
+  <p id="entry-tagline">Curators of Fine Japanese Guitars</p>
+  <button id="entry-button" type="button">Enter Site</button>
+</section>
+
 
 <div id="page-bg" style="position:fixed;inset:0;background:#0e0b08;z-index:-1;"></div>
 
@@ -2101,6 +2146,25 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </a>
     </div>`).join('');
+})();
+</script>
+
+<script>
+(() => {
+  const gate = document.getElementById('entry-gate');
+  const button = document.getElementById('entry-button');
+  if (!gate || !button) return;
+  const background = [...document.body.children].filter(el => el !== gate);
+  background.forEach(el => { el.inert = true; });
+  const previousOverflow = document.documentElement.style.overflow;
+  document.documentElement.style.overflow = 'hidden';
+  button.addEventListener('click', () => {
+    background.forEach(el => { el.inert = false; });
+    gate.setAttribute('aria-hidden', 'true');
+    gate.classList.add('is-entering');
+    document.documentElement.style.overflow = previousOverflow;
+    window.setTimeout(() => { gate.hidden = true; }, 500);
+  }, { once: true });
 })();
 </script>
 </body>
