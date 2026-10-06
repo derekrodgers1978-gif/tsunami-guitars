@@ -325,10 +325,14 @@
           }
         } : {})
       };
-      const schemaTag = document.createElement('script');
-      schemaTag.type = 'application/ld+json';
+      let schemaTag = document.getElementById('product-jsonld');
+      if (!schemaTag) {
+        schemaTag = document.createElement('script');
+        schemaTag.id = 'product-jsonld';
+        schemaTag.type = 'application/ld+json';
+        document.head.appendChild(schemaTag);
+      }
       schemaTag.textContent = JSON.stringify(schema);
-      document.head.appendChild(schemaTag);
 
       // ── THUMBS HTML ───────────────────────────────────
       const thumbsHtml = g.images.map((img, i) => `

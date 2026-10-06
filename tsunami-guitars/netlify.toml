@@ -9,4 +9,3 @@
   from = "/guitars/:id/"
   to = "/guitar.html?id=:id"
   status = 200
-  force = true
