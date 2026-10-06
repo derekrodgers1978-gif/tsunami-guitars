@@ -1193,6 +1193,32 @@
 </style>
   <meta name="description" content="Shop inspected Japanese guitars from Greco, Tokai, Navigator, Fernandes and more in Calgary. Free insured shipping across Canada.">
   <link rel="canonical" href="https://tsunamiguitars.com/">
+<style id="hero-all-guitars-carousel">
+#hero-showcase{position:relative;display:block;width:min(100%,600px);height:min(66vh,590px);min-height:460px;padding-top:2.8rem;margin:0 auto}
+#hero-showcase .hero-gallery-kicker{position:absolute;top:0;left:0;z-index:2;margin:0;font:600 .68rem/1.8 'Josefin Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+#hero-showcase .hero-gallery-kicker span{display:block;font-size:.6rem;letter-spacing:.12em;color:var(--gold-pale);opacity:.68}
+.hero-carousel-shell{position:relative;width:100%;height:100%}
+.hero-carousel-viewport{width:100%;height:100%;overflow:hidden;border:1px solid rgba(201,162,74,.4);border-radius:3px;background:#090706;box-shadow:0 16px 42px rgba(0,0,0,.36)}
+.hero-carousel-track{display:flex;width:100%;height:100%;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.hero-carousel-slide{display:grid;grid-template-rows:minmax(0,1fr) auto;flex:0 0 100%;min-width:0;height:100%;color:var(--gold-pale);text-decoration:none}
+.hero-carousel-image{display:block;width:100%;height:100%;min-height:0;padding:18px;object-fit:contain;background:#090706}
+.hero-carousel-caption{display:flex;min-height:74px;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border-top:1px solid rgba(201,162,74,.18);background:#100c09}
+.hero-carousel-caption>span{display:flex;min-width:0;flex-direction:column;gap:.18rem}
+.hero-carousel-caption small{overflow:hidden;color:var(--gold-pale);font:600 .61rem 'Josefin Sans',sans-serif;letter-spacing:.15em;text-overflow:ellipsis;text-transform:uppercase;white-space:nowrap;opacity:.72}
+.hero-carousel-caption strong{overflow:hidden;color:var(--gold-light);font:700 clamp(1rem,1.5vw,1.35rem) 'Shippori Mincho',serif;letter-spacing:.04em;text-overflow:ellipsis;white-space:nowrap}
+.hero-carousel-caption b{flex:none;color:var(--gold);font:600 .58rem 'Josefin Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.hero-carousel-control{position:absolute;z-index:2;top:50%;transform:translateY(-50%);min-width:58px;min-height:42px;padding:.55rem .7rem;border:1px solid rgba(201,162,74,.55);border-radius:2px;background:rgba(14,11,8,.88);color:var(--gold-light);font:600 .63rem 'Josefin Sans',sans-serif;letter-spacing:.12em;cursor:pointer}
+.hero-carousel-control:hover,.hero-carousel-control:focus-visible{background:var(--gold);color:var(--ink);outline:none}
+.hero-carousel-prev{left:.8rem}.hero-carousel-next{right:.8rem}
+.hero-carousel-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem .15rem 0;color:var(--gold-pale);font:600 .62rem 'Josefin Sans',sans-serif;letter-spacing:.16em}
+.hero-carousel-dots{display:flex;align-items:center;justify-content:flex-end;gap:.38rem;max-width:80%;overflow-x:auto;padding:.3rem}
+.hero-carousel-dot{flex:none;width:8px;height:8px;padding:0;border:1px solid rgba(201,162,74,.65);border-radius:50%;background:transparent;cursor:pointer}
+.hero-carousel-dot[aria-current="true"]{background:var(--gold-light);box-shadow:0 0 8px rgba(201,162,74,.45)}
+@media(max-width:1024px) and (min-width:769px){#hero-showcase{height:540px;min-height:450px}}
+@media(max-width:768px){.hero-right{display:block;position:relative;padding:.25rem 1rem 3.25rem}#hero-showcase{width:100%;max-width:560px;height:430px;min-height:0;padding-top:2.65rem}.hero-carousel-image{padding:10px}.hero-carousel-caption{min-height:62px;padding:.65rem .8rem}.hero-carousel-control{min-width:52px;min-height:40px;font-size:.58rem}.hero-carousel-prev{left:.55rem}.hero-carousel-next{right:.55rem}.hero-carousel-footer{padding-top:.55rem}}
+@media(max-width:420px){#hero-showcase{height:380px}.hero-carousel-image{padding:7px}.hero-carousel-caption{min-height:56px;padding:.55rem .65rem}.hero-carousel-caption small{font-size:.52rem}.hero-carousel-caption strong{font-size:.98rem}}
+@media(prefers-reduced-motion:reduce){.hero-carousel-track{transition:none}}
+</style>
 </head>
 <body style="background:#0e0b08 !important;min-height:100vh;">
 <section id="entry-gate" role="dialog" aria-modal="true" aria-labelledby="entry-tagline">
@@ -1331,20 +1357,19 @@ document.addEventListener('keydown', function(e) {
     </a>
   </div>
   <div class="hero-right">
-    <div class="hero-showcase">
-      <p class="hero-gallery-kicker">In the shop now <span>Tap a guitar for details</span></p>
-      <a class="hero-photo hero-photo--ornetts" href="/guitars/ornetts-gm5rc-2006/" aria-label="View the 2006 Ornetts GM5RC">
-        <img src="images/img_22.jpg" alt="2006 Ornetts GM5RC Honey Burst Japanese guitar" loading="eager">
-        <span class="hero-photo-caption"><span>2006 · Ornetts</span><strong>GM5RC</strong></span>
-      </a>
-      <a class="hero-photo hero-photo--fernandes" href="/guitars/fernandes-fst-50-1977/" aria-label="View the 1977 Fernandes FST-50">
-        <img src="images/fernandes-fst50-1977-01.jpeg" alt="1977 Fernandes FST-50 Strat-style guitar" loading="lazy">
-        <span class="hero-photo-caption"><span>1977 · Fernandes</span><strong>FST-50</strong></span>
-      </a>
-      <a class="hero-photo hero-photo--greco" href="/guitars/greco-eg600pb-1978/" aria-label="View the 1978 Greco EG-600PB">
-        <img src="images/greco-eg600pb-1978-01.jpg" alt="1978 Greco EG-600PB Peter Frampton model" loading="lazy">
-        <span class="hero-photo-caption"><span>1978 · Greco</span><strong>EG-600PB</strong></span>
-      </a>
+    <div class="hero-showcase" id="hero-showcase" role="region" aria-roledescription="carousel" aria-label="Guitars currently for sale">
+      <p class="hero-gallery-kicker">In the shop now <span>Browse every available guitar</span></p>
+      <div class="hero-carousel-shell">
+        <div class="hero-carousel-viewport"><div class="hero-carousel-track" id="hero-carousel-track">
+          <a class="hero-carousel-slide" href="/guitars/ornetts-gm5rc-2006/" aria-label="View 2006 Ornetts GM5RC">
+            <img class="hero-carousel-image" src="images/img_22.jpg" alt="2006 Ornetts GM5RC Honey Burst Japanese guitar">
+            <span class="hero-carousel-caption"><span><small>2006 · Ornetts</small><strong>GM5RC</strong></span><b>View guitar</b></span>
+          </a>
+        </div></div>
+        <button class="hero-carousel-control hero-carousel-prev" type="button" aria-label="Previous guitar">PREV</button>
+        <button class="hero-carousel-control hero-carousel-next" type="button" aria-label="Next guitar">NEXT</button>
+      </div>
+      <div class="hero-carousel-footer"><span id="hero-carousel-count">1 / 1</span><div class="hero-carousel-dots" id="hero-carousel-dots" aria-label="Choose a guitar"></div></div>
     </div>
   </div>
 </section>
@@ -2192,6 +2217,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.style.overflow = previousOverflow;
     window.setTimeout(() => { gate.hidden = true; }, 500);
   }, { once: true });
+})();
+</script>
+<script id="hero-carousel-script">
+(function(){var root=document.getElementById("hero-showcase");if(!root)return;
+var track=document.getElementById("hero-carousel-track"),count=document.getElementById("hero-carousel-count"),dots=document.getElementById("hero-carousel-dots"),prev=root.querySelector(".hero-carousel-prev"),next=root.querySelector(".hero-carousel-next"),i=0,items=[];
+function go(n){if(!items.length)return;i=(n+items.length)%items.length;track.style.transform="translateX(-"+i*100+"%)";count.textContent=(i+1)+" / "+items.length;Array.prototype.forEach.call(dots.children,function(d,k){d.setAttribute("aria-current",k===i?"true":"false")})}
+function render(data){items=data;track.textContent="";dots.textContent="";data.forEach(function(x,k){var a=document.createElement("a");a.className="hero-carousel-slide";a.href=x.href;a.setAttribute("aria-label","View "+x.name);
+var im=document.createElement("img");im.className="hero-carousel-image";im.src=x.image;im.alt=x.alt||x.name;im.loading=k?"lazy":"eager";im.decoding="async";
+var cap=document.createElement("span");cap.className="hero-carousel-caption";var info=document.createElement("span"),meta=document.createElement("small"),name=document.createElement("strong"),price=document.createElement("b");meta.textContent=x.meta;name.textContent=x.name;price.textContent=x.price||"View guitar";info.appendChild(meta);info.appendChild(name);cap.appendChild(info);cap.appendChild(price);a.appendChild(im);a.appendChild(cap);track.appendChild(a);
+var dot=document.createElement("button");dot.type="button";dot.className="hero-carousel-dot";dot.setAttribute("aria-label","Show "+x.name+" ("+(k+1)+" of "+data.length+")");dot.addEventListener("click",function(){go(k)});dots.appendChild(dot)});
+root.setAttribute("aria-label","Guitars currently for sale, "+data.length+" items");go(0)}
+prev.addEventListener("click",function(){go(i-1)});next.addEventListener("click",function(){go(i+1)});
+root.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"){e.preventDefault();go(i-1)}if(e.key==="ArrowRight"){e.preventDefault();go(i+1)}});
+fetch(new URL("inventory.html",location.href).href,{credentials:"same-origin"}).then(function(r){if(!r.ok)throw Error();return r.text()}).then(function(html){var doc=new DOMParser().parseFromString(html,"text/html"),cards=[].slice.call(doc.querySelectorAll("#inventory-grid > div"));
+var data=cards.map(function(c){var im=c.querySelector("img[src]"),h=c.querySelector("h3"),a=[].slice.call(c.querySelectorAll("a[href]")).find(function(v){return /(^|\/)guitars\//.test(v.getAttribute("href")||"")});if(!im||!h||!a)return null;var ip=im.getAttribute("src"),hp=a.getAttribute("href");if(!/^images\//.test(ip||"")||!/(^|\/)guitars\//.test(hp||""))return null;var iu=new URL(ip,r.url),hu=new URL(hp,r.url);if(iu.origin!==location.origin||hu.origin!==location.origin)return null;var t=c.innerText||c.textContent||"",year=(t.match(/\b(?:19|20)\d{2}\b/)||[])[0]||"",p=(t.match(/CA\$\s?[\d,]+(?:\.\d{2})?/)||[])[0]||"";return{name:h.textContent.trim(),image:iu.href,href:hu.pathname,alt:im.getAttribute("alt"),meta:(year?year+" · ":"")+"Current inventory",price:p}}).filter(Boolean);if(data.length)render(data)}).catch(function(){count.textContent="Browse full inventory"})
 })();
 </script>
 </body>
