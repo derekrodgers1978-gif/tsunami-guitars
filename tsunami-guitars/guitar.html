@@ -215,7 +215,7 @@
 
     // ── LOAD DATA ─────────────────────────────────────────
     const assetVersion = '20261006-repricing-batch-1';
-    const assetUrl = (path) => '/' + path.replace(/^\\/+/, '') + '?v=' + assetVersion;
+    const assetUrl = (path) => '/' + path.split('/').filter(Boolean).join('/') + '?v=' + assetVersion;
 
     fetch('/guitars.json?v=' + assetVersion)
       .then(r => r.json())
