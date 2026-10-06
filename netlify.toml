@@ -2,7 +2,7 @@
   base = "tsunami-guitars"
   publish = "."
   functions = "netlify/functions"
-  command = "true"
+  command = "node scripts/generate-sitemap.js"
 
 [functions]
   node_bundler = "esbuild"
