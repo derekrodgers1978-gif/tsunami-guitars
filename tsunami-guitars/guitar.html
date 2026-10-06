@@ -205,7 +205,8 @@
 
     // ── ROUTING ──────────────────────────────────────────
     const params = new URLSearchParams(window.location.search);
-    const guitarId = params.get('id');
+    const pathMatch = window.location.pathname.match(/^\/guitars\/([^/]+)\/?$/);
+    const guitarId = params.get('id') || (pathMatch ? decodeURIComponent(pathMatch[1]) : null);
 
     if (!guitarId) {
       showError('No guitar specified.');
@@ -255,7 +256,7 @@
       guitarImages = g.images;
 
       // ── META TAGS ─────────────────────────────────────
-      const pageUrl = 'https://tsunamiguitars.com/guitar.html?id=' + g.id;
+      const pageUrl = 'https://tsunamiguitars.com/guitars/' + encodeURIComponent(g.id) + '/';
       const ogImg = 'https://tsunamiguitars.com/' + assetUrl('images/' + g.images[0]);
 
       document.getElementById('page-title').textContent = g.meta_title;
