@@ -2012,12 +2012,27 @@ document.addEventListener('keydown', function(e) {
     var actions = Array.from(card.querySelectorAll('a,button'));
     var direct = actions.find(function(el) { return /buy direct|ask to buy/i.test(el.textContent); });
     var reverb = actions.find(function(el) { return /reverb/i.test(el.textContent); });
+    var detail = actions.find(function(el) { return el.tagName === 'A' && /view full listing/i.test(el.textContent); });
     if (direct) {
       var actionGroup = direct.parentElement;
       actionGroup.classList.add('inventory-actions');
       if (actionGroup.parentElement) actionGroup.parentElement.classList.add('inventory-price-row');
       direct.classList.add('inventory-buy-direct');
       if (reverb) reverb.classList.add('inventory-reverb');
+      if (detail && detail.href) {
+        var checkoutUrl = new URL(detail.href, window.location.href);
+        checkoutUrl.searchParams.set('buy', '1');
+        direct.textContent = 'BUY DIRECT →';
+        direct.setAttribute('aria-label', 'Buy ' + title + ' direct with secure card checkout');
+        direct.removeAttribute('onclick');
+        if (direct.tagName === 'A') {
+          direct.href = checkoutUrl.pathname + checkoutUrl.search + checkoutUrl.hash;
+          direct.removeAttribute('target');
+        } else {
+          direct.type = 'button';
+          direct.addEventListener('click', function() { window.location.href = checkoutUrl.href; });
+        }
+      }
     }
   });
 

@@ -224,6 +224,9 @@
         if (!guitar) { showError('Guitar not found.'); return; }
         window.setGuitarCatalog(data.guitars);
         renderGuitar(guitar);
+        if (params.get('buy') === '1' && guitar.status === 'available') {
+          window.requestAnimationFrame(function() { window.addCurrentGuitarToCart(); });
+        }
       })
       .catch(() => showError('Could not load inventory data.'));
 
