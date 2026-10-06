@@ -12,7 +12,7 @@ const corePages = [
 ];
 const availableGuitars = catalog.guitars
   .filter((guitar) => guitar.status === "available")
-  .map((guitar) => `/guitar.html?id=${encodeURIComponent(guitar.id)}`);
+  .map((guitar) => `/guitars/${encodeURIComponent(guitar.id)}/`);
 const urls = [...new Set([...corePages, ...availableGuitars])];
 const xmlEscape = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const sitemap = [
