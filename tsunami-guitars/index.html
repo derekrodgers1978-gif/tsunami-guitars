@@ -1005,6 +1005,106 @@
   }
   .santa-banner a:hover { color: var(--gold-light); }
   .santa-banner span { color: rgba(255,255,255,0.6); margin: 0 1rem; }
+
+  /* Guitar-forward homepage hero */
+  .hero {
+    min-height: 100vh;
+    grid-template-columns: minmax(0,0.9fr) minmax(0,1.1fr);
+    background: #0e0b08;
+  }
+  .hero-bg {
+    background-color: #0e0b08;
+    background-image: radial-gradient(ellipse at 78% 45%, rgba(139,26,26,0.24), transparent 44%), radial-gradient(ellipse at 85% 86%, rgba(201,162,74,0.1), transparent 40%), linear-gradient(110deg,#0e0b08 18%,#17100b 62%,#0e0b08 100%);
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-bg::after {
+    background: linear-gradient(90deg,rgba(14,11,8,0.2),rgba(14,11,8,0.03) 65%,rgba(14,11,8,0.2));
+  }
+  .hero-left { padding: 8rem 2rem 6rem clamp(3rem,6vw,6rem); }
+  .hero-title { max-width: 680px; font-size: clamp(3rem,5.4vw,5.4rem); }
+  .hero-desc { max-width: 480px; }
+  .hero-right {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
+    padding: 7rem clamp(2rem,5vw,5rem) 4rem 0;
+    z-index: 2;
+  }
+  .hero-showcase { position: relative; width: min(100%,720px); height: min(70vh,650px); min-height: 500px; margin: 0 auto; }
+  .hero-gallery-kicker {
+    position: absolute; z-index: 5; top: 2%; left: 4%;
+    font-family: 'Josefin Sans',sans-serif; font-size: 0.62rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); line-height: 1.8;
+  }
+  .hero-gallery-kicker span { display: block; font-size: 0.55rem; letter-spacing: 0.12em; color: var(--gold-pale); opacity: 0.65; }
+  .hero-photo {
+    position: absolute; display: block; overflow: hidden;
+    background: #090706; border: 1px solid rgba(201,162,74,0.42);
+    box-shadow: 0 24px 65px rgba(0,0,0,0.62), 0 0 25px rgba(201,162,74,0.08);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .hero-photo:hover { border-color: var(--gold-light); box-shadow: 0 28px 75px rgba(0,0,0,0.7), 0 0 35px rgba(201,162,74,0.18); }
+  .hero-photo img { display:block; width:100%; height:100%; object-fit:contain; background:#090706; padding:0.4rem 0.4rem 3.2rem; }
+  .hero-photo--navigator { right:5%; top:11%; width:54%; height:76%; z-index:2; transform:rotate(2deg); }
+  .hero-photo--navigator:hover { transform:rotate(0) translateY(-5px); }
+  .hero-photo--fernandes { left:2%; top:26%; width:41%; height:56%; z-index:3; transform:rotate(-5deg); }
+  .hero-photo--fernandes:hover { transform:rotate(-2deg) translateY(-5px); }
+  .hero-photo--greco { right:1%; bottom:1%; width:44%; height:50%; z-index:4; transform:rotate(4deg); }
+  .hero-photo--greco:hover { transform:rotate(1deg) translateY(-5px); }
+  .hero-photo-caption {
+    position:absolute; left:0; right:0; bottom:0; min-height:54px; padding:0.45rem 0.75rem;
+    display:flex; flex-direction:column; justify-content:center; gap:0.12rem;
+    background:linear-gradient(0deg,rgba(7,5,4,0.98),rgba(7,5,4,0.82));
+    color:var(--gold-pale); font-family:'Josefin Sans',sans-serif;
+  }
+  .hero-photo-caption span { font-size:0.49rem; letter-spacing:0.16em; text-transform:uppercase; opacity:0.68; }
+  .hero-photo-caption strong { font-family:'Shippori Mincho',serif; font-size:1rem; letter-spacing:0.06em; color:var(--gold-light); }
+  .hero-dragon-seal {
+    position:absolute; z-index:6; top:10%; right:0; width:104px; height:104px;
+    padding:5px; border:1px solid rgba(201,162,74,0.65); border-radius:50%;
+    background:rgba(14,11,8,0.82); box-shadow:0 8px 30px rgba(0,0,0,0.55),0 0 30px rgba(201,162,74,0.14);
+  }
+  .hero-dragon-seal img { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; }
+  .hero-rating {
+    display:inline-flex; align-items:center; gap:0.75rem; margin-top:1.6rem;
+    color:var(--gold-pale); text-decoration:none; font-family:'Josefin Sans',sans-serif;
+    font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; opacity:0.68;
+  }
+  .hero-rating:hover { opacity:1; }
+  .hero-stars { color:var(--gold-light); letter-spacing:0.16em; }
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .hero-left { padding-left:3rem; }
+    .hero-right { padding-right:2rem; }
+    .hero-showcase { height:560px; min-height:480px; }
+    .hero-dragon-seal { width:86px; height:86px; }
+  }
+  @media (max-width: 768px) {
+    .hero { min-height:0; grid-template-columns:1fr; padding-top:68px; }
+    .hero-bg { background-image:radial-gradient(ellipse at 50% 66%,rgba(139,26,26,0.2),transparent 52%),linear-gradient(180deg,#0e0b08 0%,#17100b 70%,#0e0b08 100%); }
+    .hero-bg::after { background:linear-gradient(180deg,rgba(14,11,8,0.08),rgba(14,11,8,0.08)); }
+    .hero-left { padding:5.5rem 1.35rem 1.5rem; }
+    .hero-title { font-size:clamp(2.7rem,11vw,4.2rem); }
+    .hero-desc { font-size:1.05rem; margin-bottom:1.6rem; }
+    .hero-btns { gap:0.7rem; }
+    .hero-btns .btn-primary,.hero-btns .btn-ghost { padding:0.9rem 1.2rem; font-size:0.63rem; }
+    .hero-right { display:block; position:relative; padding:0.25rem 1rem 3.25rem; }
+    .hero-showcase { width:100%; max-width:560px; height:440px; min-height:0; }
+    .hero-gallery-kicker { top:0; left:3%; }
+    .hero-photo--navigator { top:13%; right:6%; width:57%; height:74%; }
+    .hero-photo--fernandes { top:28%; left:2%; width:43%; height:54%; }
+    .hero-photo--greco { right:1%; bottom:0; width:46%; height:48%; }
+    .hero-dragon-seal { top:9%; right:0; width:76px; height:76px; }
+    .hero-rating { margin-top:1.25rem; }
+  }
+  @media (max-width: 420px) {
+    .hero-showcase { height:380px; }
+    .hero-photo-caption { min-height:48px; padding:0.35rem 0.5rem; }
+    .hero-photo-caption span { font-size:0.44rem; }
+    .hero-photo-caption strong { font-size:0.87rem; }
+    .hero-dragon-seal { width:66px; height:66px; }
+  }
 </style>
 </head>
 <body style="background:#0e0b08 !important;min-height:100vh;">
@@ -1191,16 +1291,14 @@ document.addEventListener('keydown', function(e) {
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-left">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span>Curated from Japan</span>
+      <span>Japanese Guitars · Chosen by Hand</span>
     </div>
-    <h1 class="hero-title">The Finest<br><em>Japanese Guitars</em><br>Delivered to You</h1>
+    <h1 class="hero-title">Made in Japan.<br><em>Made to Play.</em></h1>
     <p class="hero-jp">津波ギターズ</p>
-
-    <!-- ANNIVERSARY SALE CALLOUT -->
     <div style="display:inline-flex;align-items:center;gap:0.75rem;background:rgba(139,26,26,0.15);border:1px solid rgba(192,57,43,0.5);padding:0.75rem 1.2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,26,26,0.1),transparent);pointer-events:none;"></div>
       <span style="font-size:1.1rem;">🎉</span>
@@ -1209,29 +1307,34 @@ document.addEventListener('keydown', function(e) {
         <p style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:#f5e8c0;opacity:0.75;margin:0;">15% off all guitars · 25% off merch · Free tee or cap with every guitar</p>
       </div>
     </div>
-
-    <p class="hero-desc">Japanese guitars often rival — and sometimes beat — major American brands at a fraction of the price. Hand-selected, Crafted in Japan, built to last a lifetime. This is what your next guitar looks like.</p>
-    <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" style="display:inline-flex;align-items:center;gap:0.75rem;background:rgba(201,162,74,0.06);border:1px solid rgba(201,162,74,0.25);padding:0.65rem 1.1rem;margin-bottom:2rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,162,74,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,74,0.25)'">
-      <span style="font-size:0.85rem;letter-spacing:0.02em;">⭐⭐⭐⭐⭐</span>
-      <div>
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#c9a24a;margin:0 0 0.1rem;">Trusted Seller on Reverb</p>
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5e8c0;opacity:0.5;margin:0;">5-Star Rated · Verified Buyer Reviews</p>
-      </div>
-      <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9a24a;opacity:0.6;margin-left:0.25rem;">→</span>
-    </a>
-
+    <p class="hero-desc">A carefully chosen collection of Japanese guitars, from rare vintage finds to exceptional players. Every instrument is in hand, photographed, and ready for its next home.</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-primary">Browse Products</a>
-      <a href="#merch" class="btn-primary">Shop Merch</a>
-      <a href="#blog" class="btn-ghost">Read the Blog</a>
-      <a href="#contact" class="btn-ghost">Get in Touch</a>
+      <a href="#products" class="btn-primary">Browse the Guitars</a>
+      <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener" class="btn-ghost">Visit Reverb</a>
     </div>
+    <a class="hero-rating" href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener">
+      <span class="hero-stars">★★★★★</span>
+      <span>5-star seller · Verified buyer reviews</span>
+    </a>
   </div>
   <div class="hero-right">
-    <div class="hero-medallion">
-      <div class="medallion-ring"></div>
-      <div class="medallion-ring-2"></div>
-      <img src="images/img_02.jpg" alt="Tsunami Guitars Dragon Medallion Logo" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
+    <div class="hero-showcase">
+      <p class="hero-gallery-kicker">In the shop now <span>Tap a guitar for details</span></p>
+      <a class="hero-photo hero-photo--navigator" href="guitar.html?id=navigator-n335-natural-1970s" aria-label="View the Navigator N-335">
+        <img src="images/g4-01.jpg" alt="Navigator N-335 Japanese semi-hollow guitar" loading="eager">
+        <span class="hero-photo-caption"><span>1970s · Navigator</span><strong>N-335</strong></span>
+      </a>
+      <a class="hero-photo hero-photo--fernandes" href="guitar.html?id=fernandes-fst-50-1977" aria-label="View the 1977 Fernandes FST-50">
+        <img src="images/fernandes-fst50-1977-01.jpeg" alt="1977 Fernandes FST-50 Strat-style guitar" loading="lazy">
+        <span class="hero-photo-caption"><span>1977 · Fernandes</span><strong>FST-50</strong></span>
+      </a>
+      <a class="hero-photo hero-photo--greco" href="guitar.html?id=greco-eg600pb-1978" aria-label="View the 1978 Greco EG-600PB">
+        <img src="images/greco-eg600pb-1978-01.jpg" alt="1978 Greco EG-600PB Peter Frampton model" loading="lazy">
+        <span class="hero-photo-caption"><span>1978 · Greco</span><strong>EG-600PB</strong></span>
+      </a>
+      <div class="hero-dragon-seal">
+        <img src="images/img_02.jpg" alt="Tsunami Guitars dragon logo">
+      </div>
     </div>
   </div>
 </section>
