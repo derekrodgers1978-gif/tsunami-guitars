@@ -1108,6 +1108,34 @@
     .hero-dragon-seal { width:66px; height:66px; }
   }
 </style>
+<style>
+  .inventory-tools { margin: 1.75rem 0 1.25rem; padding: 1rem; border: 1px solid rgba(201,162,74,.22); background: rgba(201,162,74,.035); display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem 1rem; }
+  .inventory-tools label { display: grid; gap: .4rem; color: #e8c878; font: 600 .75rem 'Josefin Sans',sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .inventory-tools select { width: 100%; min-height: 48px; padding: .7rem .85rem; color: #f5e8c0; background: #14100c; border: 1px solid rgba(201,162,74,.35); border-radius: 2px; font: 400 1rem 'Cormorant Garamond',serif; }
+  .inventory-tools select:focus-visible, .inventory-tools button:focus-visible { outline: 2px solid #e8c878; outline-offset: 2px; }
+  .inventory-tools-footer { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+  #inventory-results { color: #f5e8c0; opacity: .75; font: 400 .9rem 'Josefin Sans',sans-serif; letter-spacing: .04em; }
+  #inventory-clear-filters { min-height: 44px; padding: .55rem .8rem; color: #e8c878; background: transparent; border: 1px solid rgba(201,162,74,.35); cursor: pointer; font: 600 .7rem 'Josefin Sans',sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+  .inventory-card { display: flex; flex-direction: column; height: 100%; min-width: 0; }
+  .inventory-card > div:last-child { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+  .inventory-card .inventory-meta-grid { flex: 1; }
+  .inventory-card .inventory-meta-grid > div p:first-child { color: #c9a24a !important; opacity: .82 !important; font-size: .75rem !important; letter-spacing: .1em !important; }
+  .inventory-card .inventory-meta-grid > div p:nth-child(2) { color: #f5e8c0 !important; opacity: .95 !important; font-size: .95rem !important; line-height: 1.35 !important; overflow-wrap: anywhere; }
+  .inventory-condition { display: inline-flex; align-items: center; width: fit-content; max-width: 100%; margin: .35rem 0 .9rem; padding: .4rem .65rem; color: #f5e8c0; background: rgba(201,162,74,.09); border: 1px solid rgba(201,162,74,.3); font: 600 .75rem 'Josefin Sans',sans-serif; letter-spacing: .05em; line-height: 1.4; }
+  .inventory-price-row { align-items: stretch !important; margin-top: auto; }
+  .inventory-price > p:first-child { color: #c9a24a !important; opacity: .85 !important; font-size: .75rem !important; letter-spacing: .14em !important; }
+  .inventory-price > p:nth-child(2) { font-size: clamp(1.55rem,5vw,2rem) !important; }
+  .inventory-actions { width: min(100%, 220px); align-items: stretch !important; gap: .55rem !important; }
+  .inventory-actions .inventory-buy-direct, .inventory-actions .inventory-reverb { display: inline-flex !important; width: 100%; min-height: 48px; justify-content: center; align-items: center; box-sizing: border-box; padding: .75rem .8rem !important; font-size: .68rem !important; letter-spacing: .12em !important; line-height: 1.35; text-align: center; }
+  .inventory-actions .inventory-reverb { color: #e8c878 !important; background: rgba(201,162,74,.06); border: 1px solid rgba(201,162,74,.45); opacity: 1 !important; text-decoration: none !important; }
+  .inventory-actions a[title^="View full listing"] { font-size: .72rem !important; letter-spacing: .08em !important; }
+  @media (max-width: 600px) {
+    .inventory-tools { grid-template-columns: 1fr; }
+    .inventory-tools-footer { grid-column: 1; }
+    .inventory-actions { width: 100%; }
+    .inventory-price-row { flex-wrap: wrap; }
+  }
+</style>
 </head>
 <body style="background:#0e0b08 !important;min-height:100vh;">
 
@@ -1220,7 +1248,7 @@ document.addEventListener('keydown', function(e) {
 <!-- HERO -->
 
 <main id="main">
-<section class="reverb" id="products" style="background:#0e0b08;padding:8rem 4rem;position:relative;">
+<section class="reverb" id="products" style="background:#0e0b08;padding:clamp(4rem,8vw,8rem) clamp(1rem,4vw,4rem);position:relative;">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,74,0.3),transparent);"></div>
   <div style="max-width:1200px;margin:0 auto;">
     <div class="section-header">
@@ -1249,20 +1277,20 @@ document.addEventListener('keydown', function(e) {
       <p style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(201,162,74,0.1);font-size:0.85rem;color:#f5e8c0;opacity:0.55;">Not sure which is right for you, or have a question before buying? <a href="contact.html#contact" style="color:#c9a24a;text-decoration:underline;text-underline-offset:3px;">Just ask →</a></p>
     </div>
 
-    <!-- COMING SOON SECTION -->
-    <div style="margin-bottom:4rem;">
-      <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;">
-        <div style="height:1px;flex:1;background:linear-gradient(to right,rgba(201,162,74,0.3),transparent);"></div>
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#c9a24a;opacity:0.7;">Arriving Soon</p>
-        <div style="height:1px;flex:1;background:linear-gradient(to left,rgba(201,162,74,0.3),transparent);"></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;">
-
+    <div class="inventory-tools" aria-label="Filter inventory">
+      <label for="inventory-brand-filter">Brand
+        <select id="inventory-brand-filter" aria-controls="inventory-grid"><option value="">All brands</option></select>
+      </label>
+      <label for="inventory-type-filter">Guitar type
+        <select id="inventory-type-filter" aria-controls="inventory-grid"><option value="">All types</option></select>
+      </label>
+      <div class="inventory-tools-footer">
+        <p id="inventory-results" role="status" aria-live="polite"></p>
+        <button type="button" id="inventory-clear-filters">Clear filters</button>
       </div>
     </div>
-    <!-- END COMING SOON -->
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:2rem;margin-top:2rem;">
+    <div id="inventory-grid" class="inventory-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:1.4rem;margin-top:1.5rem;align-items:stretch;">
 
       <!-- 1983 FENDER USA STANDARD STRATOCASTER -->
       <div style="border:1px solid rgba(201,162,74,0.15);background:#0e0b08;overflow:hidden;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;max-width:100%;" onmouseover="this.style.borderColor='rgba(201,162,74,0.4)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 50px rgba(0,0,0,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,74,0.15)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
@@ -1915,6 +1943,87 @@ document.addEventListener('keydown', function(e) {
 
   </div>
 </section>
+
+<script>
+(function() {
+  var grid = document.getElementById('inventory-grid');
+  var brandFilter = document.getElementById('inventory-brand-filter');
+  var typeFilter = document.getElementById('inventory-type-filter');
+  var results = document.getElementById('inventory-results');
+  var clearButton = document.getElementById('inventory-clear-filters');
+  if (!grid || !brandFilter || !typeFilter || !results || !clearButton) return;
+
+  var brands = ['Bacchus','Edwards','Fender','Fernandes','Gibson','Greco','History','Ibanez','Moon','Navigator','Ornetts','Tokai','Yamaha'];
+  var cards = Array.from(grid.children).filter(function(card) { return !!card.querySelector('h3'); });
+  var types = new Set();
+
+  cards.forEach(function(card) {
+    var title = card.querySelector('h3').textContent.trim();
+    var searchable = (title + ' ' + card.textContent).toLowerCase();
+    var brand = brands.find(function(name) { return title.toLowerCase().indexOf(name.toLowerCase()) === 0; }) || 'Other';
+    var type = /telecaster|\btele\b/i.test(searchable) ? 'Telecaster'
+      : /stratocaster|\bstrat\b|\bfst-\d/i.test(searchable) ? 'Stratocaster'
+      : /\bsg\b/i.test(title) ? 'SG'
+      : /les paul|\blp\b|gm5rc|eg-600pb/i.test(searchable) ? 'Les Paul'
+      : 'Other';
+
+    card.classList.add('inventory-card');
+    card.dataset.brand = brand;
+    card.dataset.type = type;
+    types.add(type);
+
+    var paragraphs = Array.from(card.querySelectorAll('p'));
+    var conditionLabel = paragraphs.find(function(p) { return p.textContent.trim().toLowerCase() === 'condition'; });
+    if (conditionLabel) {
+      var values = conditionLabel.parentElement.querySelectorAll('p');
+      var condition = values.length > 1 ? values[1].textContent.trim() : '';
+      if (condition) {
+        var badge = document.createElement('span');
+        badge.className = 'inventory-condition';
+        badge.textContent = 'Condition: ' + condition;
+        card.querySelector('h3').after(badge);
+      }
+      var metaGrid = conditionLabel.closest('div[style*="grid-template-columns"]');
+      if (metaGrid) metaGrid.classList.add('inventory-meta-grid');
+    }
+
+    var priceLabel = paragraphs.find(function(p) { return /^price\s*:?$/i.test(p.textContent.trim()); });
+    if (priceLabel) priceLabel.parentElement.classList.add('inventory-price');
+
+    var actions = Array.from(card.querySelectorAll('a,button'));
+    var direct = actions.find(function(el) { return /buy direct|ask to buy/i.test(el.textContent); });
+    var reverb = actions.find(function(el) { return /reverb/i.test(el.textContent); });
+    if (direct) {
+      var actionGroup = direct.parentElement;
+      actionGroup.classList.add('inventory-actions');
+      if (actionGroup.parentElement) actionGroup.parentElement.classList.add('inventory-price-row');
+      direct.classList.add('inventory-buy-direct');
+      if (reverb) reverb.classList.add('inventory-reverb');
+    }
+  });
+
+  Array.from(new Set(cards.map(function(card) { return card.dataset.brand; }))).sort().forEach(function(brand) {
+    var option = document.createElement('option'); option.value = brand; option.textContent = brand; brandFilter.appendChild(option);
+  });
+  Array.from(types).sort().forEach(function(type) {
+    var option = document.createElement('option'); option.value = type; option.textContent = type; typeFilter.appendChild(option);
+  });
+
+  function applyFilters() {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var matches = (!brandFilter.value || card.dataset.brand === brandFilter.value) && (!typeFilter.value || card.dataset.type === typeFilter.value);
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    results.textContent = 'Showing ' + visible + ' of ' + cards.length + ' guitars';
+  }
+  brandFilter.addEventListener('change', applyFilters);
+  typeFilter.addEventListener('change', applyFilters);
+  clearButton.addEventListener('click', function() { brandFilter.value = ''; typeFilter.value = ''; applyFilters(); brandFilter.focus(); });
+  applyFilters();
+})();
+</script>
 
 <script>
 var guitarSlides = {};
