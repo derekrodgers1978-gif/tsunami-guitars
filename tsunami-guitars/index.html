@@ -1034,48 +1034,75 @@
     padding: 7rem clamp(2rem,5vw,5rem) 4rem 0;
     z-index: 2;
   }
-  .hero-showcase { position: relative; width: min(100%,720px); height: min(70vh,650px); min-height: 500px; margin: 0 auto; }
+  .hero-showcase {
+    position:relative; display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:14px; width:min(100%,720px); height:min(66vh,590px); min-height:480px;
+    margin:0 auto; padding-top:2.8rem;
+  }
   .hero-gallery-kicker {
-    position: absolute; z-index: 5; top: 2%; left: 4%;
-    font-family: 'Josefin Sans',sans-serif; font-size: 0.62rem; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--gold); line-height: 1.8;
+    position:absolute; z-index:5; top:0; left:0;
+    font-family:'Josefin Sans',sans-serif; font-size:.62rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--gold); line-height:1.8;
   }
-  .hero-gallery-kicker span { display: block; font-size: 0.55rem; letter-spacing: 0.12em; color: var(--gold-pale); opacity: 0.65; }
+  .hero-gallery-kicker span { display:block; font-size:.55rem; letter-spacing:.12em; color:var(--gold-pale); opacity:.65; }
   .hero-photo {
-    position: absolute; display: block; overflow: hidden;
-    background: #090706; border: 1px solid rgba(201,162,74,0.42);
-    box-shadow: 0 24px 65px rgba(0,0,0,0.62), 0 0 25px rgba(201,162,74,0.08);
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    position:relative; display:grid; grid-template-rows:minmax(0,1fr) auto; min-width:0; min-height:0;
+    overflow:hidden; background:#090706; border:1px solid rgba(201,162,74,.35); border-radius:3px;
+    box-shadow:0 16px 40px rgba(0,0,0,.35);
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
   }
-  .hero-photo:hover { border-color: var(--gold-light); box-shadow: 0 28px 75px rgba(0,0,0,0.7), 0 0 35px rgba(201,162,74,0.18); }
-  .hero-photo img { display:block; width:100%; height:100%; object-fit:contain; background:#090706; padding:0.4rem 0.4rem 3.2rem; }
-  .hero-photo--ornetts { right:5%; top:11%; width:54%; height:76%; z-index:2; transform:rotate(2deg); }
-  .hero-photo--ornetts:hover { transform:rotate(0) translateY(-5px); }
-  .hero-photo--fernandes { left:2%; top:26%; width:41%; height:56%; z-index:3; transform:rotate(-5deg); }
-  .hero-photo--fernandes:hover { transform:rotate(-2deg) translateY(-5px); }
-  .hero-photo--greco { right:1%; bottom:1%; width:44%; height:50%; z-index:4; transform:rotate(4deg); }
-  .hero-photo--greco:hover { transform:rotate(1deg) translateY(-5px); }
+  .hero-photo:hover { transform:translateY(-3px); border-color:var(--gold-light); box-shadow:0 22px 48px rgba(0,0,0,.48); }
+  .hero-photo img { display:block; width:100%; height:100%; min-height:0; object-fit:contain; background:#090706; padding:12px; }
+  .hero-photo--ornetts { grid-column:1; grid-row:1 / span 2; }
+  .hero-photo--fernandes { grid-column:2; grid-row:1; }
+  .hero-photo--greco { grid-column:2; grid-row:2; }
   .hero-photo-caption {
-    position:absolute; left:0; right:0; bottom:0; min-height:54px; padding:0.45rem 0.75rem;
-    display:flex; flex-direction:column; justify-content:center; gap:0.12rem;
-    background:linear-gradient(0deg,rgba(7,5,4,0.98),rgba(7,5,4,0.82));
+    position:relative; left:auto; right:auto; bottom:auto; min-height:58px; padding:.55rem .8rem;
+    display:flex; flex-direction:column; justify-content:center; gap:.12rem;
+    background:#100c09; border-top:1px solid rgba(201,162,74,.16);
     color:var(--gold-pale); font-family:'Josefin Sans',sans-serif;
   }
-  .hero-photo-caption span { font-size:0.49rem; letter-spacing:0.16em; text-transform:uppercase; opacity:0.68; }
-  .hero-photo-caption strong { font-family:'Shippori Mincho',serif; font-size:1rem; letter-spacing:0.06em; color:var(--gold-light); }
-  .hero-dragon-seal {
-    position:absolute; z-index:6; top:10%; right:0; width:104px; height:104px;
-    padding:5px; border:1px solid rgba(201,162,74,0.65); border-radius:50%;
-    background:rgba(14,11,8,0.82); box-shadow:0 8px 30px rgba(0,0,0,0.55),0 0 30px rgba(201,162,74,0.14);
-  }
-  .hero-dragon-seal img { display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; }
+  .hero-photo-caption span { font-size:.5rem; letter-spacing:.16em; text-transform:uppercase; opacity:.68; }
+  .hero-photo-caption strong { font-family:'Shippori Mincho',serif; font-size:1rem; letter-spacing:.06em; color:var(--gold-light); }
   .hero-rating {
-    display:inline-flex; align-items:center; gap:0.75rem; margin-top:1.6rem;
+    display:inline-flex; align-items:center; gap:.75rem; margin-top:1.6rem;
     color:var(--gold-pale); text-decoration:none; font-family:'Josefin Sans',sans-serif;
-    font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; opacity:0.68;
+    font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; opacity:.68;
   }
   .hero-rating:hover { opacity:1; }
-  .hero-stars { color:var(--gold-light); letter-spacing:0.16em; }
+  .hero-stars { color:var(--gold-light); letter-spacing:.16em; }
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .hero-left { padding-left:3rem; }
+    .hero-right { padding-right:2rem; }
+    .hero-showcase { height:540px; min-height:460px; gap:10px; }
+    .hero-photo-caption { min-height:52px; padding:.45rem .55rem; }
+  }
+  @media (max-width: 768px) {
+    .hero { min-height:0; grid-template-columns:1fr; padding-top:68px; }
+    .hero-bg { background-image:radial-gradient(ellipse at 50% 66%,rgba(139,26,26,.2),transparent 52%),linear-gradient(180deg,#0e0b08 0%,#17100b 70%,#0e0b08 100%); }
+    .hero-bg::after { background:linear-gradient(180deg,rgba(14,11,8,.08),rgba(14,11,8,.08)); }
+    .hero-left { padding:5.5rem 1.35rem 1.5rem; }
+    .hero-title { font-size:clamp(2.7rem,11vw,4.2rem); }
+    .hero-desc { font-size:1.05rem; margin-bottom:1.6rem; }
+    .hero-btns { gap:.7rem; }
+    .hero-btns .btn-primary,.hero-btns .btn-ghost { padding:.9rem 1.2rem; font-size:.63rem; }
+    .hero-right { display:block; position:relative; padding:.25rem 1rem 3.25rem; }
+    .hero-showcase { width:100%; max-width:560px; height:430px; min-height:0; gap:9px; padding-top:2.55rem; }
+    .hero-gallery-kicker { top:0; left:0; }
+    .hero-photo img { padding:8px; }
+    .hero-photo-caption { min-height:48px; padding:.35rem .5rem; }
+    .hero-photo-caption span { font-size:.44rem; }
+    .hero-photo-caption strong { font-size:.87rem; }
+    .hero-rating { margin-top:1.25rem; }
+  }
+  @media (max-width: 420px) {
+    .hero-showcase { height:380px; gap:7px; }
+    .hero-photo-caption { min-height:45px; padding:.3rem .4rem; }
+    .hero-photo-caption span { font-size:.4rem; letter-spacing:.12em; }
+    .hero-photo-caption strong { font-size:.8rem; }
+  }
   @media (max-width: 1024px) and (min-width: 769px) {
     .hero-left { padding-left:3rem; }
     .hero-right { padding-right:2rem; }
@@ -1318,9 +1345,6 @@ document.addEventListener('keydown', function(e) {
         <img src="images/greco-eg600pb-1978-01.jpg" alt="1978 Greco EG-600PB Peter Frampton model" loading="lazy">
         <span class="hero-photo-caption"><span>1978 · Greco</span><strong>EG-600PB</strong></span>
       </a>
-      <div class="hero-dragon-seal">
-        <img src="images/img_02.jpg" alt="Tsunami Guitars dragon logo">
-      </div>
     </div>
   </div>
 </section>
