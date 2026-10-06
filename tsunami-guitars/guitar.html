@@ -470,7 +470,7 @@
       <div id="cart-contents"></div>
       <div id="cart-success" class="cart-success" role="status"></div>
       <div id="cart-checkout" class="cart-form" hidden>
-        <p class="cart-note">Choose a payment method below. Insured shipping is arranged separately; we’ll confirm its cost before dispatch.</p>
+        <p class="cart-note">Free insured shipping within Canada. For international orders, we’ll confirm the shipping cost before dispatch.</p>
         <div class="cart-payment-methods" role="group" aria-label="Choose payment method">
           <button class="cart-method is-active" type="button" data-payment-method="card" aria-pressed="true">Card</button>
           <button class="cart-method" type="button" data-payment-method="paypal" aria-pressed="false">PayPal</button>
@@ -565,7 +565,7 @@
         if(result.paymentIntent.status==='succeeded'){
           items=[];try{localStorage.removeItem(CART_KEY);}catch(e){}
           document.getElementById('cart-checkout').hidden=true;document.getElementById('cart-contents').innerHTML='';
-          const success=document.getElementById('cart-success');success.style.display='block';success.textContent='Payment complete. A receipt is on its way to '+email+'. We’ll contact you to confirm insured shipping before dispatch.';
+          const success=document.getElementById('cart-success');success.style.display='block';success.textContent='Payment complete. A receipt is on its way to '+email+'. Insured shipping is free within Canada; international shipping costs are confirmed before dispatch.';
           document.getElementById('cart-count').textContent='0';
         } else {throw new Error('Payment is still processing. Please check your email for a receipt.');}
       }catch(err){error.textContent=err.message||'Payment could not be completed. Please try again.';button.disabled=false;button.textContent='Pay by Card';delete error.dataset.busy;return;}
