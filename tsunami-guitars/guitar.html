@@ -117,7 +117,8 @@
       .guitar-page { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem 1rem 4rem; }
       .gallery { position: static; }
       nav { padding: 0.8rem 1rem; }
-      .nav-links .hide-mobile { display: none; }
+      .nav-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.55rem .85rem; }
+      .nav-links a { font-size:.54rem; letter-spacing:.12em; }
       .breadcrumb { padding: 0.7rem 1rem; }
       .footer-bar { padding: 1.5rem 1rem; }
       .spec-row { grid-template-columns: 120px 1fr; }
@@ -129,16 +130,19 @@
   <nav>
     <a href="/" class="nav-logo">Tsunami Guitars<span>Curators of Fine Japanese Guitars</span></a>
     <div class="nav-links">
-      <a href="/#products" class="nav-back">All Guitars</a>
-      <a href="/#blog" class="hide-mobile">Blog</a>
-      <a href="/collection/" class="hide-mobile">Collection</a>
-      <a href="/#contact" class="hide-mobile">Contact</a>
+      <a href="/index.html#home">Home</a>
+      <a href="/inventory.html#products">Inventory</a>
+      <a href="/sold.html#sold">Sold Guitars</a>
+      <a href="/about.html#about">About</a>
+      <a href="/blog.html#blog">Blog</a>
+      <a href="/merch.html#merch">Merch</a>
+      <a href="/contact.html#contact">Contact</a>
     </div>
   </nav>
 
   <div class="breadcrumb">
     <a href="/">Home</a><span>›</span>
-    <a href="/#products">Inventory</a><span>›</span>
+    <a href="/inventory.html#products">Inventory</a><span>›</span>
     <span id="bc-name">Guitar</span>
   </div>
 
@@ -338,7 +342,7 @@
         </div>
 
         <div class="footer-bar">
-          <a href="/#products" class="back-btn">← Back to All Guitars</a>
+          <a href="/inventory.html#products" class="back-btn">← Back to All Guitars</a>
           <span style="font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">Tsunami Guitars · tsunamiguitars.com</span>
         </div>`;
     }
@@ -373,7 +377,7 @@
       document.getElementById('content').innerHTML = `
         <div class="state-screen">
           <p>${msg}</p>
-          <a href="/#products" style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:underline;">← Back to Inventory</a>
+          <a href="/inventory.html#products" style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:underline;">← Back to Inventory</a>
         </div>`;
     }
 
