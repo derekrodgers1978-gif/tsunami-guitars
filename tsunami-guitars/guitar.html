@@ -124,6 +124,20 @@
       .spec-row { grid-template-columns: 120px 1fr; }
     }
   </style>
+
+<style id="mobile-guitar-fit">
+@media (max-width: 800px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  nav { width: 100%; box-sizing: border-box; flex-wrap: wrap; gap: .7rem; }
+  .nav-logo { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+  .nav-links { width: 100%; min-width: 0; justify-content: center; gap: .5rem .75rem; }
+  .nav-links a { white-space: normal; text-align: center; }
+  .guitar-page { width: 100%; max-width: 100%; box-sizing: border-box; grid-template-columns: minmax(0, 1fr); }
+  .guitar-page img { max-width: 100%; }
+  .spec-row { grid-template-columns: minmax(0, 120px) minmax(0, 1fr); }
+  .footer-bar { width: 100%; max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; overflow-wrap: anywhere; }
+}
+</style>
 </head>
 <body>
 
