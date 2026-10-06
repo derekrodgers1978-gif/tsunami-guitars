@@ -238,7 +238,17 @@
         window.setGuitarCatalog(data.guitars);
         renderGuitar(guitar);
         if (params.get('buy') === '1' && guitar.status === 'available') {
-          window.requestAnimationFrame(function() { window.addCurrentGuitarToCart(); });
+          const openDirectCheckout = function() {
+            window.requestAnimationFrame(function() {
+              if (typeof window.addCurrentGuitarToCart !== 'function') return;
+              window.addCurrentGuitarToCart();
+              const cleanUrl = new URL(window.location.href);
+              cleanUrl.searchParams.delete('buy');
+              window.history.replaceState(window.history.state, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+            });
+          };
+          if (typeof window.addCurrentGuitarToCart === 'function') openDirectCheckout();
+          else window.addEventListener('guitar-cart-ready', openDirectCheckout, { once: true });
         }
       })
       .catch(() => showError('Could not load inventory data.'));
@@ -520,6 +530,7 @@
       if(!items.includes(g.id)) items.push(g.id);
       save(); openCart();
     };
+    window.dispatchEvent(new Event('guitar-cart-ready'));
     window.removeCartItem=function(id){items=items.filter(x=>x!==id);save();};
     function getCatalog(){return window.guitarCatalog||[];}
     window.setGuitarCatalog=function(all){window.guitarCatalog=all;catalogLoaded=true;render();};
@@ -534,7 +545,7 @@
       if(!items.length){target.innerHTML='<p class="cart-note">Your cart is empty. Choose an available guitar to add it here.</p>';form.hidden=true;options.hidden=true;return;}
       const total=valid.reduce((sum,g)=>sum+Number(g.price_num),0);
       const reference=('Tsunami: '+valid.map(g=>g.title).join(', ')).slice(0,100);
-      const amountPath=Number(total).toFixed(2).replace(/\\.00$/,'');
+      const amountPath=Number(total).toFixed(2).replace('.00','');
       document.getElementById('paypal-pay').href='https://www.paypal.me/tsunamiguitars/'+amountPath+'CAD';
       document.getElementById('paypal-reference').textContent=reference;
       document.getElementById('etransfer-total').textContent=money(total);
