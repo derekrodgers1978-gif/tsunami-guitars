@@ -352,6 +352,8 @@
 
   .merch-card { border: 1px solid rgba(201,162,74,0.12); background: rgba(201,162,74,0.02); display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
   .merch-card:hover { border-color: rgba(201,162,74,0.35); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,162,74,0.1); }
+  .merch-card--bestseller { order: -1; border-color: rgba(201,162,74,0.55); box-shadow: 0 0 22px rgba(201,162,74,0.08); }
+  .merch-bestseller-badge { position:absolute; top:0.8rem; left:0.8rem; z-index:3; padding:0.45rem 0.65rem; background:#c9a24a; color:#0e0b08; font-family:'Josefin Sans',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; }
 
   .merch-img-wrap { width: 100%; aspect-ratio: 4/3; background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-bottom: 1px solid rgba(201,162,74,0.12); }
   .merch-product-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.4s ease; display: block; }
@@ -1047,8 +1049,8 @@
   }
   .hero-photo:hover { border-color: var(--gold-light); box-shadow: 0 28px 75px rgba(0,0,0,0.7), 0 0 35px rgba(201,162,74,0.18); }
   .hero-photo img { display:block; width:100%; height:100%; object-fit:contain; background:#090706; padding:0.4rem 0.4rem 3.2rem; }
-  .hero-photo--navigator { right:5%; top:11%; width:54%; height:76%; z-index:2; transform:rotate(2deg); }
-  .hero-photo--navigator:hover { transform:rotate(0) translateY(-5px); }
+  .hero-photo--gibson { right:5%; top:11%; width:54%; height:76%; z-index:2; transform:rotate(2deg); }
+  .hero-photo--gibson:hover { transform:rotate(0) translateY(-5px); }
   .hero-photo--fernandes { left:2%; top:26%; width:41%; height:56%; z-index:3; transform:rotate(-5deg); }
   .hero-photo--fernandes:hover { transform:rotate(-2deg) translateY(-5px); }
   .hero-photo--greco { right:1%; bottom:1%; width:44%; height:50%; z-index:4; transform:rotate(4deg); }
@@ -1092,7 +1094,7 @@
     .hero-right { display:block; position:relative; padding:0.25rem 1rem 3.25rem; }
     .hero-showcase { width:100%; max-width:560px; height:440px; min-height:0; }
     .hero-gallery-kicker { top:0; left:3%; }
-    .hero-photo--navigator { top:13%; right:6%; width:57%; height:74%; }
+    .hero-photo--gibson { top:13%; right:6%; width:57%; height:74%; }
     .hero-photo--fernandes { top:28%; left:2%; width:43%; height:54%; }
     .hero-photo--greco { right:1%; bottom:0; width:46%; height:48%; }
     .hero-dragon-seal { top:9%; right:0; width:76px; height:76px; }
@@ -1320,9 +1322,9 @@ document.addEventListener('keydown', function(e) {
   <div class="hero-right">
     <div class="hero-showcase">
       <p class="hero-gallery-kicker">In the shop now <span>Tap a guitar for details</span></p>
-      <a class="hero-photo hero-photo--navigator" href="guitar.html?id=navigator-n335-natural-1970s" aria-label="View the Navigator N-335">
-        <img src="images/g4-01.jpg" alt="Navigator N-335 Japanese semi-hollow guitar" loading="eager">
-        <span class="hero-photo-caption"><span>1970s · Navigator</span><strong>N-335</strong></span>
+      <a class="hero-photo hero-photo--gibson" href="guitar.html?id=gibson-les-paul-standard-50s-faded-2022" aria-label="View the 2022 Gibson Les Paul Standard 50's Faded">
+        <img src="images/gibson-les-paul-standard-50s-faded-2022-01.jpeg" alt="2022 Gibson Les Paul Standard 50's Faded Honeyburst" loading="eager">
+        <span class="hero-photo-caption"><span>2022 · Gibson</span><strong>Les Paul Standard</strong></span>
       </a>
       <a class="hero-photo hero-photo--fernandes" href="guitar.html?id=fernandes-fst-50-1977" aria-label="View the 1977 Fernandes FST-50">
         <img src="images/fernandes-fst50-1977-01.jpeg" alt="1977 Fernandes FST-50 Strat-style guitar" loading="lazy">
@@ -1335,6 +1337,19 @@ document.addEventListener('keydown', function(e) {
       <div class="hero-dragon-seal">
         <img src="images/img_02.jpg" alt="Tsunami Guitars dragon logo">
       </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="buying-steps-title" style="padding:2.1rem clamp(1rem,4vw,4rem);background:var(--ink-mid);border-bottom:1px solid rgba(201,162,74,0.15);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p style="font-family:'Josefin Sans',sans-serif;font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin:0 0 0.55rem;">Simple, secure, and insured</p>
+    <h2 id="buying-steps-title" style="font-family:'Shippori Mincho',serif;font-size:clamp(1.35rem,2vw,1.75rem);color:var(--cream);margin:0 0 1.3rem;">How buying works</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem 1.6rem;">
+      <div><span style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);">01</span><p style="font-family:'Shippori Mincho',serif;font-weight:700;color:var(--gold-light);margin:0.25rem 0;">Email us</p><p style="font-size:0.9rem;line-height:1.55;color:var(--gold-pale);opacity:0.75;margin:0;"><a href="mailto:tsunamiguitarshop@gmail.com?subject=Guitar%20inquiry" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Ask about the guitar</a> you’re interested in.</p></div>
+      <div><span style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);">02</span><p style="font-family:'Shippori Mincho',serif;font-weight:700;color:var(--gold-light);margin:0.25rem 0;">Confirm the details</p><p style="font-size:0.9rem;line-height:1.55;color:var(--gold-pale);opacity:0.75;margin:0;">We’ll go over condition and shipping with you.</p></div>
+      <div><span style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);">03</span><p style="font-family:'Shippori Mincho',serif;font-weight:700;color:var(--gold-light);margin:0.25rem 0;">Pay securely</p><p style="font-size:0.9rem;line-height:1.55;color:var(--gold-pale);opacity:0.75;margin:0;">Choose Stripe or Interac e-transfer.</p></div>
+      <div><span style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);">04</span><p style="font-family:'Shippori Mincho',serif;font-weight:700;color:var(--gold-light);margin:0.25rem 0;">Insured shipping</p><p style="font-size:0.9rem;line-height:1.55;color:var(--gold-pale);opacity:0.75;margin:0;">We pack carefully and ship insured with tracking.</p></div>
     </div>
   </div>
 </section>
@@ -2162,7 +2177,7 @@ function slideGuitar(id, dir) {
       <p class="section-eyebrow">The Case for Japan</p>
       <h2 class="section-title">Why <em>Japanese Guitars</em> Are Special</h2>
       <div class="section-rule" style="margin-left:0"></div>
-      <p>During the 1970s and '80s, Japanese manufacturers achieved something remarkable — instruments that matched or exceeded the quality of American originals, often at a fraction of the cost. That legacy lives on today.</p>
+      <p>Japanese guitars deliver world-class craftsmanship, often rivaling major American brands at a fraction of the price.</p>
     </div>
     <div class="why-pillars">
       <div class="pillar"><div class="pillar-num">01</div><div class="pillar-content"><h3>Uncompromising Craftsmanship</h3><p>Japanese luthiers applied principles of monozukuri — the art of making things — to guitar production. The result: tight tolerances, superior fretwork, and consistency unmatched by many Western factories.</p></div></div>
@@ -2744,7 +2759,8 @@ function slideGuitar(id, dir) {
         <a href="mailto:tsunamiguitarshop@gmail.com?subject=Order%3A%20Wave%20Trucker%20Cap%20%E2%80%94%20Black&body=Hi!%20I%27d%20like%20to%20order%20the%20Wave%20Trucker%20Cap%20in%20Black%20(%2425).%0A%0AName%3A%20%0AShipping%20address%3A%20" class="merch-card-link">Order via Email</a>
       </div>
       <!-- I'M GUITARDED TEE -->
-      <div class="merch-card">
+      <div class="merch-card merch-card--bestseller">
+        <span class="merch-bestseller-badge">Best Seller</span>
         <div class="merch-img-wrap" style="aspect-ratio:4/3;overflow:hidden;">
           <img class="merch-product-img" src="images/img_17.jpg" alt="I'm Guitarded Tee" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
@@ -4672,13 +4688,13 @@ Your personality:
 - Passionate but not pushy — you build trust by being genuinely helpful
 - Knowledgeable about all Japanese guitar brands: Tokai, Greco, Burny, Fernandes, Ibanez, Navigator, ESP Japan, Orville, Yamaha, Edwards, Bacchus, Moon, Momose, Crews Maniac Sound, Fender Japan, and more
 - Honest — you'll tell people when a Gibson or Fender is the right call, but you know most players are surprised by how good Japanese guitars are
-- You believe Japanese guitars offer equal or better quality to American brands at significantly lower prices
+- You describe Japanese guitars as delivering world-class craftsmanship and often rivaling major American brands at a fraction of the price
 - You reference real specs, years, and model knowledge when relevant
 
 Your current inventory includes:
 1. 2006 Ornetts GM5RC — Honey Burst Sunburst, near mint, CA$2,599
 2. SOLD: 2010 Fender Japan ST62 Surf Green (SGB) — mint/unplayed, this one is gone
-4. 1970s–80s Navigator N-335 — Natural finish, semi-hollow, all original, CA$2,999
+4. SOLD: 1970s–80s Navigator N-335 — Natural finish, semi-hollow, all original; no longer available
 5. 1979–80 Vesta Graham VGD-1500 — Rising Sun Burst, signed by Mr. Shino inside the f-hole, flagship model — moved to private collection, not for sale, enquiries welcome
 6. SOLD: 2012 History SH-LSV/FM — no longer available
 7. 2005 History Les Paul — Honeyburst, player's grade with dings and dents, exceptional wood grain and sustain, 7.6 lbs, 43mm nut, built by FujiGen exclusively for one Japanese store, CA$1,499
