@@ -1438,6 +1438,88 @@
       "original_price_num": 1699,
       "on_sale": true,
       "sale_discount": "15% OFF"
+    },
+    {
+      "id": "greco-eg600pb-1978",
+      "status": "available",
+      "brand": "Greco",
+      "model": "EG-600PB",
+      "year": "1978",
+      "title": "Greco EG-600PB Peter Frampton Model",
+      "subtitle": "Black · Triple Cream Humbuckers · Hardshell Case",
+      "eyebrow": "1978 · Made in Japan · EG-600PB",
+      "badge": "Vintage Triple-Humbucker Model",
+      "price": "CA$1,499",
+      "price_num": 1499,
+      "stripe": "mailto:tsunamiguitarshop@gmail.com?subject=Purchase%20Inquiry%3A%201978%20Greco%20EG-600PB",
+      "meta_title": "1978 Greco EG-600PB Peter Frampton Model Black | Tsunami Guitars",
+      "meta_desc": "1978 Greco EG-600PB Peter Frampton model in black with three cream humbuckers. 8.8 lbs, serial F785974, hardshell case included. CA$1,499.",
+      "description": "A rare 1978 Greco EG-600PB Peter Frampton model, built in Japan with a striking black finish, multi-ply binding, block inlays and the distinctive split-diamond headstock inlay. Three cream humbuckers give this single-cut a bold look and a broad range of vintage tones. It weighs 8.8 lbs and includes a hardshell case. Serial number F785974. Honest vintage wear is visible around the headstock edges; please review the photos for condition.",
+      "specs": [
+        [
+          "Year",
+          "1978"
+        ],
+        [
+          "Weight",
+          "8.8 lbs"
+        ],
+        [
+          "Serial",
+          "F785974"
+        ],
+        [
+          "Pickups",
+          "Three cream humbuckers"
+        ],
+        [
+          "Finish",
+          "Black"
+        ],
+        [
+          "Body",
+          "Mahogany pancake · Semi-hollow"
+        ],
+        [
+          "Top",
+          "White sycamore laminate"
+        ],
+        [
+          "Neck",
+          "Maple"
+        ],
+        [
+          "Fingerboard",
+          "Rosewood"
+        ],
+        [
+          "Binding & Inlays",
+          "Multi-ply binding · Block inlays · Split-diamond headstock"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Includes",
+          "Hardshell case"
+        ]
+      ],
+      "images": [
+        "greco-eg600pb-1978-01.jpg",
+        "greco-eg600pb-1978-02.jpg",
+        "greco-eg600pb-1978-03.jpg",
+        "greco-eg600pb-1978-04.jpg"
+      ],
+      "tags": [
+        "greco",
+        "eg-600pb",
+        "peter frampton",
+        "triple humbucker",
+        "japan vintage",
+        "black beauty"
+      ],
+      "on_sale": false
     }
   ],
   "sale": {
