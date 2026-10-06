@@ -10,10 +10,10 @@ const corePages = [
   "/blog/the-guitar-world-two-directions/",
   "/blog/are-japanese-guitars-going-up-in-value/"
 ];
-const availableGuitars = catalog.guitars
-  .filter((guitar) => guitar.status === "available")
+const guitarPages = catalog.guitars
+  .filter((guitar) => guitar.status === "available" || guitar.status === "sold")
   .map((guitar) => `/guitars/${encodeURIComponent(guitar.id)}/`);
-const urls = [...new Set([...corePages, ...availableGuitars])];
+const urls = [...new Set([...corePages, ...guitarPages])];
 const xmlEscape = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
