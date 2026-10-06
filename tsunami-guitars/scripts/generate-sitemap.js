@@ -5,8 +5,8 @@ const siteRoot = path.resolve(__dirname, "..");
 const baseUrl = "https://tsunamiguitars.com";
 const catalog = JSON.parse(fs.readFileSync(path.join(siteRoot, "guitars.json"), "utf8"));
 const corePages = [
-  "/", "/inventory.html", "/sold.html", "/about.html", "/blog.html",
-  "/merch.html", "/contact.html", "/collection/",
+  "/", "/inventory", "/sold", "/about", "/blog",
+  "/merch", "/contact", "/collection/",
   "/blog/the-guitar-world-two-directions/",
   "/blog/are-japanese-guitars-going-up-in-value/"
 ];
