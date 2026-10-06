@@ -1287,7 +1287,7 @@ document.addEventListener('keydown', function(e) {
 
       <!-- SOLD CARD: 1993 K. Yairi SY-4 60th Anniversary Limited Edition -->
       <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
-        <a href="guitar.html?id=k-yairi-sy4-60th-anniversary-koa-1993" style="text-decoration:none;color:inherit;">
+        <a href="guitars/k-yairi-sy4-60th-anniversary-koa-1993/" style="text-decoration:none;color:inherit;">
           <div style="position:relative;overflow:hidden;background:#0e0b08;">
             <img src="images/sold-k-yairi-sy4-1993-koa.jpeg" alt="1993 K. Yairi SY-4 60th Anniversary limited edition koa" style="width:100%;height:240px;object-fit:contain;object-position:center;background:#0e0b08;filter:grayscale(18%);">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
@@ -1306,7 +1306,7 @@ document.addEventListener('keydown', function(e) {
 
       <!-- SOLD CARD: 1979 Ibanez PF400 -->
       <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
-        <a href="guitar.html?id=ibanez-pf400-1979" style="text-decoration:none;color:inherit;">
+        <a href="guitars/ibanez-pf400-1979/" style="text-decoration:none;color:inherit;">
           <div style="position:relative;overflow:hidden;background:#0e0b08;">
             <img src="images/sold-ibanez-pf400-1979.jpeg" alt="1979 Ibanez PF400 vintage Japanese guitar" style="width:100%;height:240px;object-fit:contain;object-position:center;background:#0e0b08;filter:grayscale(30%);">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
@@ -1325,7 +1325,7 @@ document.addEventListener('keydown', function(e) {
 
       <!-- SOLD CARD: 2003 History Black Beauty Dignity Custom -->
       <div style="border:1px solid rgba(201,162,74,0.1);background:#0e0b08;overflow:hidden;opacity:0.75;">
-        <a href="guitar.html?id=history-black-beauty-dignity-custom-2003" style="text-decoration:none;color:inherit;">
+        <a href="guitars/history-black-beauty-dignity-custom-2003/" style="text-decoration:none;color:inherit;">
           <div style="position:relative;overflow:hidden;background:#0e0b08;">
             <img src="images/hisbb01.jpg" alt="2003 History Black Beauty Dignity Custom" style="width:100%;height:240px;object-fit:contain;object-position:center;background:#0e0b08;filter:grayscale(30%);">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
@@ -2417,10 +2417,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const grid = document.getElementById('sold-grid');
   if (!grid) return;
   const sold = [
-    ['images/tokairw01.jpg','1980 · Made in Japan · Tokai Gakki · Hamamatsu','Tokai LC60','Wine Red · All Original · Case Queen','guitar.html?id=tokai-lc60-wine-red-1980'],
-    ['images/sold-k-yairi-sy4-1993-koa.jpeg','1993 · Made in Japan · K. Yairi · 60th Anniversary','K. Yairi SY-4 60th Anniversary','Limited Edition Koa · Original Hardshell Case','guitar.html?id=k-yairi-sy4-60th-anniversary-koa-1993'],
-    ['images/sold-ibanez-pf400-1979.jpeg','1979 · Made in Japan · Ibanez · Vintage','Ibanez PF400','Les Paul Custom Style · Black · Gold Hardware','guitar.html?id=ibanez-pf400-1979'],
-    ['images/hisbb01.jpg','2003 · Made in Japan · FujiGen · History Guitars','History Black Beauty Dignity Custom','Ebony Black · Les Paul Custom · FujiGen Japan Exclusive','guitar.html?id=history-black-beauty-dignity-custom-2003'],
+    ['images/tokairw01.jpg','1980 · Made in Japan · Tokai Gakki · Hamamatsu','Tokai LC60','Wine Red · All Original · Case Queen','guitars/tokai-lc60-wine-red-1980/'],
+    ['images/sold-k-yairi-sy4-1993-koa.jpeg','1993 · Made in Japan · K. Yairi · 60th Anniversary','K. Yairi SY-4 60th Anniversary','Limited Edition Koa · Original Hardshell Case','guitars/k-yairi-sy4-60th-anniversary-koa-1993/'],
+    ['images/sold-ibanez-pf400-1979.jpeg','1979 · Made in Japan · Ibanez · Vintage','Ibanez PF400','Les Paul Custom Style · Black · Gold Hardware','guitars/ibanez-pf400-1979/'],
+    ['images/hisbb01.jpg','2003 · Made in Japan · FujiGen · History Guitars','History Black Beauty Dignity Custom','Ebony Black · Les Paul Custom · FujiGen Japan Exclusive','guitars/history-black-beauty-dignity-custom-2003/'],
     ['images/crews01.jpg','2005 · Made in Japan · Crews Maniac Sound','Crews Maniac Sound KTR ST60','Sunburst · K&T Vintage Weep Pickups',''],
     ['images/fender-st62-sgb-sold.jpg','2010 · Made in Japan · Tokai Plant','Fender Japan ST62','Surf Green (SGB) · Mint / Unplayed',''],
     ['images/sold01resized.jpg','Early 1980s · Made in Japan · FujiGen','Squier JV ST62','Candy Apple Red · Stratocaster',''],
@@ -2430,7 +2430,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ['images/sold05.jpg','2010 · Made in Japan','History Black Beauty','Ebony Black · Gold Hardware · Les Paul Custom',''],
     ['images/sold06.jpg','1980s · Made in Japan','Greco SG','Ebony Black · SG Style',''],
     ['images/sold07.jpg','1970s · Made in Japan · ESP','Navigator Esparto','Sunburst · Stratocaster Style',''],
-    ['images/g4-01.jpg','1970s–80s · Made in Japan · ESP Custom Shop','Navigator N-335','Natural Finish · Semi-Hollow · All Original','guitar.html?id=navigator-n335-natural-1970s'],
+    ['images/g4-01.jpg','1970s–80s · Made in Japan · ESP Custom Shop','Navigator N-335','Natural Finish · Semi-Hollow · All Original','guitars/navigator-n335-natural-1970s/'],
     ['images/sold08.jpg','1980s · Made in Japan','Greco Super Real','Cherry Sunburst · Les Paul Standard',''],
     ['images/sold09.jpg','1990s · Made in Japan','Greco LP Custom','Alpine White · Gold Hardware · Les Paul Custom',''],
     ['images/moonblack01.jpg','Made in Japan · Moon Custom Guitars','Moon Custom Stratocaster','Black · Gold Hardware · Custom Shop',''],
