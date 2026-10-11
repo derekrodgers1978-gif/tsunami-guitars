@@ -1,6 +1,94 @@
 {
   "guitars": [
     {
+      "id": "k-yairi-sk-d18b-ab-2016",
+      "status": "available",
+      "brand": "K. Yairi",
+      "model": "SK-D18B AB",
+      "year": "2016",
+      "title": "K. Yairi SK-D18B AB Acoustic Guitar",
+      "subtitle": "AB Sunburst · Mahogany Back & Sides · Hardshell Case",
+      "eyebrow": "2016 · Made in Japan · K. Yairi",
+      "badge": "Handbuilt Japanese Dreadnought",
+      "price": "CA$1,799",
+      "price_num": 1799,
+      "stripe": "mailto:tsunamiguitarshop@gmail.com?subject=Purchase%20Inquiry%3A%202016%20K.%20Yairi%20SK-D18B%20AB",
+      "meta_title": "2016 K. Yairi SK-D18B AB Acoustic Guitar | Tsunami Guitars",
+      "meta_desc": "2016 Japanese-made K. Yairi SK-D18B AB acoustic dreadnought with mahogany back and sides, about 70% fret life, hard case, and a responsive bright voice. CA$1,799.",
+      "description": "A 2016 K. Yairi SK-D18B AB, handcrafted in Japan and finished in a warm burst. Mahogany back and sides give this dreadnought a rich, grounded voice, while its clear, bright response stays lively and dynamic across a light touch or a full strum. This is a player-grade guitar with dents and scratches mainly on the top and back, plus slight wear around the second string. The frets have approximately 70% life remaining, and the truss rod has plenty of adjustment left. At the 12th fret, the action measures 2.25 mm on the bass side and 1.75 mm on the treble side. Includes a hardshell case.",
+      "specs": [
+        [
+          "Year",
+          "2016"
+        ],
+        [
+          "Model",
+          "SK-D18B AB"
+        ],
+        [
+          "Type",
+          "Dreadnought Acoustic"
+        ],
+        [
+          "Finish",
+          "AB Sunburst"
+        ],
+        [
+          "Back & Sides",
+          "Mahogany"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Condition",
+          "Player grade · dents and scratches mainly on top and back"
+        ],
+        [
+          "Fret Life",
+          "Approximately 70% remaining"
+        ],
+        [
+          "Fret Wear",
+          "Slight wear around the second string"
+        ],
+        [
+          "12th-Fret Action",
+          "Bass: 2.25 mm · Treble: 1.75 mm"
+        ],
+        [
+          "Truss Rod",
+          "Plenty of adjustment remaining"
+        ],
+        [
+          "Includes",
+          "Hardshell case"
+        ]
+      ],
+      "images": [
+        "k-yairi-sk-d18b-ab-2016-01.jpeg",
+        "k-yairi-sk-d18b-ab-2016-02.jpeg",
+        "k-yairi-sk-d18b-ab-2016-03.jpeg",
+        "k-yairi-sk-d18b-ab-2016-04.jpeg",
+        "k-yairi-sk-d18b-ab-2016-05.jpeg",
+        "k-yairi-sk-d18b-ab-2016-06.jpeg",
+        "k-yairi-sk-d18b-ab-2016-07.jpeg",
+        "k-yairi-sk-d18b-ab-2016-08.jpeg"
+      ],
+      "tags": [
+        "k. yairi",
+        "sk-d18b ab",
+        "acoustic",
+        "dreadnought",
+        "2016",
+        "made in japan",
+        "mahogany",
+        "burst"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "fender-usa-standard-stratocaster-2-knob-1983",
       "status": "available",
       "brand": "Fender",
