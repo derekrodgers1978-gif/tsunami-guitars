@@ -1212,66 +1212,63 @@
     },
     {
       "id": "history-black-beauty-dignity-custom-2003",
-      "status": "sold",
+      "status": "available",
       "brand": "History",
       "model": "Black Beauty Dignity Custom",
       "year": "2003",
-      "title": "History Black Beauty Dignity Custom",
-      "subtitle": "Ebony Black · Les Paul Custom · FujiGen Japan Exclusive",
+      "title": "2003 History Dignity Custom Black Beauty",
+      "subtitle": "Ebony Black · Les Paul Custom Style · Gig Bag Included",
       "eyebrow": "2003 · Made in Japan · FujiGen · History Guitars",
       "badge": "Japan Exclusive · Gig Bag",
-      "price": "CA$1,274",
-      "price_num": 1274,
-      "stripe": "https://buy.stripe.com/cNi9AU7YT1OXbVLg043AY0g",
-      "meta_title": "2003 History Black Beauty Dignity Custom — FujiGen Japan Exclusive | Tsunami Guitars",
-      "meta_desc": "2003 History Black Beauty Dignity Custom. FujiGen Japan exclusive, never exported. Ebony black, gold hardware, 10.2 lbs. 43mm nut. Gig bag included. CA$1,499.",
-      "description": "The Black Beauty is one of the most iconic guitar silhouettes ever conceived — jet black, triple-bound, gold hardware, the kind of instrument that commands attention before a single note is played. History's Dignity Custom doesn't interpret that template so much as perfect it. Built by FujiGen exclusively for a single Japanese retailer and never exported, this 2003 example has had over two decades to settle into itself. At 10.2 lbs it has the density and sustain that only genuine mahogany construction can deliver. The neck is fast and player-friendly: 43mm at the nut, 52mm at the 12th fret.",
+      "price": "CA$1,199",
+      "price_num": 1199,
+      "meta_title": "2003 History Dignity Custom Black Beauty | Tsunami Guitars",
+      "meta_desc": "Excellent-condition 2003 History Dignity Custom Black Beauty electric guitar, made in Japan by FujiGen. Ebony black finish, gold hardware, 9.2 lb. Gig bag included. CA$1,199.",
+      "description": "Built in Japan by FujiGen for the History Dignity line, this 2003 Black Beauty brings the classic Les Paul Custom style to a finely made Japanese guitar. Its ebony-black finish, multi-ply binding, block inlays and gold hardware give it a striking, elegant presence. It is in excellent shape and weighs 9.2 pounds. A gig bag is included.",
       "specs": [
         [
           "Year",
           "2003"
         ],
         [
-          "Weight",
-          "10.2 lbs"
+          "Brand",
+          "History"
         ],
         [
-          "Nut Width",
-          "43mm"
+          "Model",
+          "Dignity Custom Black Beauty"
         ],
         [
-          "12th Fret Width",
-          "52mm"
+          "Style",
+          "Les Paul Custom-style electric"
         ],
         [
           "Finish",
           "Ebony Black · Gold Hardware"
         ],
         [
-          "Condition",
-          "Excellent · Very Little Wear"
+          "Weight",
+          "9.2 lbs"
         ],
         [
-          "Builder",
-          "FujiGen · Japan Exclusive"
+          "Condition",
+          "Excellent"
+        ],
+        [
+          "Made In",
+          "Japan · FujiGen"
         ],
         [
           "Includes",
-          "Gig Bag"
+          "Gig bag"
         ]
       ],
       "images": [
-        "hisbb01.jpg",
-        "hisbb02.jpg",
-        "hisbb03.jpg",
-        "hisbb04.jpg",
-        "hisbb05.jpg",
-        "hisbb06.jpg",
-        "hisbb07.jpg",
-        "hisbb08.jpg",
-        "hisbb09.jpg",
-        "hisbb10.jpg",
-        "hisbb11.jpg"
+        "history-dignity-black-beauty-2003-01.jpeg",
+        "history-dignity-black-beauty-2003-02.jpeg",
+        "history-dignity-black-beauty-2003-03.jpeg",
+        "history-dignity-black-beauty-2003-04.jpeg",
+        "history-dignity-black-beauty-2003-05.jpeg"
       ],
       "tags": [
         "history",
@@ -1279,11 +1276,7 @@
         "les paul custom",
         "black beauty",
         "japan exclusive"
-      ],
-      "original_price": "CA$1,499",
-      "original_price_num": 1499,
-      "on_sale": true,
-      "sale_discount": "15% OFF"
+      ]
     },
     {
       "id": "tokai-lc60-wine-red-1980",
