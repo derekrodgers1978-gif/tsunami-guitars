@@ -1,6 +1,79 @@
 {
   "guitars": [
     {
+      "id": "navigator-nlp-480ltd-lemonburst-2009",
+      "status": "available",
+      "brand": "Navigator",
+      "model": "N-LP 480LTD",
+      "year": "2009",
+      "title": "2009 Navigator N-LP 480LTD",
+      "subtitle": "Lemonburst · Navigator Custom Shop · Original Hardshell Case",
+      "eyebrow": "2009 · Made in Japan · ESP Custom Shop · Navigator",
+      "badge": "Navigator Custom Shop",
+      "price": "CA$3,499 · Firm",
+      "price_num": 3499,
+      "stripe": "mailto:tsunamiguitarshop@gmail.com?subject=Purchase%20Inquiry%3A%202009%20Navigator%20N-LP%20480LTD",
+      "meta_title": "2009 Navigator N-LP 480LTD Lemonburst | Tsunami Guitars",
+      "meta_desc": "2009 Navigator N-LP 480LTD from the ESP custom shop. Lemonburst finish, 9.2 lbs, original hardshell case. Firm price CA$3,499.",
+      "description": "The Navigator N-LP 480LTD is among the very best of the best when it comes to custom shop guitars. This 2009 example wears a striking lemonburst finish, weighs 9.2 pounds, and comes with its original hardshell case. A rare, top-tier Japanese single-cut built by the ESP custom shop.",
+      "specs": [
+        [
+          "Year",
+          "2009"
+        ],
+        [
+          "Brand",
+          "Navigator"
+        ],
+        [
+          "Model",
+          "N-LP 480LTD"
+        ],
+        [
+          "Type",
+          "Single-cut electric guitar"
+        ],
+        [
+          "Finish",
+          "Lemonburst"
+        ],
+        [
+          "Weight",
+          "9.2 lbs"
+        ],
+        [
+          "Made In",
+          "Japan · ESP Custom Shop"
+        ],
+        [
+          "Includes",
+          "Original hardshell case"
+        ],
+        [
+          "Price",
+          "CA$3,499 · Firm"
+        ]
+      ],
+      "images": [
+        "navigator-nlp-480-2009-01.jpeg",
+        "navigator-nlp-480-2009-02.jpeg",
+        "navigator-nlp-480-2009-03.jpeg",
+        "navigator-nlp-480-2009-04.jpeg",
+        "navigator-nlp-480-2009-05.jpeg",
+        "navigator-nlp-480-2009-06.jpeg"
+      ],
+      "tags": [
+        "navigator",
+        "n-lp 480ltd",
+        "custom shop",
+        "les paul style",
+        "2009",
+        "made in japan",
+        "lemonburst"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "k-yairi-sk-d18b-ab-2016",
       "status": "available",
       "brand": "K. Yairi",
