@@ -6,6 +6,11 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/guitars/ibanez-ar500-cherry-sunburst-1982/"
+  to = "/guitars/ibanez-ar500-cherry-sunburst-1983/"
+  status = 301
+
+[[redirects]]
   from = "/guitars/:id/"
   to = "/guitar.html?id=:id"
   status = 200

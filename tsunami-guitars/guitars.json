@@ -879,78 +879,99 @@
       "sale_discount": "15% OFF"
     },
     {
-      "id": "ibanez-ar500-cherry-sunburst-1982",
+      "id": "ibanez-ar500-cherry-sunburst-1983",
       "status": "available",
       "brand": "Ibanez",
       "model": "AR500",
-      "year": "1982",
-      "title": "Ibanez AR500",
-      "subtitle": "Cherry Sunburst · Artist Series · 1 of 162 Made · FujiGen",
-      "eyebrow": "1982 · Made in Japan · FujiGen · Ibanez Artist Series",
-      "badge": "1 of 162 Made",
-      "price": "CA$3,824",
-      "price_num": 3824,
-      "stripe": "https://buy.stripe.com/6oU14o5QLctBe3TcNS3AY03",
-      "meta_title": "1982 Ibanez AR500 Cherry Sunburst — 1 of 162 Made · FujiGen Japan | Tsunami Guitars",
-      "meta_desc": "1982 Ibanez AR500 Cherry Sunburst. Only 162 produced. FujiGen Japan. Professionally restored binding, full setup by R Guitars. Original gig bag. CA$4,499.",
-      "description": "Only 162 of these were built in 1982 — and this is one of them. The AR500 was Ibanez's flagship Artist Series model at a time when FujiGen was producing some of the finest guitars on the planet. This example has received the full treatment from R Guitars: binding professionally restored, full setup, and every detail brought back to its original glory. All original hardware and electronics, paired with that iconic Cherry Sunburst that seems to glow from within. If you know what an AR500 is, you already know why this price won't last.",
+      "year": "1983",
+      "title": "1983 Ibanez AR500",
+      "subtitle": "Cherry Sunburst · Super 58 Humbuckers · Tri-Sound Switching",
+      "eyebrow": "1983 · Built Late 1982 · Made in Japan · FujiGen",
+      "badge": "Vintage · Ibanez Artist Series",
+      "price": "CA$3,499",
+      "price_num": 3499,
+      "stripe": "",
+      "meta_title": "1983 Ibanez AR500 Cherry Sunburst | Made in Japan | Tsunami Guitars",
+      "meta_desc": "1983 Ibanez AR500 Cherry Sunburst, built late 1982 in Japan. Super 58 humbuckers, Tri-Sound switching, 10.2 lbs, professional setup by R Guitars, Ibanez gig bag. CA$3,499.",
+      "description": "Built at the end of 1982 and sold as a 1983 model, this Japanese-made Ibanez AR500 pairs its figured Cherry Sunburst top, ornate binding and inlays with the versatile voice of Super 58 humbuckers and Tri-Sound switching. It weighs 10.2 lbs, has been professionally set up at R Guitars, and includes an Ibanez gig bag. Serial number L824653. The seller was told that only 162 were made for this model year. The back and hardware show age and use; please review the photos for condition details.",
       "specs": [
         [
-          "Year",
-          "1982"
+          "Model Year",
+          "1983"
         ],
         [
-          "Production Run",
-          "1 of 162"
+          "Build Date",
+          "Late 1982"
         ],
         [
-          "Body",
-          "Cherry Sunburst"
-        ],
-        [
-          "Service",
-          "Full Setup · R Guitars"
-        ],
-        [
-          "Binding",
-          "Professionally Restored"
-        ],
-        [
-          "Hardware",
-          "All Original"
-        ],
-        [
-          "Includes",
-          "Ibanez Leather-like Gig Bag"
+          "Model",
+          "Ibanez AR500 Artist"
         ],
         [
           "Made In",
           "Japan · FujiGen"
+        ],
+        [
+          "Finish",
+          "Cherry Sunburst"
+        ],
+        [
+          "Pickups",
+          "Super 58 humbuckers"
+        ],
+        [
+          "Switching",
+          "Tri-Sound"
+        ],
+        [
+          "Weight",
+          "10.2 lbs"
+        ],
+        [
+          "Serial",
+          "L824653"
+        ],
+        [
+          "Setup",
+          "Professionally set up at R Guitars"
+        ],
+        [
+          "Condition",
+          "Visible age and wear; see photos"
+        ],
+        [
+          "Includes",
+          "Ibanez gig bag"
+        ],
+        [
+          "Production",
+          "162 reportedly made for the 1983 model year"
         ]
       ],
       "images": [
-        "ibanez01resized.jpg",
-        "ibanez02resized.jpg",
-        "ibanez03resized.jpg",
-        "ibanez04resized.jpg",
-        "ibanez05resized.jpg",
-        "ibanez06resized.jpg",
-        "ibanez07resized.jpg",
-        "ibanez08resized.jpg",
-        "ibanez09resized.jpg"
+        "ibanez-ar500-1983-01.jpeg",
+        "ibanez-ar500-1983-02.jpeg",
+        "ibanez-ar500-1983-03.jpeg",
+        "ibanez-ar500-1983-04.jpeg",
+        "ibanez-ar500-1983-05.jpeg",
+        "ibanez-ar500-1983-06.jpeg",
+        "ibanez-ar500-1983-07.jpeg",
+        "ibanez-ar500-1983-08.jpeg",
+        "ibanez-ar500-1983-09.jpeg",
+        "ibanez-ar500-1983-10.jpeg"
       ],
       "tags": [
         "ibanez",
         "ar500",
-        "fujigen",
         "artist series",
+        "super 58",
+        "tri-sound",
+        "cherry sunburst",
         "vintage",
-        "japan"
+        "japan",
+        "1983"
       ],
-      "original_price": "CA$4,499",
-      "original_price_num": 4499,
-      "on_sale": true,
-      "sale_discount": "15% OFF"
+      "on_sale": false
     },
     {
       "id": "fender-telecaster-cij-b-bender-2004",
