@@ -1,6 +1,83 @@
 {
   "guitars": [
     {
+      "id": "ibanez-ar300-cherry-sunburst-1981",
+      "status": "available",
+      "brand": "Ibanez",
+      "model": "AR300 Artist",
+      "year": "1981",
+      "title": "Ibanez AR300 Artist",
+      "subtitle": "Cherry Sunburst · Super 58 Humbuckers · Original Hardshell Case",
+      "eyebrow": "1981 · Made in Japan · Ibanez Artist Series",
+      "badge": "Vintage · Artist Series",
+      "price": "CA$2,499",
+      "price_num": 2499,
+      "stripe": "",
+      "meta_title": "1981 Ibanez AR300 Artist Cherry Sunburst | Made in Japan | Tsunami Guitars",
+      "meta_desc": "1981 Ibanez AR300 Artist in Cherry Sunburst, made in Japan. Super 58 humbuckers, Tri-Sound switching, 9.2 lbs, original hardshell case. CA$2,499.",
+      "description": "A classic early-1980s Ibanez Artist, this AR300 pairs a striking Cherry Sunburst finish with Super 58 humbuckers and Tri-Sound switching for a variety of vintage voices. The carved double-cutaway body, bound fingerboard and ornate inlays give it the unmistakable Artist look. This Japanese-made example weighs 9.2 lbs and comes with its original hardshell case. The front presents beautifully; the back shows buckle rash and surface scratches from age and use. Please review the photos carefully for the full cosmetic condition.",
+      "specs": [
+        [
+          "Year",
+          "1981"
+        ],
+        [
+          "Model",
+          "Ibanez AR300 Artist"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Finish",
+          "Cherry Sunburst"
+        ],
+        [
+          "Pickups",
+          "Super 58 humbuckers"
+        ],
+        [
+          "Switching",
+          "Tri-Sound switching"
+        ],
+        [
+          "Weight",
+          "9.2 lbs"
+        ],
+        [
+          "Condition",
+          "Beautiful front; buckle rash and surface scratches on back"
+        ],
+        [
+          "Includes",
+          "Original hardshell case"
+        ]
+      ],
+      "images": [
+        "ibanez-ar300-1981-01.jpeg",
+        "ibanez-ar300-1981-02.jpeg",
+        "ibanez-ar300-1981-03.jpeg",
+        "ibanez-ar300-1981-04.jpeg",
+        "ibanez-ar300-1981-05.jpeg",
+        "ibanez-ar300-1981-06.jpeg",
+        "ibanez-ar300-1981-07.jpeg",
+        "ibanez-ar300-1981-08.jpeg",
+        "ibanez-ar300-1981-09.jpeg"
+      ],
+      "tags": [
+        "ibanez",
+        "ar300",
+        "artist series",
+        "super 58",
+        "tri-sound",
+        "cherry sunburst",
+        "vintage",
+        "japan"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "navigator-nlp-480ltd-lemonburst-2009",
       "status": "sold",
       "brand": "Navigator",
