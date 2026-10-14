@@ -1,6 +1,83 @@
 {
   "guitars": [
     {
+      "id": "navigator-nlp-320-ctm-black-beauty-2004",
+      "status": "available",
+      "brand": "Navigator",
+      "model": "N-LP-320 CTM",
+      "year": "2004",
+      "title": "2004 Navigator N-LP-320 CTM Black Beauty",
+      "subtitle": "Ebony Black · Gold Hardware · Navigator Custom Shop",
+      "eyebrow": "2004 · Made in Japan · ESP Custom Shop · Navigator",
+      "badge": "Vintage · Custom Shop",
+      "price": "CA$3,799",
+      "price_num": 3799,
+      "stripe": "",
+      "meta_title": "2004 Navigator N-LP-320 CTM Black Beauty | Made in Japan | Tsunami Guitars",
+      "meta_desc": "2004 Navigator N-LP-320 CTM Black Beauty, made in Japan by ESP’s Custom Shop. 9.2 lbs, original hardshell case, professional setup by R Guitars, serial K0403501. CA$3,799.",
+      "description": "A 2004 Navigator N-LP-320 CTM Black Beauty, built in Japan by ESP’s Custom Shop in very limited numbers. Its deep gloss-black finish, multi-ply binding, block inlays and gold hardware give this single-cutaway Artist a classic, refined presence. At 9.2 lbs, it has a substantial feel. This well-preserved example shows light scratches and handling marks, while the gold hardware has naturally aged. It has been professionally set up at R Guitars and includes its original hardshell case. Early-2000s Navigator CTM models are increasingly difficult to find.",
+      "specs": [
+        [
+          "Year / Model",
+          "2004 · Navigator N-LP-320 CTM"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Builder",
+          "ESP Custom Shop · Navigator"
+        ],
+        [
+          "Finish",
+          "Ebony Black"
+        ],
+        [
+          "Weight",
+          "9.2 lbs"
+        ],
+        [
+          "Serial",
+          "K0403501"
+        ],
+        [
+          "Condition",
+          "Light scratches and handling marks; naturally aged gold hardware"
+        ],
+        [
+          "Setup",
+          "Professionally set up at R Guitars"
+        ],
+        [
+          "Includes",
+          "Original hardshell case"
+        ],
+        [
+          "Production",
+          "Built in very limited numbers"
+        ]
+      ],
+      "images": [
+        "navigator-nlp320-ctm-black-2004-01.jpeg",
+        "navigator-nlp320-ctm-black-2004-02.jpeg",
+        "navigator-nlp320-ctm-black-2004-03.jpeg",
+        "navigator-nlp320-ctm-black-2004-04.jpeg",
+        "navigator-nlp320-ctm-black-2004-05.jpeg",
+        "navigator-nlp320-ctm-black-2004-06.jpeg"
+      ],
+      "tags": [
+        "navigator",
+        "n-lp-320",
+        "320ctm",
+        "black beauty",
+        "custom shop",
+        "japan",
+        "2004"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "ibanez-ar300-cherry-sunburst-1981",
       "status": "available",
       "brand": "Ibanez",
