@@ -1,6 +1,66 @@
 {
   "guitars": [
     {
+      "id": "k-yairi-dy35-1976",
+      "status": "available",
+      "brand": "K. Yairi",
+      "model": "DY-35",
+      "year": "1976",
+      "title": "1976 K. Yairi DY-35",
+      "subtitle": "Vintage Japanese Acoustic · Case & Paperwork",
+      "eyebrow": "1976 · Made in Japan · K. Yairi",
+      "badge": "Vintage · 50 Years",
+      "price": "CA$2,199",
+      "price_num": 2199,
+      "stripe": "",
+      "meta_title": "1976 K. Yairi DY-35 Acoustic | Tsunami Guitars",
+      "meta_desc": "1976 K. Yairi DY-35 vintage Japanese acoustic guitar with spruce top, three-piece rosewood back, gold Grover tuners, case and paperwork. $2,199 CAD.",
+      "description": "Beautifully preserved 1976 K. Yairi DY-35, handcrafted in Japan. A 50-year-old dreadnought with spruce top, stunning three-piece rosewood back, rosewood sides, cream binding and gold Grover tuners. Exceptional vintage condition with minimal visible wear. Includes period blue-lined hardshell case, hangtag and guarantee paperwork. A remarkable example of Japanese acoustic craftsmanship.",
+      "specs": [
+        [
+          "Year / Model",
+          "1976 · K. Yairi DY-35"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Top",
+          "Spruce"
+        ],
+        [
+          "Back",
+          "Three-piece rosewood"
+        ],
+        [
+          "Sides",
+          "Rosewood"
+        ],
+        [
+          "Tuners",
+          "Gold Grover"
+        ],
+        [
+          "Condition",
+          "Exceptional vintage condition"
+        ],
+        [
+          "Includes",
+          "Hardshell case and vintage paperwork"
+        ]
+      ],
+      "images": [],
+      "tags": [
+        "k yairi",
+        "dy35",
+        "1976",
+        "acoustic",
+        "japan"
+      ],
+      "on_sale": false
+    },
+    {
       "id": "navigator-nlp-320-ctm-black-beauty-2004",
       "status": "available",
       "brand": "Navigator",
