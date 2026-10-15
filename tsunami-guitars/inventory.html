@@ -906,7 +906,7 @@
     transition:color 0.15s;
   }
   #tg-lb-close:hover { color:rgba(245,232,192,0.9); }
-  #g1-slides, #g2-slides, #g3-slides, #g4-slides, #g5-slides, #g6-slides, #g7-slides, #g8-slides, #g21-slides, #g22-slides { cursor:zoom-in; }
+  #g1-slides, #g2-slides, #g3-slides, #g4-slides, #g5-slides, #g6-slides, #g7-slides, #g8-slides, #g21-slides, #g22-slides, #g23-slides { cursor:zoom-in; }
   .tg-zoom-hint {
     position:absolute;bottom:2.9rem;left:50%;transform:translateX(-50%);
     font-family:'Josefin Sans',sans-serif;font-size:0.5rem;
@@ -1311,13 +1311,55 @@ document.addEventListener('keydown', function(e) {
 
     <div id="inventory-grid" class="inventory-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:1.4rem;margin-top:1.5rem;align-items:stretch;">
       <!-- 1976 K. Yairi DY-35 -->
-      <article class="inventory-card" data-brand="K. Yairi" data-year="1976" data-type="Acoustic" style="border:1px solid rgba(201,162,74,.3);background:#0e0b08;padding:1.8rem;min-width:0">
-        <div style="height:220px;display:flex;align-items:center;justify-content:center;background:#090706;border:1px solid rgba(201,162,74,.12);color:#c9a24a;text-align:center;font-family:serif;font-size:1.6rem">K. Yairi<br>DY-35 · 1976</div>
-        <div style="padding-top:1.2rem"><p style="color:#c9a24a;font-size:.75rem;letter-spacing:.12em">1976 · MADE IN JAPAN · VINTAGE ACOUSTIC</p><h3 style="font-family:serif;color:white;font-size:1.5rem">1976 K. Yairi DY-35</h3><p style="color:#e8c878">50-Year-Old Japanese Dreadnought · Case &amp; Paperwork</p><p style="color:#f5e8c0;line-height:1.7">Beautifully preserved 1976 K. Yairi DY-35, handcrafted in Japan. Spruce top, striking three-piece rosewood back, rosewood sides, cream binding and gold Grover tuners. Exceptional vintage condition with minimal visible wear. Includes period blue-lined hardshell case, hangtag and guarantee paperwork.</p><p style="color:#c9a24a;font-size:1.3rem;font-weight:bold">CA$2,199</p><a href="/guitar.html?id=k-yairi-dy35-1976" style="color:#e8c878;text-decoration:underline">View Full Listing →</a></div>
+      <article class="inventory-card" data-brand="K. Yairi" data-year="1976" data-type="Acoustic" style="border:1px solid rgba(201,162,74,0.15);background:#0e0b08;overflow:hidden;max-width:100%;" onmouseover="this.style.borderColor='rgba(201,162,74,0.4)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 50px rgba(0,0,0,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,74,0.15)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;overflow:hidden;background:#0e0b08;width:100%;">
+          <div id="g23-slides" style="display:flex;transition:transform 0.4s ease;width:100%;">
+            <img src="images/k-yairi-dy35-1976-01.jpeg" alt="1976 K. Yairi DY-35 front" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-02.jpeg" alt="1976 K. Yairi DY-35 front angle" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-03.jpeg" alt="1976 K. Yairi DY-35 front detail" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-04.jpeg" alt="1976 K. Yairi DY-35 in original hardshell case" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-05.jpeg" alt="1976 K. Yairi DY-35 three-piece rosewood back" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-06.jpeg" alt="1976 K. Yairi DY-35 rosewood body detail" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-07.jpeg" alt="1976 K. Yairi DY-35 body and binding detail" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-08.jpeg" alt="1976 K. Yairi DY-35 interior label and serial" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-09.jpeg" alt="1976 K. Yairi DY-35 rear headstock" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+            <img src="images/k-yairi-dy35-1976-10.jpeg" alt="1976 K. Yairi DY-35 front headstock" style="width:100%;flex-shrink:0;height:300px;object-fit:contain;object-position:center;background:#0e0b08;max-width:100%;">
+          </div>
+          <button onclick="slideGuitar('g23',1)" aria-label="Next photo" style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:rgba(14,11,8,0.7);border:1px solid rgba(201,162,74,0.3);color:#c9a24a;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">›</button>
+          <button onclick="slideGuitar('g23',-1)" aria-label="Previous photo" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);background:rgba(14,11,8,0.7);border:1px solid rgba(201,162,74,0.3);color:#c9a24a;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">‹</button>
+          <div id="g23-count" style="position:absolute;bottom:0.75rem;right:0.75rem;background:rgba(14,11,8,0.75);border:1px solid rgba(201,162,74,0.2);color:#c9a24a;font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.15em;padding:0.3rem 0.6rem;">1 / 10</div>
+          <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(14,11,8,0.85);border:1px solid rgba(201,162,74,0.4);color:#c9a24a;font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.3rem 0.7rem;">Vintage · Made in Japan</div>
+        </div>
+        <div style="padding:1.8rem;">
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:#c9a24a;opacity:0.6;margin-bottom:0.4rem;">1976 · Made in Japan · K. Yairi</p>
+          <h3 style="font-family:'Shippori Mincho',serif;font-size:1.4rem;font-weight:800;color:#ffffff;line-height:1.2;margin-bottom:0.4rem;">1976 K. Yairi DY-35</h3>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.15em;color:#c9a24a;opacity:0.7;margin-bottom:1.2rem;">Vintage Japanese Dreadnought · Original Case &amp; Paperwork</p>
+          <p style="font-size:0.92rem;line-height:1.85;color:#f5e8c0;opacity:0.7;margin-bottom:1.5rem;">Beautifully preserved 1976 K. Yairi DY-35, handcrafted in Japan. A 50-year-old dreadnought with a spruce top, striking three-piece rosewood back, rosewood sides and fingerboard, cream binding, and gold Grover tuners. This exceptional vintage example is in near-mint condition with minimal visible wear and appears virtually unplayed. It includes its period blue-lined hardshell case, vintage hangtag, and guarantee paperwork. A remarkable example of Japanese acoustic craftsmanship.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;margin-bottom:1.5rem;padding:1rem;border:1px solid rgba(201,162,74,0.1);background:rgba(201,162,74,0.02);">
+            <div><p>Year / Model</p><p>1976 · K. Yairi DY-35</p></div>
+            <div><p>Made In</p><p>Japan</p></div>
+            <div><p>Top</p><p>Spruce</p></div>
+            <div><p>Back</p><p>Three-piece rosewood</p></div>
+            <div><p>Sides</p><p>Rosewood</p></div>
+            <div><p>Fingerboard</p><p>Rosewood</p></div>
+            <div><p>Binding</p><p>Cream</p></div>
+            <div><p>Tuners</p><p>Gold Grover</p></div>
+            <div><p>Serial</p><p>10624 (as shown on label)</p></div>
+            <div><p>Condition</p><p>Exceptional, near-mint; minimal visible wear; appears virtually unplayed</p></div>
+            <div><p>Includes</p><p>Period blue-lined hardshell case, vintage hangtag and guarantee paperwork</p></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div><p style="font-family:'Josefin Sans',sans-serif;font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:#c9a24a;opacity:0.5;">Price</p><p style="font-family:'Shippori Mincho',serif;font-size:2rem;font-weight:800;color:#c9a24a;line-height:1;">CA$2,199</p></div>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;align-items:flex-end;">
+              <a style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'Josefin Sans',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#0e0b08;background:linear-gradient(135deg,#e8c878,#c9a24a);padding:1rem 1.8rem;border:none;text-decoration:none;" aria-label="Buy 1976 K. Yairi DY-35 direct using secure checkout" data-product-id="k-yairi-dy35-1976" data-product-name="1976 K. Yairi DY-35" data-product-price="CA$2,199" data-product-price-num="2199" href="#" onclick="event.preventDefault();openCheckout(this.dataset.productName,this.dataset.productPrice,Number(this.dataset.productPriceNum)*100,this.dataset.productId)">Buy Direct →</a>
+              <a href="https://reverb.com/shop/tsunamiguitars" target="_blank" rel="noopener" style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9a24a;opacity:0.75;text-decoration:underline;text-underline-offset:3px;">Reverb Shop</a>
+              <a href="/guitar.html?id=k-yairi-dy35-1976" style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#c9a24a;opacity:0.7;text-decoration:underline;text-underline-offset:3px;margin-top:0.4rem;display:inline-block;" title="View full listing for 1976 K. Yairi DY-35">View Full Listing →</a>
+            </div>
+          </div>
+        </div>
       </article>
 
-
-            <!-- 2004 Navigator N-LP-320 CTM Black Beauty -->
+      <!-- 2004 Navigator N-LP-320 CTM Black Beauty -->
       <div style="border:1px solid rgba(201,162,74,0.15);background:#0e0b08;overflow:hidden;max-width:100%;" onmouseover="this.style.borderColor='rgba(201,162,74,0.4)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 50px rgba(0,0,0,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,74,0.15)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div style="position:relative;overflow:hidden;background:#0e0b08;width:100%;">
           <div id="g22-slides" style="display:flex;transition:transform 0.4s ease;width:100%;">
@@ -2871,6 +2913,7 @@ document.addEventListener('DOMContentLoaded', function() {
     g19:{imgs:["images/greco-eg600pb-1978-01.jpg","images/greco-eg600pb-1978-02.jpg","images/greco-eg600pb-1978-03.jpg","images/greco-eg600pb-1978-04.jpg","images/greco-eg600pb-1978-05.jpg","images/greco-eg600pb-1978-06.jpg"],name:'1978 Greco EG-600PB Peter Frampton Model'},
     g21:{imgs:["images/ibanez-ar500-1983-01.jpeg","images/ibanez-ar500-1983-02.jpeg","images/ibanez-ar500-1983-03.jpeg","images/ibanez-ar500-1983-04.jpeg","images/ibanez-ar500-1983-05.jpeg","images/ibanez-ar500-1983-06.jpeg","images/ibanez-ar500-1983-07.jpeg","images/ibanez-ar500-1983-08.jpeg","images/ibanez-ar500-1983-09.jpeg","images/ibanez-ar500-1983-10.jpeg"],name:'1983 Ibanez AR500'},
     g20:{imgs:["images/ibanez-ar300-1981-01.jpeg","images/ibanez-ar300-1981-02.jpeg","images/ibanez-ar300-1981-03.jpeg","images/ibanez-ar300-1981-04.jpeg","images/ibanez-ar300-1981-05.jpeg","images/ibanez-ar300-1981-06.jpeg","images/ibanez-ar300-1981-07.jpeg","images/ibanez-ar300-1981-08.jpeg","images/ibanez-ar300-1981-09.jpeg"],name:'1981 Ibanez AR300 Artist'}
+        g23:{imgs:['images/k-yairi-dy35-1976-01.jpeg','images/k-yairi-dy35-1976-02.jpeg','images/k-yairi-dy35-1976-03.jpeg','images/k-yairi-dy35-1976-04.jpeg','images/k-yairi-dy35-1976-05.jpeg','images/k-yairi-dy35-1976-06.jpeg','images/k-yairi-dy35-1976-07.jpeg','images/k-yairi-dy35-1976-08.jpeg','images/k-yairi-dy35-1976-09.jpeg','images/k-yairi-dy35-1976-10.jpeg'],name:'1976 K. Yairi DY-35'},
   };
   var gallery=[];
   Object.keys(G).forEach(function(id){

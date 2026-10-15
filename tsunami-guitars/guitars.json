@@ -14,8 +14,8 @@
       "price_num": 2199,
       "stripe": "",
       "meta_title": "1976 K. Yairi DY-35 Acoustic | Tsunami Guitars",
-      "meta_desc": "1976 K. Yairi DY-35 vintage Japanese acoustic guitar with spruce top, three-piece rosewood back, gold Grover tuners, case and paperwork. $2,199 CAD.",
-      "description": "Beautifully preserved 1976 K. Yairi DY-35, handcrafted in Japan. A 50-year-old dreadnought with spruce top, stunning three-piece rosewood back, rosewood sides, cream binding and gold Grover tuners. Exceptional vintage condition with minimal visible wear. Includes period blue-lined hardshell case, hangtag and guarantee paperwork. A remarkable example of Japanese acoustic craftsmanship.",
+      "meta_desc": "1976 K. Yairi DY-35 vintage Japanese acoustic guitar with spruce top, three-piece rosewood back, gold Grover tuners, original case and paperwork. CA$2,199.",
+      "description": "Beautifully preserved 1976 K. Yairi DY-35, handcrafted in Japan. A 50-year-old dreadnought with a spruce top, striking three-piece rosewood back, rosewood sides and fingerboard, cream binding, and gold Grover tuners. This exceptional vintage example is in near-mint condition with minimal visible wear and appears virtually unplayed. It includes its period blue-lined hardshell case, vintage hangtag, and guarantee paperwork. A remarkable example of Japanese acoustic craftsmanship.",
       "specs": [
         [
           "Year / Model",
@@ -38,19 +38,42 @@
           "Rosewood"
         ],
         [
+          "Fingerboard",
+          "Rosewood"
+        ],
+        [
+          "Binding",
+          "Cream"
+        ],
+        [
           "Tuners",
           "Gold Grover"
         ],
         [
+          "Serial",
+          "10624 (as shown on label)"
+        ],
+        [
           "Condition",
-          "Exceptional vintage condition"
+          "Exceptional, near-mint; minimal visible wear; appears virtually unplayed"
         ],
         [
           "Includes",
-          "Hardshell case and vintage paperwork"
+          "Period blue-lined hardshell case, vintage hangtag and guarantee paperwork"
         ]
       ],
-      "images": [],
+      "images": [
+        "k-yairi-dy35-1976-01.jpeg",
+        "k-yairi-dy35-1976-02.jpeg",
+        "k-yairi-dy35-1976-03.jpeg",
+        "k-yairi-dy35-1976-04.jpeg",
+        "k-yairi-dy35-1976-05.jpeg",
+        "k-yairi-dy35-1976-06.jpeg",
+        "k-yairi-dy35-1976-07.jpeg",
+        "k-yairi-dy35-1976-08.jpeg",
+        "k-yairi-dy35-1976-09.jpeg",
+        "k-yairi-dy35-1976-10.jpeg"
+      ],
       "tags": [
         "k yairi",
         "dy35",
