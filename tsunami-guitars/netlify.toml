@@ -14,3 +14,8 @@
   from = "/guitars/:id/"
   to = "/guitar.html?id=:id"
   status = 200
+
+[[headers]]
+  for = "/sold.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
