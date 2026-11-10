@@ -423,9 +423,10 @@
             </div>
 
             <div class="enquiry-box">
-              <p>Questions?</p>
-              <span>Happy to answer anything — more photos, shipping details, or payment options.</span>
-              <a href="mailto:tsunamiguitarshop@gmail.com?subject=Inquiry%3A%20${encodeURIComponent(g.title)}" class="enquiry-link">Email Derek →</a>
+              <p>Questions or want to play it in person?</p>
+              <span>Private Calgary showroom · By appointment only. Ask about condition, additional photos, shipping, or arrange a viewing of this exact guitar. No walk-ins.</span>
+              <a href="mailto:tsunamiguitarshop@gmail.com?subject=${encodeURIComponent('Private showroom appointment — ' + g.title)}&body=${encodeURIComponent('Hi, I would like to arrange a private viewing of the ' + g.title + '. Please let me know your availability.\n\nThanks,')}" class="enquiry-link">Request a Private Viewing →</a>
+              <a href="mailto:tsunamiguitarshop@gmail.com?subject=${encodeURIComponent('Question about ' + g.title)}" class="enquiry-link" style="display:inline-block;margin-top:12px">Ask About This Guitar →</a>
             </div>
 
           </div>
