@@ -7,6 +7,9 @@ export default async (request, context) => {
     ? url.searchParams.get("id") : match?.[1];
   if (!id) return context.next();
   try { id = decodeURIComponent(id); } catch { return context.next(); }
+  if (id === "navigator-ctm-320-jet-black-2004") {
+    return Response.redirect(new URL("/guitars/navigator-nlp-320-ctm-black-beauty-2004/", url.origin), 301);
+  }
   const origin = url.origin;
   const [catalogResponse, pageResponse] = await Promise.all([
     fetch(new URL("/guitars.json", origin)),
