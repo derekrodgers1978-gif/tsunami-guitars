@@ -1924,6 +1924,79 @@
         "black beauty"
       ],
       "on_sale": false
+    },
+    {
+      "id": "history-les-paul-wine-red-2006",
+      "status": "available",
+      "brand": "History",
+      "model": "Les Paul Wine Red",
+      "year": "2006",
+      "title": "2006 History Les Paul — Wine Red",
+      "subtitle": "Translucent Wine Red · Circle Fretting System · Gig Bag Included",
+      "eyebrow": "2006 · Made in Japan · History Guitars",
+      "badge": "Excellent · Gig Bag",
+      "price": "CA$1,499",
+      "price_num": 1499,
+      "meta_title": "2006 History Les Paul Wine Red — Made in Japan | Tsunami Guitars",
+      "meta_desc": "2006 History Les Paul Wine Red made in Japan. 9.2 lbs, Circle Fretting System, excellent condition, gig bag included. Serial E061162. CA$1,499.",
+      "description": "A striking Japanese-made History Les Paul finished in deep translucent wine red over a beautifully figured top. Cream binding, split-style pearl inlays, covered humbuckers and chrome hardware complete its timeless single-cut look. History's Circle Fretting System is designed for precise string-to-fret contact and articulate response. Weighs 9.2 lbs. Excellent overall condition with visible surface marks and small edge wear shown in the photos. Gig bag included.",
+      "specs": [
+        [
+          "Year",
+          "2006"
+        ],
+        [
+          "Weight",
+          "9.2 lbs"
+        ],
+        [
+          "Serial",
+          "E061162"
+        ],
+        [
+          "Finish",
+          "Translucent Wine Red"
+        ],
+        [
+          "Pickups",
+          "Dual covered humbuckers"
+        ],
+        [
+          "Fretting",
+          "Circle Fretting System"
+        ],
+        [
+          "Condition",
+          "Excellent · Visible cosmetic wear"
+        ],
+        [
+          "Made In",
+          "Japan"
+        ],
+        [
+          "Includes",
+          "Gig bag"
+        ]
+      ],
+      "images": [
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6369.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6370.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6371.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6372.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6373.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6374.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6375.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6376.jpeg",
+        "https://raw.githubusercontent.com/derekrodgers1978-gif/tsunami-guitars/main/IMG_6377.jpeg"
+      ],
+      "tags": [
+        "history",
+        "les paul",
+        "wine red",
+        "circle fretting system",
+        "made in japan"
+      ],
+      "on_sale": false
     }
   ],
   "sale": {
