@@ -10,9 +10,9 @@ export default async (request, context) => {
   const origin = url.origin;
   const [catalogResponse, pageResponse] = await Promise.all([
     fetch(new URL("/guitars.json", origin)),
-    fetch(new URL("/guitar.html", origin))
+    context.next()
   ]);
-  if (!catalogResponse.ok || !pageResponse.ok) return context.next();
+  if (!catalogResponse.ok || !pageResponse.ok) return pageResponse;
   const catalog = await catalogResponse.json();
   const guitar = catalog.guitars?.find((item) => item.id === id);
   if (!guitar) return new Response("Guitar not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
