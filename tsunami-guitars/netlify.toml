@@ -14,3 +14,16 @@
   from = "/guitars/:id/"
   to = "/guitar.html?id=:id"
   status = 200
+
+# Pre-render product content for crawlers on both legacy and canonical URLs.
+[[edge_functions]]
+  function = "guitar-seo"
+  path = "/guitar"
+
+[[edge_functions]]
+  function = "guitar-seo"
+  path = "/guitar.html"
+
+[[edge_functions]]
+  function = "guitar-seo"
+  path = "/guitars/*"
