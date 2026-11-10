@@ -305,7 +305,7 @@
         "@type": "Product",
         "name": g.year + ' ' + g.brand + ' ' + g.model,
         "description": g.description,
-        "image": g.images.map(image => 'https://tsunamiguitars.com' + assetUrl('images/' + image)),
+        "image": g.images.map(image => new URL(assetUrl('images/' + image), 'https://tsunamiguitars.com').href),
         "sku": g.id,
         "url": pageUrl,
         "category": "Musical Instruments > Guitars",
