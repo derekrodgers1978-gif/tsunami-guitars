@@ -1220,6 +1220,23 @@
 @media(max-width:420px){#hero-showcase{height:380px}.hero-carousel-image{padding:7px}.hero-carousel-caption{min-height:56px;padding:.55rem .65rem}.hero-carousel-caption small{font-size:.52rem}.hero-carousel-caption strong{font-size:.98rem}}
 @media(prefers-reduced-motion:reduce){.hero-carousel-track{transition:none}}
 </style>
+<style>
+/* Quiet motion for the carved dragon: no asset replacement or distracting rotation. */
+#entry-logo { transform-origin: 50% 50%; animation: tsunami-dragon-breathe 7s ease-in-out infinite; will-change: transform, filter; }
+@keyframes tsunami-dragon-breathe {
+  0%,100% { transform: translateY(0) scale(1); filter: drop-shadow(0 12px 28px rgba(0,0,0,.44)); }
+  50% { transform: translateY(-9px) scale(1.025); filter: drop-shadow(0 18px 36px rgba(201,162,74,.23)); }
+}
+#entry-gate.is-entering #entry-logo { animation: tsunami-dragon-enter .45s ease-in both; }
+@keyframes tsunami-dragon-enter { to { transform: scale(1.07); opacity: .1; } }
+.collector-story { background: #15100c; border-top: 1px solid rgba(201,162,74,.22); border-bottom: 1px solid rgba(201,162,74,.22); padding: clamp(36px,5vw,70px) 22px; text-align:center; }
+.collector-story-inner { max-width: 830px; margin: 0 auto; }
+.collector-story-kicker { color: #c9a24a; font: 600 .7rem 'Josefin Sans',sans-serif; letter-spacing:.25em; text-transform:uppercase; margin-bottom:15px; }
+.collector-story h2 { color:#f5e8c0; font: 600 clamp(1.8rem,3.2vw,2.8rem) 'Shippori Mincho',serif; margin-bottom:18px; }
+.collector-story p { color:#d4c7b0; line-height:1.85; font-size:clamp(.95rem,1.3vw,1.07rem); margin:0 auto 20px; }
+.collector-story a { color:#e8c878; text-decoration:underline; text-underline-offset:5px; }
+@media (prefers-reduced-motion: reduce) { #entry-logo, #entry-gate.is-entering #entry-logo { animation:none !important; will-change:auto; } }
+</style>
 </head>
 <body style="background:#0e0b08 !important;min-height:100vh;">
 <section id="entry-gate" role="dialog" aria-modal="true" aria-labelledby="entry-tagline">
@@ -1373,6 +1390,15 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="hero-carousel-footer"><span id="hero-carousel-count">1 / 1</span><div class="hero-carousel-dots" id="hero-carousel-dots" aria-label="Choose a guitar"></div></div>
     </div>
+  </div>
+</section>
+<section class="collector-story" aria-labelledby="collector-story-heading">
+  <div class="collector-story-inner">
+    <div class="collector-story-kicker">Collector-owned · Calgary, Alberta</div>
+    <h2 id="collector-story-heading">Not your average guitar shop.</h2>
+    <p>Tsunami Guitars is built around a lifelong passion for Japanese guitars. Each instrument is personally selected for its craftsmanship, character and the story behind it — from exceptional players to unusual, hard-to-find models you won't see in every music store.</p>
+    <p>Explore the collection online, ask questions directly, or arrange a private showroom appointment in Calgary. No pressure, no gimmicks — just guitars worth discovering.</p>
+    <a href="/about.html">The story behind Tsunami Guitars</a>
   </div>
 </section>
 <div class="marquee-strip">
