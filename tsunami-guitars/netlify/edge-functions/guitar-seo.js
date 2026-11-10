@@ -25,7 +25,10 @@ export default async (request, context) => {
   const canonical = origin + "/guitars/" + encodeURIComponent(guitar.id) + "/";
   const title = guitar.meta_title || guitar.title + " | Tsunami Guitars";
   const description = guitar.meta_desc || guitar.description || "";
-  const imageUrls = (guitar.images || []).map((path) => origin + "/images/" + String(path).replace(/^\/+/, ""));
+  const imageUrls = (guitar.images || []).map((path) => {
+    const value = String(path || "").trim();
+    return /^https?:\/\//i.test(value) ? value : new URL("/images/" + value.replace(/^\/+/, ""), origin).href;
+  });
   const product = {
     "@context": "https://schema.org", "@type": "Product",
     name: guitar.title, description: guitar.description || description,
