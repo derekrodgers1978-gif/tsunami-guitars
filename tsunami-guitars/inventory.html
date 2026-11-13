@@ -2883,7 +2883,7 @@ document.addEventListener('DOMContentLoaded', function() {
 #tg-black-friday {position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(960px,calc(100% - 28px));z-index:9000;background:linear-gradient(110deg,#100d0a,#30210d 50%,#100d0a);border:1px solid #d8b45b;box-shadow:0 10px 45px #000b;color:#f8edce;padding:15px 48px 15px 20px;text-align:center;font-family:'Josefin Sans',Arial,sans-serif;letter-spacing:.06em}
 #tg-black-friday strong{color:#f1cb68;font-size:clamp(18px,3.6vw,29px);display:block;line-height:1.25;letter-spacing:.1em}
 #tg-black-friday .tg-sale-sub{font-size:clamp(10px,2vw,13px);line-height:1.65;display:block;margin:6px 0}
-#tg-black-friday .tg-sale-link{display:inline-block;color:#110d09;background:#e9c56a;padding:9px 19px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:.08em}
+#tg-black-friday .tg-sale-link{position:relative;z-index:2;pointer-events:auto;display:inline-block;color:#110d09;background:#e9c56a;padding:9px 19px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:.08em}
 #tg-black-friday button{position:absolute;top:8px;right:10px;background:transparent;color:#e9c56a;border:0;font-size:24px;cursor:pointer}
 @media(max-width:560px){#tg-black-friday{bottom:8px;padding:13px 35px 13px 10px}}
 </style>
@@ -2897,6 +2897,7 @@ document.addEventListener('DOMContentLoaded', function() {
   banner.id='tg-black-friday';banner.setAttribute('aria-label','Black Friday guitar sale');
   banner.innerHTML='<button type="button" aria-label="Dismiss sale announcement">×</button><strong>BLACK FRIDAY · 25% OFF ALL GUITARS</strong><span class="tg-sale-sub">'+(live?'ON NOW · NOVEMBER 27–29, 2026':'NOVEMBER 27–29, 2026 · THREE DAYS ONLY')+' · Buy directly here or via Reverb · Contact us to confirm sale pricing</span><a class="tg-sale-link" href="/inventory.html#products">SHOP GUITARS</a>';
   banner.querySelector('button').addEventListener('click',()=>banner.remove());
+  banner.querySelector('.tg-sale-link').addEventListener('click',(event)=>{event.preventDefault();event.stopPropagation();window.location.assign('/inventory.html#products');});
   document.body.appendChild(banner);
 })();
 </script>
