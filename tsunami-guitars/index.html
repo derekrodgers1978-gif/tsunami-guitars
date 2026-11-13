@@ -2277,7 +2277,7 @@ render([{"name":"1976 K. Yairi DY-35","image":"images/k-yairi-dy35-1976-01.jpeg"
   const live = day >= '2026-11-27';
   const banner = document.createElement('aside');
   banner.id='tg-black-friday';banner.setAttribute('aria-label','Black Friday guitar sale');
-  banner.innerHTML='<button type="button" aria-label="Dismiss sale announcement">×</button><strong>BLACK FRIDAY · 25% OFF ALL GUITARS</strong><span class="tg-sale-sub">'+(live?'ON NOW · NOVEMBER 27–29, 2026':'NOVEMBER 27–29, 2026 · THREE DAYS ONLY')+' · Discount applied to listed guitar prices during sale</span><a class="tg-sale-link" href="/inventory.html#products">SHOP GUITARS</a>';
+  banner.innerHTML='<button type="button" aria-label="Dismiss sale announcement">×</button><strong>BLACK FRIDAY · 25% OFF ALL GUITARS</strong><span class="tg-sale-sub">'+(live?'ON NOW · NOVEMBER 27–29, 2026':'NOVEMBER 27–29, 2026 · THREE DAYS ONLY')+' · Ask us for your sale price</span><a class="tg-sale-link" href="/inventory.html#products">SHOP GUITARS</a>';
   banner.querySelector('button').addEventListener('click',()=>banner.remove());
   document.body.appendChild(banner);
 })();
